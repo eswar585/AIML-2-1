@@ -29,9 +29,10 @@ document.getElementById("subjectCode").textContent =
 const viewBtn = document.getElementById("viewSyllabus");
 const downloadBtn = document.getElementById("downloadSyllabus");
 
-viewBtn.href = subject.syllabus;
-downloadBtn.href = subject.syllabus;
+viewBtn.href =
+`pdf-viewer.html?file=${encodeURIComponent(subject.syllabus)}&title=${encodeURIComponent(subject.name + " Syllabus")}`;
 
+downloadBtn.href = subject.syllabus;
 // Notes Section
 const notesContainer = document.getElementById("notesContainer");
 
@@ -49,8 +50,7 @@ if (subject.notesAvailable) {
             <div class="button-group">
 
                 <a
-                    href="${note.file}"
-                    target="_blank"
+                    href="pdf-viewer.html?file=${encodeURIComponent(note.file)}&title=${encodeURIComponent(note.title)}"
                     class="btn btn-view">
 
                     View Note
