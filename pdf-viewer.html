@@ -4,17 +4,17 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>PDF Viewer</title>
 
     <link rel="stylesheet" href="css/style.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <style>
 
@@ -23,71 +23,39 @@
         }
 
         .viewer-container{
-
             max-width:1400px;
-
             margin:40px auto;
-
             padding:20px;
-
         }
 
         .viewer-header{
-
             display:flex;
-
             justify-content:space-between;
-
             align-items:center;
-
             flex-wrap:wrap;
-
             gap:15px;
-
             margin-bottom:20px;
-
-        }
-
-        .viewer-header h2{
-
-            color:#2563eb;
-
         }
 
         .viewer-buttons{
-
             display:flex;
-
             gap:10px;
-
             flex-wrap:wrap;
-
         }
 
         iframe{
-
             width:100%;
-
             height:85vh;
-
             border:none;
-
             border-radius:15px;
-
             background:white;
-
             box-shadow:0 15px 35px rgba(0,0,0,.1);
-
         }
 
         @media(max-width:768px){
-
             iframe{
-
                 height:75vh;
-
             }
-
         }
 
     </style>
@@ -100,28 +68,21 @@
 
     <div class="viewer-header">
 
-        <h2 id="pdfTitle">
-
-            PDF Viewer
-
-        </h2>
+        <h2 id="pdfTitle">PDF Viewer</h2>
 
         <div class="viewer-buttons">
 
-            <a
-                href="javascript:history.back()"
-                class="btn btn-view">
+            <button id="backButton" class="btn btn-view">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back
+            </button>
 
-                ← Back
+            <a id="downloadPDF"
+               class="btn btn-download"
+               download>
 
-            </a>
-
-            <a
-                id="downloadPDF"
-                class="btn btn-download"
-                download>
-
-                ⬇ Download
+                <i class="fa-solid fa-download"></i>
+                Download
 
             </a>
 
