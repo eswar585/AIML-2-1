@@ -1,0 +1,460 @@
+/* ===================================================
+   STUDENT NOTES PORTAL
+   STYLE.CSS - PART 1
+   Author : ChatGPT
+=================================================== */
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* =======================
+        CSS VARIABLES
+======================= */
+
+:root{
+
+    --primary:#2563eb;
+    --primary-dark:#1d4ed8;
+    --secondary:#0ea5e9;
+    --success:#22c55e;
+    --warning:#f59e0b;
+    --danger:#ef4444;
+
+    --background:#f5f7fb;
+    --card:#ffffff;
+    --text:#1e293b;
+    --text-light:#64748b;
+    --border:#e2e8f0;
+
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+
+    --radius:18px;
+
+    --transition:.3s ease;
+
+}
+
+/* Dark Mode */
+
+body.dark{
+
+    --background:#0f172a;
+    --card:#1e293b;
+    --text:#ffffff;
+    --text-light:#cbd5e1;
+    --border:#334155;
+
+}
+
+/* =======================
+        RESET
+======================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:"Poppins",sans-serif;
+
+    background:var(--background);
+
+    color:var(--text);
+
+    transition:.3s;
+
+    overflow-x:hidden;
+
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:20px;
+
+}
+
+/* =======================
+        NAVBAR
+======================= */
+
+.navbar{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:999;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 8%;
+
+    background:rgba(255,255,255,.85);
+
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid rgba(255,255,255,.2);
+
+}
+
+.dark .navbar{
+
+    background:rgba(15,23,42,.85);
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+}
+
+.logo i{
+
+    font-size:28px;
+
+}
+
+nav ul{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:35px;
+
+}
+
+nav ul li a{
+
+    text-decoration:none;
+
+    color:var(--text);
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+nav ul li a:hover{
+
+    color:var(--primary);
+
+}
+
+#themeToggle,
+#menuBtn{
+
+    border:none;
+
+    background:var(--card);
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+
+}
+
+#themeToggle:hover,
+#menuBtn:hover{
+
+    transform:scale(1.08);
+
+}
+
+#menuBtn{
+
+    display:none;
+
+}
+
+/* =======================
+          HERO
+======================= */
+
+.hero{
+
+    min-height:88vh;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    align-items:center;
+
+    gap:50px;
+
+    padding:80px 8%;
+
+    background:linear-gradient(135deg,#2563eb,#0ea5e9);
+
+    color:white;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+/* floating circles */
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+
+    height:350px;
+
+    background:rgba(255,255,255,.1);
+
+    border-radius:50%;
+
+    top:-120px;
+
+    right:-120px;
+
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+
+    height:250px;
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:50%;
+
+    bottom:-100px;
+
+    left:-80px;
+
+}
+
+.semester{
+
+    display:inline-block;
+
+    background:rgba(255,255,255,.2);
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    margin-bottom:25px;
+
+    font-size:14px;
+
+}
+
+.hero h1{
+
+    font-size:55px;
+
+    line-height:1.2;
+
+    margin-bottom:20px;
+
+}
+
+.hero p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    opacity:.95;
+
+    max-width:550px;
+
+}
+
+.hero-buttons{
+
+    margin-top:35px;
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+.primary-btn,
+.secondary-btn{
+
+    text-decoration:none;
+
+    padding:15px 30px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.primary-btn{
+
+    background:white;
+
+    color:var(--primary);
+
+}
+
+.primary-btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+.secondary-btn{
+
+    border:2px solid white;
+
+    color:white;
+
+}
+
+.secondary-btn:hover{
+
+    background:white;
+
+    color:var(--primary);
+
+}
+
+.hero-image{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.hero-image i{
+
+    font-size:240px;
+
+    opacity:.18;
+
+}
+
+/* =======================
+        SEARCH
+======================= */
+
+.search-section{
+
+    padding:70px 8%;
+
+    text-align:center;
+
+}
+
+.search-section h2{
+
+    font-size:34px;
+
+    margin-bottom:30px;
+
+}
+
+.search-box{
+
+    max-width:650px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    background:var(--card);
+
+    border-radius:60px;
+
+    box-shadow:var(--shadow);
+
+    padding:16px 25px;
+
+}
+
+.search-box i{
+
+    color:var(--primary);
+
+    margin-right:15px;
+
+    font-size:20px;
+
+}
+
+.search-box input{
+
+    border:none;
+
+    outline:none;
+
+    width:100%;
+
+    background:transparent;
+
+    color:var(--text);
+
+    font-size:17px;
+
+    font-family:"Poppins",sans-serif;
+
+}
