@@ -1,148 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Student Notes Portal</title>
 
+    <meta name="description" content="II Year I Semester Student Notes Portal">
+
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
+
     <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
 
     <link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
 
-<!-- ================= NAVBAR ================= -->
+    <!-- ================= NAVBAR ================= -->
 
-<nav class="navbar">
+    <header class="navbar">
 
-    <div class="logo">
-        <i class="fas fa-graduation-cap"></i>
-        <span>Student Notes</span>
-    </div>
+        <div class="logo">
 
-    <div class="menu-toggle">
-        <i class="fas fa-bars"></i>
-    </div>
+            <i class="fa-solid fa-graduation-cap"></i>
 
-    <ul class="nav-links">
+            <span>Student Notes Portal</span>
 
-        <li><a href="#">Home</a></li>
+        </div>
 
-        <li><a href="#subjects">Subjects</a></li>
+        <nav>
 
-        <li><a href="#">About</a></li>
+            <ul id="navMenu">
 
-    </ul>
+                <li><a href="#">Home</a></li>
 
-</nav>
+                <li><a href="#subjects">Subjects</a></li>
 
-<!-- ================= HERO ================= -->
+                <li><a href="#about">About</a></li>
 
-<section class="hero">
+            </ul>
 
-    <div class="hero-content">
+        </nav>
 
-        <h3>II YEAR • I SEMESTER</h3>
+        <button id="themeToggle">
 
-        <h1>Student Notes & Syllabus Portal</h1>
+            <i class="fa-solid fa-moon"></i>
+
+        </button>
+
+        <button id="menuBtn">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </header>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <span class="semester">
+
+                II YEAR • I SEMESTER
+
+            </span>
+
+            <h1>
+
+                Student Notes & Syllabus Portal
+
+            </h1>
+
+            <p>
+
+                Access syllabus, class notes and study materials
+                anytime from your mobile, tablet or desktop.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#subjects" class="primary-btn">
+
+                    Browse Subjects
+
+                </a>
+
+                <a href="#about" class="secondary-btn">
+
+                    Learn More
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <i class="fa-solid fa-book-open-reader"></i>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= SEARCH ================= -->
+
+    <section class="search-section">
+
+        <h2>
+
+            Find Your Subject
+
+        </h2>
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search by subject name or course code">
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= SUBJECTS ================= -->
+
+    <section id="subjects">
+
+        <div class="section-heading">
+
+            <h2>
+
+                Subjects
+
+            </h2>
+
+            <p>
+
+                II Year • I Semester
+
+            </p>
+
+        </div>
+
+        <!-- JavaScript will generate all cards here -->
+
+        <div id="subjectsContainer" class="subjects-grid"></div>
+
+    </section>
+
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section id="about">
+
+        <h2>
+
+            About This Portal
+
+        </h2>
 
         <p>
-            View syllabus, class notes and study material
-            anytime from your mobile or laptop.
+
+            This website is created for students to easily access
+            syllabus PDFs and class notes from any device.
+
+            It is mobile-friendly, fast, and works perfectly on GitHub Pages.
+
         </p>
 
-        <a href="#subjects" class="btn">
-            Explore Subjects
-        </a>
+    </section>
 
-    </div>
 
-</section>
 
-<!-- ================= SEARCH ================= -->
+    <!-- ================= FOOTER ================= -->
 
-<section class="search">
+    <footer>
 
-    <input
-        type="text"
-        id="searchInput"
-        placeholder="Search Subject..."
-    >
+        <p>
 
-</section>
+            © 2026 Student Notes Portal
 
-<!-- ================= SUBJECTS ================= -->
+        </p>
 
-<section class="subjects" id="subjects">
+        <p>
 
-<h2>Subjects</h2>
+            Built with ❤️ for Students
 
-<div class="subjects-grid">
+        </p>
 
-<div class="subject-card">
-<h3>📊 Statistical Foundation for Computing & Data Science</h3>
-<p>Course Code : 25CY206</p>
-<a href="#">View Subject</a>
-</div>
+    </footer>
 
-<div class="subject-card">
-<h3>⚛ Physics for Quantum Computing</h3>
-<p>Course Code : 25PY201</p>
-<a href="#">View Subject</a>
-</div>
 
-<div class="subject-card">
-<h3>💻 Data Structures</h3>
-<p>Course Code : 25AM201</p>
-<a href="#">View Subject</a>
-</div>
 
-<div class="subject-card">
-<h3>🎨 Design Thinking & Engineering Orientation</h3>
-<p>Course Code : 25AM202</p>
-<a href="#">View Subject</a>
-</div>
+    <!-- JavaScript -->
 
-<div class="subject-card">
-<h3>🤖 Artificial Intelligence</h3>
-<p>Course Code : 25AM203</p>
-<a href="#">View Subject</a>
-</div>
+    <script src="js/subjects.js"></script>
 
-<div class="subject-card">
-<h3>🗄 Database Management Systems</h3>
-<p>Course Code : 25CY205</p>
-<a href="#">View Subject</a>
-</div>
-
-<div class="subject-card">
-<h3>🖥 Operating Systems</h3>
-<p>Course Code : 25CY210</p>
-<a href="#">View Subject</a>
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-<p>
-
-© 2026 Student Notes Portal
-
-</p>
-
-</footer>
-
-<script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
+
 </html>
