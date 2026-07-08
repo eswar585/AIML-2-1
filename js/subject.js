@@ -8,32 +8,44 @@ const courseCode = params.get("code");
 const subject = subjects.find(item => item.code === courseCode);
 
 if (!subject) {
+
     document.body.innerHTML = `
         <div style="padding:50px;text-align:center;font-family:Poppins,sans-serif;">
             <h1>Subject Not Found</h1>
-            <a href="index.html">← Back Home</a>
+            <a href="index.html" class="btn btn-view">← Back Home</a>
         </div>
     `;
+
     throw new Error("Subject not found");
+
 }
 
-// Subject Name
+// ==========================================
+// SUBJECT DETAILS
+// ==========================================
+
 document.getElementById("subjectName").textContent =
 `${subject.icon} ${subject.name}`;
 
-// Course Code
 document.getElementById("subjectCode").textContent =
 `Course Code : ${subject.code}`;
 
-// Syllabus Buttons
+// ==========================================
+// SYLLABUS
+// ==========================================
+
 const viewBtn = document.getElementById("viewSyllabus");
 const downloadBtn = document.getElementById("downloadSyllabus");
 
 viewBtn.href =
-`pdf-viewer.html?file=${encodeURIComponent(subject.syllabus)}&title=${encodeURIComponent(subject.name + " Syllabus")}`;
+`pdf-viewer.html?file=${encodeURIComponent(subject.syllabus)}&title=${encodeURIComponent(subject.name + " Syllabus")}&code=${subject.code}`;
 
 downloadBtn.href = subject.syllabus;
-// Notes Section
+
+// ==========================================
+// NOTES
+// ==========================================
+
 const notesContainer = document.getElementById("notesContainer");
 
 if (subject.notesAvailable) {
@@ -45,12 +57,13 @@ if (subject.notesAvailable) {
         card.className = "subject-card";
 
         card.innerHTML = `
+
             <h3>${note.title}</h3>
 
             <div class="button-group">
 
                 <a
-                    href="pdf-viewer.html?file=${encodeURIComponent(note.file)}&title=${encodeURIComponent(note.title)}"
+                    href="pdf-viewer.html?file=${encodeURIComponent(note.file)}&title=${encodeURIComponent(note.title)}&code=${subject.code}"
                     class="btn btn-view">
 
                     View Note
@@ -67,6 +80,7 @@ if (subject.notesAvailable) {
                 </a>
 
             </div>
+
         `;
 
         notesContainer.appendChild(card);
@@ -76,6 +90,7 @@ if (subject.notesAvailable) {
 } else {
 
     notesContainer.innerHTML = `
+
         <div class="notes-unavailable">
 
             <i class="fa-solid fa-circle-exclamation"></i>
@@ -91,6 +106,7 @@ if (subject.notesAvailable) {
             </div>
 
         </div>
+
     `;
 
 }
