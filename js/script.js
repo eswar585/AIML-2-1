@@ -59,7 +59,7 @@ function createSubjectCards() {
 
                 <a class="btn btn-view"
 
-                   href="subject.html?id=${subject.code}">
+                   href="subject.html?code=${subject.code}">
 
                    Open Subject
 
