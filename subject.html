@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Subject Details</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-graduation-cap"></i>
+
+        Student Notes Portal
+
+    </div>
+
+    <a href="index.html" class="primary-btn">
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+        Home
+
+    </a>
+
+</header>
+
+
+
+<!-- SUBJECT HEADER -->
+
+<section class="hero subject-hero">
+
+    <div class="hero-text">
+
+        <span class="semester">
+
+            II YEAR • I SEMESTER
+
+        </span>
+
+        <h1 id="subjectName">
+
+            Loading...
+
+        </h1>
+
+        <p id="subjectCode">
+
+            Course Code
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- MAIN CONTENT -->
+
+<section class="subject-content">
+
+    <!-- SYLLABUS -->
+
+    <div class="subject-card">
+
+        <h2>
+
+            <i class="fa-solid fa-file-pdf"></i>
+
+            Syllabus
+
+        </h2>
+
+        <div class="button-group">
+
+            <a id="viewSyllabus"
+
+               class="btn btn-view"
+
+               target="_blank">
+
+                👁 View Online
+
+            </a>
+
+            <a id="downloadSyllabus"
+
+               class="btn btn-download"
+
+               download>
+
+                ⬇ Download PDF
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- NOTES -->
+
+    <div class="subject-card">
+
+        <h2>
+
+            <i class="fa-solid fa-book"></i>
+
+            Class Notes
+
+        </h2>
+
+        <div id="notesContainer">
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    © 2026 Student Notes Portal
+
+</footer>
+
+
+
+<script src="js/subjects.js"></script>
+
+<script src="js/subject.js"></script>
+
+</body>
+
+</html>
