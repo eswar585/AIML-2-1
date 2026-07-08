@@ -6,21 +6,23 @@ const params = new URLSearchParams(window.location.search);
 
 const file = params.get("file");
 const title = params.get("title");
+const code = params.get("code");
 
 const frame = document.getElementById("pdfFrame");
 const titleElement = document.getElementById("pdfTitle");
 const downloadButton = document.getElementById("downloadPDF");
 const backButton = document.getElementById("backButton");
 
+// No PDF selected
 if (!file) {
 
-    alert("No PDF selected.");
+    alert("No PDF Selected");
 
     window.location.href = "index.html";
 
 }
 
-// Set title
+// Set Page Title
 if (title) {
 
     const decodedTitle = decodeURIComponent(title);
@@ -34,19 +36,22 @@ if (title) {
 // Load PDF
 frame.src = decodeURIComponent(file);
 
-// Download link
+// Download PDF
 downloadButton.href = decodeURIComponent(file);
 
-// Back Button
-backButton.addEventListener("click", () => {
+// ======================================
+// BACK BUTTON
+// ======================================
 
-    if (document.referrer) {
+backButton.addEventListener("click", function () {
 
-        window.location.href = document.referrer;
+    if (code) {
+
+        window.location.href = `subject.html?code=${code}`;
 
     } else {
 
-        window.history.back();
+        window.location.href = "index.html";
 
     }
 
