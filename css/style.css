@@ -458,3 +458,774 @@ nav ul li a:hover{
     font-family:"Poppins",sans-serif;
 
 }
+/* ===================================================
+   STYLE.CSS - PART 2
+   SUBJECT CARDS + FOOTER + RESPONSIVE
+===================================================*/
+
+/* =======================
+      SECTION TITLE
+======================= */
+
+.section-heading{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-heading h2{
+    font-size:38px;
+    color:var(--text);
+}
+
+.section-heading p{
+    color:var(--text-light);
+    margin-top:10px;
+    font-size:18px;
+}
+
+/* =======================
+        SUBJECTS
+======================= */
+
+#subjects{
+    padding:80px 8%;
+}
+
+.subjects-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+
+}
+
+/* =======================
+      SUBJECT CARD
+======================= */
+
+.subject-card{
+
+    background:var(--card);
+
+    border-radius:22px;
+
+    padding:28px;
+
+    box-shadow:var(--shadow);
+
+    transition:.35s;
+
+    border:1px solid var(--border);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+/* Top Blue Bar */
+
+.subject-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:6px;
+
+    background:linear-gradient(90deg,#2563eb,#0ea5e9);
+
+}
+
+.subject-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 45px rgba(37,99,235,.18);
+
+}
+
+.subject-icon{
+
+    width:70px;
+    height:70px;
+
+    border-radius:18px;
+
+    background:linear-gradient(135deg,#2563eb,#0ea5e9);
+
+    color:#fff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+    margin-bottom:20px;
+
+}
+
+.subject-card h3{
+
+    font-size:22px;
+
+    line-height:1.4;
+
+    margin-bottom:12px;
+
+    color:var(--text);
+
+}
+
+.course-code{
+
+    display:inline-block;
+
+    background:#dbeafe;
+
+    color:#1d4ed8;
+
+    padding:8px 16px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}
+
+.dark .course-code{
+
+    background:#1e40af;
+
+    color:white;
+
+}
+
+/* =======================
+      ACTION BOX
+======================= */
+
+.action-box{
+
+    margin-top:20px;
+
+    padding-top:20px;
+
+    border-top:1px solid var(--border);
+
+}
+
+.action-title{
+
+    font-weight:600;
+
+    margin-bottom:12px;
+
+    color:var(--text);
+
+}
+
+/* =======================
+      BUTTONS
+======================= */
+
+.button-group{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+}
+
+.btn{
+
+    flex:1;
+
+    min-width:130px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    padding:12px 18px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    font-size:15px;
+
+}
+
+/* View Online */
+
+.btn-view{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.btn-view:hover{
+
+    background:#1d4ed8;
+
+}
+
+/* Download */
+
+.btn-download{
+
+    background:#22c55e;
+
+    color:white;
+
+}
+
+.btn-download:hover{
+
+    background:#16a34a;
+
+}
+
+/* View Notes */
+
+.btn-notes{
+
+    background:#7c3aed;
+
+    color:white;
+
+}
+
+.btn-notes:hover{
+
+    background:#6d28d9;
+
+}
+
+/* =======================
+   NOTES NOT AVAILABLE
+======================= */
+
+.notes-unavailable{
+
+    margin-top:15px;
+
+    background:#fef3c7;
+
+    color:#92400e;
+
+    border-radius:12px;
+
+    padding:14px;
+
+    font-weight:600;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.dark .notes-unavailable{
+
+    background:#78350f;
+
+    color:#fde68a;
+
+}
+
+/* =======================
+      BADGE
+======================= */
+
+.new-badge{
+
+    display:inline-block;
+
+    margin-left:10px;
+
+    background:#ef4444;
+
+    color:white;
+
+    padding:5px 10px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+/* =======================
+      ABOUT SECTION
+======================= */
+
+#about{
+
+    padding:90px 8%;
+
+    text-align:center;
+
+}
+
+#about h2{
+
+    font-size:38px;
+
+    margin-bottom:20px;
+
+}
+
+#about p{
+
+    max-width:900px;
+
+    margin:auto;
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+    font-size:17px;
+
+}
+
+/* =======================
+        FOOTER
+======================= */
+
+footer{
+
+    background:#0f172a;
+
+    color:white;
+
+    text-align:center;
+
+    padding:35px;
+
+}
+
+footer p{
+
+    margin:8px 0;
+
+}
+
+/* =======================
+      MOBILE
+======================= */
+
+@media(max-width:992px){
+
+.hero{
+
+    grid-template-columns:1fr;
+
+    text-align:center;
+
+    padding:70px 6%;
+
+}
+
+.hero-image{
+
+    order:-1;
+
+}
+
+.hero h1{
+
+    font-size:42px;
+
+}
+
+.hero-image i{
+
+    font-size:150px;
+
+}
+
+.navbar{
+
+    padding:15px 5%;
+
+}
+
+}
+
+@media(max-width:768px){
+
+nav ul{
+
+    position:absolute;
+
+    top:75px;
+
+    right:15px;
+
+    width:240px;
+
+    background:var(--card);
+
+    flex-direction:column;
+
+    border-radius:15px;
+
+    box-shadow:var(--shadow);
+
+    display:none;
+
+    padding:20px;
+
+}
+
+nav ul.active{
+
+    display:flex;
+
+}
+
+#menuBtn{
+
+    display:block;
+
+}
+
+.hero{
+
+    min-height:auto;
+
+}
+
+.hero h1{
+
+    font-size:34px;
+
+}
+
+.hero p{
+
+    font-size:16px;
+
+}
+
+.hero-buttons{
+
+    flex-direction:column;
+
+}
+
+.primary-btn,
+.secondary-btn{
+
+    width:100%;
+
+}
+
+.search-box{
+
+    padding:14px 18px;
+
+}
+
+.subjects-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.subject-card{
+
+    padding:22px;
+
+}
+
+.button-group{
+
+    flex-direction:column;
+
+}
+
+.btn{
+
+    width:100%;
+
+}
+
+.section-heading h2{
+
+    font-size:30px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.logo{
+
+    font-size:18px;
+
+}
+
+.hero h1{
+
+    font-size:28px;
+
+}
+
+.search-section h2{
+
+    font-size:28px;
+
+}
+
+#about h2{
+
+    font-size:30px;
+
+}
+
+}
+/* ==========================================
+   STYLE.CSS - PART 3
+   ANIMATIONS + DARK MODE + FINAL STYLING
+==========================================*/
+
+/* Card Animation */
+
+.subject-card{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    animation:fadeUp .8s forwards;
+
+}
+
+.subject-card:nth-child(1){animation-delay:.1s;}
+.subject-card:nth-child(2){animation-delay:.2s;}
+.subject-card:nth-child(3){animation-delay:.3s;}
+.subject-card:nth-child(4){animation-delay:.4s;}
+.subject-card:nth-child(5){animation-delay:.5s;}
+.subject-card:nth-child(6){animation-delay:.6s;}
+.subject-card:nth-child(7){animation-delay:.7s;}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* Floating Hero Icon */
+
+.hero-image{
+
+animation:float 4s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-18px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+/* Button Hover */
+
+.btn{
+
+transition:.3s;
+
+}
+
+.btn:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+}
+
+/* Smooth transition */
+
+*{
+
+transition:
+background .3s,
+color .3s,
+border-color .3s;
+
+}
+
+/* Dark Mode */
+
+body.dark{
+
+background:#0f172a;
+
+color:white;
+
+}
+
+body.dark .subject-card{
+
+background:#1e293b;
+
+border:1px solid #334155;
+
+}
+
+body.dark footer{
+
+background:#020617;
+
+}
+
+body.dark .search-box{
+
+background:#1e293b;
+
+}
+
+body.dark input{
+
+color:white;
+
+}
+
+body.dark nav ul{
+
+background:#1e293b;
+
+}
+
+/* Footer Links */
+
+footer a{
+
+color:white;
+
+text-decoration:none;
+
+}
+
+footer a:hover{
+
+color:#60a5fa;
+
+}
+
+/* Selection */
+
+::selection{
+
+background:#2563eb;
+
+color:white;
+
+}
+
+/* Image Safety */
+
+img{
+
+max-width:100%;
+
+display:block;
+
+}
+
+/* Utilities */
+
+.text-center{
+
+text-align:center;
+
+}
+
+.mt-1{
+
+margin-top:10px;
+
+}
+
+.mt-2{
+
+margin-top:20px;
+
+}
+
+.mt-3{
+
+margin-top:30px;
+
+}
+
+.hidden{
+
+display:none;
+
+}
+
+.show{
+
+display:block;
+
+}
