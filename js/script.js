@@ -3,7 +3,6 @@
 // script.js
 // ==========================================
 
-// Wait until page loads
 document.addEventListener("DOMContentLoaded", () => {
 
     createSubjectCards();
@@ -15,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setupMobileMenu();
 
 });
-
 
 // ==========================================
 // CREATE SUBJECT CARDS
@@ -36,37 +34,25 @@ function createSubjectCards() {
         card.className = "subject-card";
 
         card.innerHTML = `
-
             <div class="subject-icon">
-
                 ${subject.icon}
-
             </div>
 
             <h3>
-
                 ${subject.name}
-
             </h3>
 
             <span class="course-code">
-
                 ${subject.code}
-
             </span>
 
             <div class="action-box">
 
-                <a class="btn btn-view"
-
-                   href="subject.html?code=${subject.code}">
-
-                   Open Subject
-
+                <a href="subject.html?code=${subject.code}" class="btn btn-view">
+                    Open Subject
                 </a>
 
             </div>
-
         `;
 
         container.appendChild(card);
@@ -74,7 +60,6 @@ function createSubjectCards() {
     });
 
 }
-
 
 // ==========================================
 // LIVE SEARCH
@@ -96,22 +81,17 @@ function setupSearch() {
 
             const subject = subjects[index];
 
-            const found =
-
-                subject.name.toLowerCase().includes(value)
-
-                ||
-
+            const match =
+                subject.name.toLowerCase().includes(value) ||
                 subject.code.toLowerCase().includes(value);
 
-            card.style.display = found ? "block" : "none";
+            card.style.display = match ? "block" : "none";
 
         });
 
     });
 
 }
-
 
 // ==========================================
 // DARK MODE
@@ -122,8 +102,6 @@ function setupDarkMode() {
     const btn = document.getElementById("themeToggle");
 
     if (!btn) return;
-
-    // Load previous setting
 
     if (localStorage.getItem("theme") === "dark") {
 
@@ -143,9 +121,7 @@ function setupDarkMode() {
 
             btn.innerHTML = '<i class="fa-solid fa-sun"></i>';
 
-        }
-
-        else {
+        } else {
 
             localStorage.setItem("theme", "light");
 
@@ -157,7 +133,6 @@ function setupDarkMode() {
 
 }
 
-
 // ==========================================
 // MOBILE MENU
 // ==========================================
@@ -166,18 +141,17 @@ function setupMobileMenu() {
 
     const menuBtn = document.getElementById("menuBtn");
 
-    const menu = document.getElementById("navMenu");
+    const navMenu = document.getElementById("navMenu");
 
-    if (!menuBtn || !menu) return;
+    if (!menuBtn || !navMenu) return;
 
     menuBtn.addEventListener("click", () => {
 
-        menu.classList.toggle("active");
+        navMenu.classList.toggle("active");
 
     });
 
 }
-
 
 // ==========================================
 // SMOOTH SCROLL
