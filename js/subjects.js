@@ -20,19 +20,6 @@ const subjects = [
 
     {
         id: 2,
-        code: "25PY201",
-        name: "Physics for Quantum Computing",
-        icon: "⚛️",
-
-        syllabus: "pdfs/syllabus/25PY201.pdf",
-
-        notesAvailable: false,
-
-        notes: []
-    },
-
-    {
-        id: 3,
         code: "25AM201",
         name: "Data Structures",
         icon: "💻",
@@ -45,7 +32,7 @@ const subjects = [
     },
 
     {
-        id: 4,
+        id: 3,
         code: "25AM202",
         name: "Design Thinking and Engineering Orientation",
         icon: "🎨",
@@ -58,7 +45,7 @@ const subjects = [
     },
 
     {
-        id: 5,
+        id: 4,
         code: "25AM203",
         name: "Artificial Intelligence",
         icon: "🤖",
@@ -71,7 +58,7 @@ const subjects = [
     },
 
     {
-        id: 6,
+        id: 5,
         code: "25CY205",
         name: "Database Management Systems",
         icon: "🗄️",
@@ -84,12 +71,25 @@ const subjects = [
     },
 
     {
-        id: 7,
-        code: "25CY210",
-        name: "Operating Systems",
-        icon: "🖥️",
+        id: 6,
+        code: "25AM206",
+        name: "Object Oriented Programming",
+        icon: "☕",
 
-        syllabus: "pdfs/syllabus/25CY210.pdf",
+        syllabus: "pdfs/syllabus/25AM206.pdf",
+
+        notesAvailable: false,
+
+        notes: []
+    },
+
+    {
+        id: 7,
+        code: "25MT205",
+        name: "Discrete Mathematical Structures",
+        icon: "📐",
+
+        syllabus: "pdfs/syllabus/25MT205.pdf",
 
         notesAvailable: false,
 
