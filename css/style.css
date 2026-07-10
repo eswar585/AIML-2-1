@@ -1,59 +1,24 @@
-/* ===================================================
+/* ===========================================================
    STUDENT NOTES PORTAL
-   STYLE.CSS - PART 1
-   Author : ChatGPT
-=================================================== */
+   MODERN GLASSMORPHISM UI
+   PART 1
+=========================================================== */
 
-/* Google Font */
+/* =========================
+   GOOGLE FONT
+========================= */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-/* =======================
-        CSS VARIABLES
-======================= */
-
-:root{
-
-    --primary:#2563eb;
-    --primary-dark:#1d4ed8;
-    --secondary:#0ea5e9;
-    --success:#22c55e;
-    --warning:#f59e0b;
-    --danger:#ef4444;
-
-    --background:#f5f7fb;
-    --card:#ffffff;
-    --text:#1e293b;
-    --text-light:#64748b;
-    --border:#e2e8f0;
-
-    --shadow:0 10px 30px rgba(0,0,0,.08);
-
-    --radius:18px;
-
-    --transition:.3s ease;
-
-}
-
-/* Dark Mode */
-
-body.dark{
-
-    --background:#0f172a;
-    --card:#1e293b;
-    --text:#ffffff;
-    --text-light:#cbd5e1;
-    --border:#334155;
-
-}
-
-/* =======================
-        RESET
-======================= */
+/* =========================
+   RESET
+========================= */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
 html{
@@ -62,19 +27,22 @@ html{
 
 body{
 
-    font-family:"Poppins",sans-serif;
+    min-height:100vh;
 
-    background:var(--background);
+    background:
+    radial-gradient(circle at top left,#4f46e520 0%,transparent 35%),
+    radial-gradient(circle at bottom right,#06b6d420 0%,transparent 40%),
+    linear-gradient(135deg,#0f172a,#111827,#1e293b);
 
-    color:var(--text);
-
-    transition:.3s;
+    color:#ffffff;
 
     overflow-x:hidden;
 
 }
 
-/* Scrollbar */
+/* =========================
+   SCROLLBAR
+========================= */
 
 ::-webkit-scrollbar{
 
@@ -82,17 +50,55 @@ body{
 
 }
 
+::-webkit-scrollbar-track{
+
+    background:#111827;
+
+}
+
 ::-webkit-scrollbar-thumb{
 
-    background:var(--primary);
+    background:#6366f1;
 
     border-radius:20px;
 
 }
 
-/* =======================
-        NAVBAR
-======================= */
+::-webkit-scrollbar-thumb:hover{
+
+    background:#8b5cf6;
+
+}
+
+/* =========================
+   LINKS
+========================= */
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+
+    width:90%;
+
+    max-width:1300px;
+
+    margin:auto;
+
+}
+
+/* =========================
+   NAVBAR
+========================= */
 
 .navbar{
 
@@ -100,7 +106,7 @@ body{
 
     top:0;
 
-    z-index:999;
+    z-index:1000;
 
     display:flex;
 
@@ -110,17 +116,11 @@ body{
 
     padding:18px 8%;
 
-    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(18px);
 
-    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,.05);
 
-    border-bottom:1px solid rgba(255,255,255,.2);
-
-}
-
-.dark .navbar{
-
-    background:rgba(15,23,42,.85);
+    border-bottom:1px solid rgba(255,255,255,.08);
 
 }
 
@@ -130,93 +130,69 @@ body{
 
     align-items:center;
 
-    gap:10px;
+    gap:12px;
 
-    font-size:22px;
+    font-size:28px;
 
     font-weight:700;
 
-    color:var(--primary);
+    color:#ffffff;
 
 }
 
 .logo i{
 
-    font-size:28px;
+    color:#38bdf8;
 
 }
 
-nav ul{
+.nav-links{
 
     display:flex;
 
-    list-style:none;
+    gap:25px;
 
-    gap:35px;
+    list-style:none;
 
 }
 
-nav ul li a{
+.nav-links a{
 
-    text-decoration:none;
+    color:#d1d5db;
 
-    color:var(--text);
+    transition:.3s;
 
     font-weight:500;
 
-    transition:.3s;
+}
+
+.nav-links a:hover{
+
+    color:#60a5fa;
 
 }
 
-nav ul li a:hover{
-
-    color:var(--primary);
-
-}
-
-#themeToggle,
-#menuBtn{
-
-    border:none;
-
-    background:var(--card);
-
-    width:45px;
-
-    height:45px;
-
-    border-radius:50%;
-
-    cursor:pointer;
-
-    font-size:18px;
-
-    box-shadow:var(--shadow);
-
-    transition:.3s;
-
-}
-
-#themeToggle:hover,
-#menuBtn:hover{
-
-    transform:scale(1.08);
-
-}
-
-#menuBtn{
+.menu-btn{
 
     display:none;
 
+    font-size:24px;
+
+    cursor:pointer;
+
 }
 
-/* =======================
-          HERO
-======================= */
+/* =========================
+   HERO
+========================= */
 
 .hero{
 
-    min-height:88vh;
+    width:90%;
+
+    max-width:1300px;
+
+    margin:70px auto;
 
     display:grid;
 
@@ -224,152 +200,37 @@ nav ul li a:hover{
 
     align-items:center;
 
-    gap:50px;
-
-    padding:80px 8%;
-
-    background:linear-gradient(135deg,#2563eb,#0ea5e9);
-
-    color:white;
-
-    position:relative;
-
-    overflow:hidden;
+    gap:60px;
 
 }
 
-/* floating circles */
+.hero-text h1{
 
-.hero::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:350px;
-
-    height:350px;
-
-    background:rgba(255,255,255,.1);
-
-    border-radius:50%;
-
-    top:-120px;
-
-    right:-120px;
-
-}
-
-.hero::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:250px;
-
-    height:250px;
-
-    background:rgba(255,255,255,.08);
-
-    border-radius:50%;
-
-    bottom:-100px;
-
-    left:-80px;
-
-}
-
-.semester{
-
-    display:inline-block;
-
-    background:rgba(255,255,255,.2);
-
-    padding:8px 18px;
-
-    border-radius:30px;
-
-    margin-bottom:25px;
-
-    font-size:14px;
-
-}
-
-.hero h1{
-
-    font-size:55px;
+    font-size:58px;
 
     line-height:1.2;
 
     margin-bottom:20px;
 
+    font-weight:800;
+
 }
 
-.hero p{
+.hero-text h1 span{
+
+    color:#60a5fa;
+
+}
+
+.hero-text p{
+
+    color:#cbd5e1;
 
     font-size:18px;
 
     line-height:1.8;
 
-    opacity:.95;
-
-    max-width:550px;
-
-}
-
-.hero-buttons{
-
-    margin-top:35px;
-
-    display:flex;
-
-    gap:20px;
-
-}
-
-.primary-btn,
-.secondary-btn{
-
-    text-decoration:none;
-
-    padding:15px 30px;
-
-    border-radius:50px;
-
-    font-weight:600;
-
-    transition:.3s;
-
-}
-
-.primary-btn{
-
-    background:white;
-
-    color:var(--primary);
-
-}
-
-.primary-btn:hover{
-
-    transform:translateY(-4px);
-
-}
-
-.secondary-btn{
-
-    border:2px solid white;
-
-    color:white;
-
-}
-
-.secondary-btn:hover{
-
-    background:white;
-
-    color:var(--primary);
+    margin-bottom:35px;
 
 }
 
@@ -379,153 +240,806 @@ nav ul li a:hover{
 
     justify-content:center;
 
-    align-items:center;
+}
+
+.hero-image img{
+
+    width:100%;
+
+    max-width:500px;
+
+    animation:float 4s ease-in-out infinite;
 
 }
 
-.hero-image i{
-
-    font-size:240px;
-
-    opacity:.18;
-
-}
-
-/* =======================
-        SEARCH
-======================= */
-
-.search-section{
-
-    padding:70px 8%;
-
-    text-align:center;
-
-}
-
-.search-section h2{
-
-    font-size:34px;
-
-    margin-bottom:30px;
-
-}
+/* =========================
+   SEARCH
+========================= */
 
 .search-box{
 
-    max-width:650px;
+    position:relative;
 
-    margin:auto;
+    max-width:600px;
 
-    display:flex;
-
-    align-items:center;
-
-    background:var(--card);
-
-    border-radius:60px;
-
-    box-shadow:var(--shadow);
-
-    padding:16px 25px;
-
-}
-
-.search-box i{
-
-    color:var(--primary);
-
-    margin-right:15px;
-
-    font-size:20px;
+    margin-top:30px;
 
 }
 
 .search-box input{
 
-    border:none;
+    width:100%;
+
+    padding:18px 22px;
+
+    border-radius:60px;
+
+    border:1px solid rgba(255,255,255,.08);
 
     outline:none;
 
-    width:100%;
+    background:rgba(255,255,255,.06);
 
-    background:transparent;
+    backdrop-filter:blur(15px);
 
-    color:var(--text);
+    color:white;
 
-    font-size:17px;
+    font-size:16px;
 
-    font-family:"Poppins",sans-serif;
+    transition:.3s;
 
 }
-/* ===================================================
-   STYLE.CSS - PART 2
-   SUBJECT CARDS + FOOTER + RESPONSIVE
-===================================================*/
 
-/* =======================
-      SECTION TITLE
-======================= */
+.search-box input::placeholder{
 
-.section-heading{
+    color:#94a3b8;
+
+}
+
+.search-box input:focus{
+
+    border-color:#38bdf8;
+
+    box-shadow:0 0 25px rgba(56,189,248,.25);
+
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding:14px 24px;
+
+    border-radius:14px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.btn-view{
+
+    background:linear-gradient(135deg,#2563eb,#38bdf8);
+
+    color:white;
+
+}
+
+.btn-view:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(37,99,235,.35);
+
+}
+
+.btn-download{
+
+    background:linear-gradient(135deg,#10b981,#22c55e);
+
+    color:white;
+
+}
+
+.btn-download:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 25px rgba(16,185,129,.35);
+
+}
+
+/* =========================
+   GLASS CARD
+========================= */
+
+.subject-card{
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(16px);
+
+    border-radius:22px;
+
+    padding:30px;
+
+    transition:.35s;
+
+}
+
+.subject-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#38bdf8;
+
+    box-shadow:
+
+    0 18px 40px rgba(0,0,0,.25);
+
+}
+
+/* =========================
+   COURSE CODE
+========================= */
+
+.course-code{
+
+    display:inline-block;
+
+    margin-top:12px;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    background:rgba(56,189,248,.18);
+
+    color:#7dd3fc;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+/* =========================
+   SUBJECT ICON
+========================= */
+
+.subject-icon{
+
+    font-size:48px;
+
+    margin-bottom:20px;
+
+}
+
+/* =========================
+   ACTION BOX
+========================= */
+
+.action-box{
+
+    margin-top:25px;
+
+}
+
+/* =========================
+   FLOAT ANIMATION
+========================= */
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-15px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+/* ===========================================================
+   STUDENT NOTES PORTAL
+   MODERN GLASSMORPHISM UI
+   PART 2
+===========================================================*/
+
+
+/*=========================
+    SUBJECTS SECTION
+=========================*/
+
+.subjects-section{
+
+    width:90%;
+
+    max-width:1300px;
+
+    margin:70px auto;
+
+}
+
+.section-title{
+
     text-align:center;
-    margin-bottom:45px;
-}
 
-.section-heading h2{
     font-size:38px;
-    color:var(--text);
+
+    font-weight:700;
+
+    margin-bottom:50px;
+
 }
 
-.section-heading p{
-    color:var(--text-light);
-    margin-top:10px;
-    font-size:18px;
+.section-title span{
+
+    color:#38bdf8;
+
 }
 
-/* =======================
-        SUBJECTS
-======================= */
+/*=========================
+    SUBJECT GRID
+=========================*/
 
-#subjects{
-    padding:80px 8%;
-}
-
-.subjects-grid{
+#subjectsContainer{
 
     display:grid;
 
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 
     gap:30px;
 
 }
 
-/* =======================
-      SUBJECT CARD
-======================= */
-
 .subject-card{
 
-    background:var(--card);
+    display:flex;
 
-    border-radius:22px;
+    flex-direction:column;
 
-    padding:28px;
+    justify-content:space-between;
 
-    box-shadow:var(--shadow);
-
-    transition:.35s;
-
-    border:1px solid var(--border);
-
-    position:relative;
-
-    overflow:hidden;
+    min-height:270px;
 
 }
 
-/* Top Blue Bar */
+.subject-card h3{
+
+    font-size:22px;
+
+    margin:18px 0 10px;
+
+    line-height:1.5;
+
+}
+
+.subject-card p{
+
+    color:#cbd5e1;
+
+    line-height:1.7;
+
+}
+
+.subject-card .btn{
+
+    width:100%;
+
+    margin-top:20px;
+
+}
+
+
+/*=========================
+    SUBJECT PAGE
+=========================*/
+
+.subject-hero{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:60px auto 40px;
+
+    padding:45px;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+}
+
+.subject-hero h1{
+
+    font-size:42px;
+
+    margin-bottom:12px;
+
+}
+
+.semester{
+
+    display:inline-block;
+
+    margin-bottom:18px;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    background:rgba(37,99,235,.18);
+
+    color:#93c5fd;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+#subjectCode{
+
+    color:#cbd5e1;
+
+    font-size:18px;
+
+}
+
+
+/*=========================
+    SUBJECT CONTENT
+=========================*/
+
+.subject-content{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    gap:35px;
+
+}
+
+.subject-content .subject-card{
+
+    padding:35px;
+
+}
+
+.subject-content h2{
+
+    font-size:28px;
+
+    margin-bottom:25px;
+
+}
+
+.button-group{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+
+/*=========================
+    NOTES
+=========================*/
+
+#notesContainer{
+
+    display:grid;
+
+    gap:20px;
+
+}
+
+.notes-unavailable{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    background:rgba(239,68,68,.12);
+
+    border:1px solid rgba(239,68,68,.35);
+
+}
+
+.notes-unavailable i{
+
+    font-size:45px;
+
+    color:#ef4444;
+
+}
+
+.notes-unavailable strong{
+
+    font-size:20px;
+
+}
+
+
+/*=========================
+    PDF VIEWER
+=========================*/
+
+.viewer-container{
+
+    width:92%;
+
+    max-width:1400px;
+
+    margin:35px auto;
+
+}
+
+.viewer-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+    margin-bottom:25px;
+
+}
+
+.viewer-header h2{
+
+    font-size:30px;
+
+}
+
+.viewer-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+#pdfFrame{
+
+    width:100%;
+
+    height:82vh;
+
+    border:none;
+
+    border-radius:22px;
+
+    background:white;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
+
+}
+
+
+/*=========================
+    FOOTER
+=========================*/
+
+footer{
+
+    margin-top:70px;
+
+    padding:35px 20px;
+
+    text-align:center;
+
+    color:#94a3b8;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+
+/*=========================
+    MOBILE MENU
+=========================*/
+
+@media(max-width:900px){
+
+    .navbar{
+
+        padding:18px 20px;
+
+    }
+
+    .menu-btn{
+
+        display:block;
+
+    }
+
+    .nav-links{
+
+        position:absolute;
+
+        top:80px;
+
+        left:0;
+
+        width:100%;
+
+        background:#111827;
+
+        display:none;
+
+        flex-direction:column;
+
+        padding:25px;
+
+        gap:20px;
+
+        border-top:1px solid rgba(255,255,255,.08);
+
+    }
+
+    .nav-links.active{
+
+        display:flex;
+
+    }
+
+}
+
+
+/*=========================
+    TABLETS
+=========================*/
+
+@media(max-width:992px){
+
+    .hero{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+        gap:40px;
+
+    }
+
+    .hero-text h1{
+
+        font-size:42px;
+
+    }
+
+    .hero-image img{
+
+        max-width:360px;
+
+    }
+
+}
+
+
+/*=========================
+    MOBILE
+=========================*/
+
+@media(max-width:768px){
+
+    .hero{
+
+        margin:45px auto;
+
+    }
+
+    .hero-text h1{
+
+        font-size:34px;
+
+    }
+
+    .hero-text p{
+
+        font-size:16px;
+
+    }
+
+    .search-box input{
+
+        padding:15px 18px;
+
+    }
+
+    #subjectsContainer{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .subject-card{
+
+        padding:25px;
+
+    }
+
+    .subject-hero{
+
+        padding:30px;
+
+    }
+
+    .subject-hero h1{
+
+        font-size:30px;
+
+    }
+
+    .button-group{
+
+        flex-direction:column;
+
+    }
+
+    .button-group .btn{
+
+        width:100%;
+
+    }
+
+    #pdfFrame{
+
+        height:70vh;
+
+    }
+
+}
+
+
+/*=========================
+    SMALL MOBILE
+=========================*/
+
+@media(max-width:480px){
+
+    .logo{
+
+        font-size:22px;
+
+    }
+
+    .hero-text h1{
+
+        font-size:28px;
+
+    }
+
+    .section-title{
+
+        font-size:28px;
+
+    }
+
+    .subject-card h3{
+
+        font-size:20px;
+
+    }
+
+    .viewer-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .viewer-buttons{
+
+        width:100%;
+
+        flex-direction:column;
+
+    }
+
+    .viewer-buttons .btn{
+
+        width:100%;
+
+    }
+
+}
+/* ===========================================================
+   STUDENT NOTES PORTAL
+   MODERN GLASSMORPHISM UI
+   PART 3 (FINAL)
+===========================================================*/
+
+/* =========================
+   BACKGROUND GLOW EFFECTS
+========================= */
+
+body::before,
+body::after{
+    content:"";
+    position:fixed;
+    width:450px;
+    height:450px;
+    border-radius:50%;
+    filter:blur(140px);
+    opacity:.18;
+    z-index:-1;
+}
+
+body::before{
+    background:#3b82f6;
+    top:-180px;
+    left:-180px;
+}
+
+body::after{
+    background:#8b5cf6;
+    bottom:-180px;
+    right:-180px;
+}
+
+/* =========================
+   CARD SHINE EFFECT
+========================= */
+
+.subject-card{
+    position:relative;
+    overflow:hidden;
+}
 
 .subject-card::before{
 
@@ -534,698 +1048,289 @@ nav ul li a:hover{
     position:absolute;
 
     top:0;
-    left:0;
 
-    width:100%;
-    height:6px;
+    left:-150%;
 
-    background:linear-gradient(90deg,#2563eb,#0ea5e9);
+    width:60%;
 
-}
+    height:100%;
 
-.subject-card:hover{
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.18),
+        transparent
+    );
 
-    transform:translateY(-10px);
+    transform:skewX(-25deg);
 
-    box-shadow:0 20px 45px rgba(37,99,235,.18);
-
-}
-
-.subject-icon{
-
-    width:70px;
-    height:70px;
-
-    border-radius:18px;
-
-    background:linear-gradient(135deg,#2563eb,#0ea5e9);
-
-    color:#fff;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:30px;
-
-    margin-bottom:20px;
+    transition:.8s;
 
 }
 
-.subject-card h3{
+.subject-card:hover::before{
 
-    font-size:22px;
-
-    line-height:1.4;
-
-    margin-bottom:12px;
-
-    color:var(--text);
+    left:180%;
 
 }
 
-.course-code{
-
-    display:inline-block;
-
-    background:#dbeafe;
-
-    color:#1d4ed8;
-
-    padding:8px 16px;
-
-    border-radius:30px;
-
-    font-size:14px;
-
-    font-weight:600;
-
-    margin-bottom:20px;
-
-}
-
-.dark .course-code{
-
-    background:#1e40af;
-
-    color:white;
-
-}
-
-/* =======================
-      ACTION BOX
-======================= */
-
-.action-box{
-
-    margin-top:20px;
-
-    padding-top:20px;
-
-    border-top:1px solid var(--border);
-
-}
-
-.action-title{
-
-    font-weight:600;
-
-    margin-bottom:12px;
-
-    color:var(--text);
-
-}
-
-/* =======================
-      BUTTONS
-======================= */
-
-.button-group{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:12px;
-
-}
+/* =========================
+   BUTTON ANIMATION
+========================= */
 
 .btn{
 
-    flex:1;
+    position:relative;
 
-    min-width:130px;
-
-    text-align:center;
-
-    text-decoration:none;
-
-    padding:12px 18px;
-
-    border-radius:12px;
-
-    font-weight:600;
-
-    transition:.3s;
-
-    font-size:15px;
+    overflow:hidden;
 
 }
 
-/* View Online */
+.btn::after{
 
-.btn-view{
-
-    background:#2563eb;
-
-    color:white;
-
-}
-
-.btn-view:hover{
-
-    background:#1d4ed8;
-
-}
-
-/* Download */
-
-.btn-download{
-
-    background:#22c55e;
-
-    color:white;
-
-}
-
-.btn-download:hover{
-
-    background:#16a34a;
-
-}
-
-/* View Notes */
-
-.btn-notes{
-
-    background:#7c3aed;
-
-    color:white;
-
-}
-
-.btn-notes:hover{
-
-    background:#6d28d9;
-
-}
-
-/* =======================
-   NOTES NOT AVAILABLE
-======================= */
-
-.notes-unavailable{
-
-    margin-top:15px;
-
-    background:#fef3c7;
-
-    color:#92400e;
-
-    border-radius:12px;
-
-    padding:14px;
-
-    font-weight:600;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
-}
-
-.dark .notes-unavailable{
-
-    background:#78350f;
-
-    color:#fde68a;
-
-}
-
-/* =======================
-      BADGE
-======================= */
-
-.new-badge{
-
-    display:inline-block;
-
-    margin-left:10px;
-
-    background:#ef4444;
-
-    color:white;
-
-    padding:5px 10px;
-
-    border-radius:20px;
-
-    font-size:12px;
-
-    font-weight:600;
-
-}
-
-/* =======================
-      ABOUT SECTION
-======================= */
-
-#about{
-
-    padding:90px 8%;
-
-    text-align:center;
-
-}
-
-#about h2{
-
-    font-size:38px;
-
-    margin-bottom:20px;
-
-}
-
-#about p{
-
-    max-width:900px;
-
-    margin:auto;
-
-    color:var(--text-light);
-
-    line-height:1.8;
-
-    font-size:17px;
-
-}
-
-/* =======================
-        FOOTER
-======================= */
-
-footer{
-
-    background:#0f172a;
-
-    color:white;
-
-    text-align:center;
-
-    padding:35px;
-
-}
-
-footer p{
-
-    margin:8px 0;
-
-}
-
-/* =======================
-      MOBILE
-======================= */
-
-@media(max-width:992px){
-
-.hero{
-
-    grid-template-columns:1fr;
-
-    text-align:center;
-
-    padding:70px 6%;
-
-}
-
-.hero-image{
-
-    order:-1;
-
-}
-
-.hero h1{
-
-    font-size:42px;
-
-}
-
-.hero-image i{
-
-    font-size:150px;
-
-}
-
-.navbar{
-
-    padding:15px 5%;
-
-}
-
-}
-
-@media(max-width:768px){
-
-nav ul{
+    content:"";
 
     position:absolute;
 
-    top:75px;
+    inset:0;
 
-    right:15px;
+    background:rgba(255,255,255,.15);
 
-    width:240px;
+    transform:translateX(-100%);
 
-    background:var(--card);
-
-    flex-direction:column;
-
-    border-radius:15px;
-
-    box-shadow:var(--shadow);
-
-    display:none;
-
-    padding:20px;
+    transition:.45s;
 
 }
 
-nav ul.active{
+.btn:hover::after{
 
-    display:flex;
-
-}
-
-#menuBtn{
-
-    display:block;
+    transform:translateX(100%);
 
 }
+
+/* =========================
+   HERO FADE
+========================= */
 
 .hero{
 
-    min-height:auto;
+    animation:fadeUp .9s ease;
 
 }
 
-.hero h1{
+.subjects-section{
 
-    font-size:34px;
-
-}
-
-.hero p{
-
-    font-size:16px;
+    animation:fadeUp 1.2s ease;
 
 }
 
-.hero-buttons{
+.subject-content{
 
-    flex-direction:column;
-
-}
-
-.primary-btn,
-.secondary-btn{
-
-    width:100%;
+    animation:fadeUp .9s ease;
 
 }
 
-.search-box{
+.viewer-container{
 
-    padding:14px 18px;
-
-}
-
-.subjects-grid{
-
-    grid-template-columns:1fr;
+    animation:fadeUp .9s ease;
 
 }
+
+/* =========================
+   SUBJECT CARD ANIMATION
+========================= */
 
 .subject-card{
 
-    padding:22px;
+    animation:zoomCard .6s ease;
 
 }
 
-.button-group{
+@keyframes zoomCard{
 
-    flex-direction:column;
+    from{
 
-}
+        opacity:0;
 
-.btn{
+        transform:scale(.92);
 
-    width:100%;
+    }
 
-}
+    to{
 
-.section-heading h2{
+        opacity:1;
 
-    font-size:30px;
+        transform:scale(1);
 
-}
-
-}
-
-@media(max-width:480px){
-
-.logo{
-
-    font-size:18px;
+    }
 
 }
 
-.hero h1{
-
-    font-size:28px;
-
-}
-
-.search-section h2{
-
-    font-size:28px;
-
-}
-
-#about h2{
-
-    font-size:30px;
-
-}
-
-}
-/* ==========================================
-   STYLE.CSS - PART 3
-   ANIMATIONS + DARK MODE + FINAL STYLING
-==========================================*/
-
-/* Card Animation */
-
-.subject-card{
-
-    opacity:0;
-
-    transform:translateY(40px);
-
-    animation:fadeUp .8s forwards;
-
-}
-
-.subject-card:nth-child(1){animation-delay:.1s;}
-.subject-card:nth-child(2){animation-delay:.2s;}
-.subject-card:nth-child(3){animation-delay:.3s;}
-.subject-card:nth-child(4){animation-delay:.4s;}
-.subject-card:nth-child(5){animation-delay:.5s;}
-.subject-card:nth-child(6){animation-delay:.6s;}
-.subject-card:nth-child(7){animation-delay:.7s;}
+/* =========================
+   FADE ANIMATION
+========================= */
 
 @keyframes fadeUp{
 
-from{
+    from{
 
-opacity:0;
+        opacity:0;
 
-transform:translateY(40px);
+        transform:translateY(40px);
 
-}
+    }
 
-to{
+    to{
 
-opacity:1;
+        opacity:1;
 
-transform:translateY(0);
+        transform:translateY(0);
 
-}
-
-}
-
-/* Floating Hero Icon */
-
-.hero-image{
-
-animation:float 4s ease-in-out infinite;
+    }
 
 }
 
-@keyframes float{
+/* =========================
+   PDF VIEWER
+========================= */
 
-0%{
+#pdfFrame{
 
-transform:translateY(0px);
-
-}
-
-50%{
-
-transform:translateY(-18px);
+    transition:.35s;
 
 }
 
-100%{
+#pdfFrame:hover{
 
-transform:translateY(0px);
-
-}
-
-}
-
-/* Button Hover */
-
-.btn{
-
-transition:.3s;
+    box-shadow:
+        0 20px 50px rgba(59,130,246,.18);
 
 }
 
-.btn:hover{
+/* =========================
+   INPUTS
+========================= */
 
-transform:translateY(-3px);
+input,
+button,
+textarea{
 
-box-shadow:0 10px 25px rgba(0,0,0,.15);
-
-}
-
-/* Smooth transition */
-
-*{
-
-transition:
-background .3s,
-color .3s,
-border-color .3s;
+    font-family:'Poppins',sans-serif;
 
 }
 
-/* Dark Mode */
+input{
 
-body.dark{
-
-background:#0f172a;
-
-color:white;
+    transition:.3s;
 
 }
 
-body.dark .subject-card{
+input:focus{
 
-background:#1e293b;
-
-border:1px solid #334155;
+    transform:scale(1.01);
 
 }
 
-body.dark footer{
-
-background:#020617;
-
-}
-
-body.dark .search-box{
-
-background:#1e293b;
-
-}
-
-body.dark input{
-
-color:white;
-
-}
-
-body.dark nav ul{
-
-background:#1e293b;
-
-}
-
-/* Footer Links */
-
-footer a{
-
-color:white;
-
-text-decoration:none;
-
-}
-
-footer a:hover{
-
-color:#60a5fa;
-
-}
-
-/* Selection */
+/* =========================
+   SELECTION
+========================= */
 
 ::selection{
 
-background:#2563eb;
+    background:#3b82f6;
 
-color:white;
-
-}
-
-/* Image Safety */
-
-img{
-
-max-width:100%;
-
-display:block;
+    color:#fff;
 
 }
 
-/* Utilities */
+/* =========================
+   FOOTER
+========================= */
 
-.text-center{
+footer{
 
-text-align:center;
+    background:rgba(255,255,255,.04);
 
-}
-
-.mt-1{
-
-margin-top:10px;
+    backdrop-filter:blur(18px);
 
 }
 
-.mt-2{
+/* =========================
+   MOBILE IMPROVEMENTS
+========================= */
 
-margin-top:20px;
+@media(max-width:768px){
+
+    .hero{
+
+        padding-top:10px;
+
+    }
+
+    .subject-card{
+
+        border-radius:18px;
+
+    }
+
+    .btn{
+
+        min-height:52px;
+
+        font-size:16px;
+
+    }
+
+    .search-box input{
+
+        min-height:54px;
+
+        font-size:16px;
+
+    }
+
+    .viewer-header h2{
+
+        font-size:22px;
+
+    }
 
 }
 
-.mt-3{
+/* =========================
+   LARGE SCREENS
+========================= */
 
-margin-top:30px;
+@media(min-width:1400px){
+
+    .hero{
+
+        max-width:1400px;
+
+    }
+
+    .subjects-section{
+
+        max-width:1400px;
+
+    }
 
 }
 
-.hidden{
+/* =========================
+   REDUCE MOTION
+========================= */
 
-display:none;
+@media(prefers-reduced-motion:reduce){
 
-}
+    *{
 
-.show{
+        animation:none !important;
 
-display:block;
+        transition:none !important;
+
+        scroll-behavior:auto;
+
+    }
 
 }
