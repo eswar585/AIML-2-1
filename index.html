@@ -3,222 +3,198 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
-    <title>Student Notes Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="II Year I Semester Student Notes Portal">
+<title>Student Notes Portal</title>
 
-    <!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <!-- Font Awesome -->
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-    <!-- CSS -->
-
-    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
-    <!-- ================= NAVBAR ================= -->
 
-    <header class="navbar">
+<!-- ===========================
+     NAVBAR
+=========================== -->
 
-        <div class="logo">
+<header class="navbar">
 
-            <i class="fa-solid fa-graduation-cap"></i>
+<div class="logo">
 
-            <span>Student Notes Portal</span>
+<i class="fa-solid fa-graduation-cap"></i>
 
-        </div>
+<span>Student Notes Portal</span>
 
-        <nav>
+</div>
 
-            <ul id="navMenu">
+<div class="menu-btn" id="menuBtn">
 
-                <li><a href="#">Home</a></li>
+<i class="fa-solid fa-bars"></i>
 
-                <li><a href="#subjects">Subjects</a></li>
+</div>
 
-                <li><a href="#about">About</a></li>
+<ul class="nav-links" id="navMenu">
 
-            </ul>
+<li>
 
-        </nav>
+<a href="index.html">
 
-        <button id="themeToggle">
+Home
 
-            <i class="fa-solid fa-moon"></i>
+</a>
 
-        </button>
+</li>
 
-        <button id="menuBtn">
+<li>
 
-            <i class="fa-solid fa-bars"></i>
+<a href="#subjects">
 
-        </button>
+Subjects
 
-    </header>
+</a>
 
+</li>
 
+</ul>
 
-    <!-- ================= HERO ================= -->
+</header>
 
-    <section class="hero">
 
-        <div class="hero-text">
 
-            <span class="semester">
+<!-- ===========================
+     HERO
+=========================== -->
 
-                II YEAR • I SEMESTER
+<section class="hero">
 
-            </span>
+<div class="hero-text">
 
-            <h1>
+<h1>
 
-                Student Notes & Syllabus Portal
+II Year
 
-            </h1>
+<span>
 
-            <p>
+I Semester
 
-                Access syllabus, class notes and study materials
-                anytime from your mobile, tablet or desktop.
+</span>
 
-            </p>
+</h1>
 
-            <div class="hero-buttons">
+<p>
 
-                <a href="#subjects" class="primary-btn">
+Access your syllabus, class notes, and study materials anytime from your phone or computer.
 
-                    Browse Subjects
+</p>
 
-                </a>
+<div class="search-box">
 
-                <a href="#about" class="secondary-btn">
+<input
 
-                    Learn More
+type="text"
 
-                </a>
+id="searchInput"
 
-            </div>
+placeholder="Search by subject name or course code...">
 
-        </div>
+</div>
 
-        <div class="hero-image">
+</div>
 
-            <i class="fa-solid fa-book-open-reader"></i>
+<div class="hero-image">
 
-        </div>
+<div class="hero-circle">
 
-    </section>
+<i class="fa-solid fa-book-open-reader"></i>
 
+</div>
 
+</div>
 
-    <!-- ================= SEARCH ================= -->
+</section>
 
-    <section class="search-section">
 
-        <h2>
 
-            Find Your Subject
+<!-- ===========================
+     SUBJECTS
+=========================== -->
 
-        </h2>
+<section
+class="subjects-section"
+id="subjects">
 
-        <div class="search-box">
+<h2 class="section-title">
 
-            <i class="fa-solid fa-magnifying-glass"></i>
+Available
 
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search by subject name or course code">
+<span>
 
-        </div>
+Subjects
 
-    </section>
+</span>
 
+</h2>
 
+<div id="subjectsContainer">
 
-    <!-- ================= SUBJECTS ================= -->
+<!-- JS loads cards here -->
 
-    <section id="subjects">
+</div>
 
-        <div class="section-heading">
+</section>
+<!-- ===========================
+     FOOTER
+=========================== -->
 
-            <h2>
+<footer>
 
-                Subjects
+<div class="footer-container">
 
-            </h2>
+<div class="footer-logo">
 
-            <p>
+<i class="fa-solid fa-graduation-cap"></i>
 
-                II Year • I Semester
+<h2>Student Notes Portal</h2>
 
-            </p>
+</div>
 
-        </div>
+<p>
 
-        <!-- JavaScript will generate all cards here -->
+Designed for students to easily access their syllabus and class notes anytime, anywhere.
 
-        <div id="subjectsContainer" class="subjects-grid"></div>
+</p>
 
-    </section>
+<div class="footer-bottom">
 
+© 2026 Student Notes Portal • All Rights Reserved
 
+</div>
 
-    <!-- ================= ABOUT ================= -->
+</div>
 
-    <section id="about">
+</footer>
 
-        <h2>
 
-            About This Portal
 
-        </h2>
+<!-- ===========================
+     JAVASCRIPT
+=========================== -->
 
-        <p>
+<script src="js/subjects.js"></script>
 
-            This website is created for students to easily access
-            syllabus PDFs and class notes from any device.
-
-        </p>
-
-    </section>
-
-
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer>
-
-        <p>
-
-            © 2026 AI&ML Student Notes Portal
-
-        </p>
-
-    </footer>
-
-
-
-    <!-- JavaScript -->
-
-    <script src="js/subjects.js"></script>
-
-    <script src="js/script.js"></script>
+<script src="js/script.js"></script>
 
 </body>
 
