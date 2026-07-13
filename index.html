@@ -1,201 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Student Notes Portal</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-<link rel="stylesheet" href="css/style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Notes Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-
-<!-- ===========================
-     NAVBAR
-=========================== -->
-
-<header class="navbar">
-
-<div class="logo">
-
-<i class="fa-solid fa-graduation-cap"></i>
-
-<span>Student Notes Portal</span>
-
-</div>
-
-<div class="menu-btn" id="menuBtn">
-
-<i class="fa-solid fa-bars"></i>
-
-</div>
-
-<ul class="nav-links" id="navMenu">
-
-<li>
-
-<a href="index.html">
-
-Home
-
-</a>
-
-</li>
-
-<li>
-
-<a href="#subjects">
-
-Subjects
-
-</a>
-
-</li>
-
-</ul>
-
-</header>
-
-
-
-<!-- ===========================
-     HERO
-=========================== -->
-
-<section class="hero">
-
-<div class="hero-text">
-
-<h1>
-
-II Year
-
-<span>
-
-I Semester
-
-</span>
-
-</h1>
-
-<p>
-
-Access your syllabus, class notes, and study materials anytime from your phone or computer.
-
-</p>
-
-<div class="search-box">
-
-<input
-
-type="text"
-
-id="searchInput"
-
-placeholder="Search by subject name or course code...">
-
-</div>
-
-</div>
-
-<div class="hero-image">
-
-<div class="hero-circle">
-
-<i class="fa-solid fa-book-open-reader"></i>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ===========================
-     SUBJECTS
-=========================== -->
-
-<section
-class="subjects-section"
-id="subjects">
-
-<h2 class="section-title">
-
-Available
-
-<span>
-
-Subjects
-
-</span>
-
-</h2>
-
-<div id="subjectsContainer">
-
-<!-- JS loads cards here -->
-
-</div>
-
-</section>
-<!-- ===========================
-     FOOTER
-=========================== -->
-
-<footer>
-
-<div class="footer-container">
-
-<div class="footer-logo">
-
-<i class="fa-solid fa-graduation-cap"></i>
-
-<h2>Student Notes Portal</h2>
-
-</div>
-
-<p>
-
-Designed for students to easily access their syllabus and class notes anytime, anywhere.
-
-</p>
-
-<div class="footer-bottom">
-
-© 2026 Student Notes Portal • All Rights Reserved
-
-</div>
-
-</div>
-
-</footer>
-
-
-
-<!-- ===========================
-     JAVASCRIPT
-=========================== -->
-
-<script src="js/subjects.js"></script>
-
-<script src="js/script.js"></script>
-
+    <!-- Animated Glow Background Blobs -->
+    <div class="glow-blob blob-1"></div>
+    <div class="glow-blob blob-2"></div>
+    <div class="glow-blob blob-3"></div>
+
+    <!-- ===========================
+         NAVBAR
+    =========================== -->
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>Notes<span class="highlight">Portal</span></span>
+        </div>
+        <div class="menu-btn" id="menuBtn">
+            <i class="fa-solid fa-bars-staggered"></i>
+        </div>
+        <ul class="nav-links" id="navMenu">
+            <li><a href="index.html" class="active-link">Home</a></li>
+            <li><a href="#subjects">Subjects</a></li>
+        </ul>
+    </header>
+
+    <!-- ===========================
+         HERO SECTION
+    =========================== -->
+    <section class="hero">
+        <div class="hero-text">
+            <div class="badge">
+                <i class="fa-solid fa-star text-flat"></i> II Year • I Semester
+            </div>
+            <h1>Your Academic <br>Universe <span>Simplified.</span></h1>
+            <p>
+                Access your syllabus, crisp class notes, and high-yield study materials instantly from any device. 
+            </p>
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Search by subject name or course code...">
+            </div>
+        </div>
+        
+        <div class="hero-image">
+            <div class="hero-circle">
+                <i class="fa-solid fa-book-open-reader"></i>
+                <div class="orbiting-icon icon-1"><i class="fa-solid fa-code"></i></div>
+                <div class="orbiting-icon icon-2"><i class="fa-solid fa-calculator"></i></div>
+                <div class="orbiting-icon icon-3"><i class="fa-solid fa-atom"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         SUBJECTS SECTION
+    =========================== -->
+    <section class="subjects-section" id="subjects">
+        <h2 class="section-title">
+            Explore <span>Subjects</span>
+        </h2>
+        <div id="subjectsContainer">
+            <!-- JS dynamically injects cards here -->
+            
+            <!-- Example of structural target layout for your JS styles -->
+            <!-- 
+            <div class="subject-card">
+                <div>
+                    <div class="subject-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <span class="course-code">CS201</span>
+                    <h3>Data Structures</h3>
+                    <p>Master arrays, trees, graphs, and algorithm optimization mechanics.</p>
+                </div>
+                <button class="btn btn-view">View Notes <i class="fa-solid fa-arrow-right"></i></button>
+            </div> 
+            -->
+        </div>
+    </section>
+
+    <!-- ===========================
+         FOOTER
+    =========================== -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h2>NotesPortal</h2>
+            </div>
+            <p>Designed for modern student workflows. Access your materials anytime, anywhere.</p>
+            <div class="footer-bottom">
+                &copy; 2026 Student Notes Portal • All Rights Reserved
+            </div>
+        </div>
+    </footer >
+
+    <!-- ===========================
+         JAVASCRIPT
+    =========================== -->
+    <script src="js/subjects.js"></script>
+    <script src="js/script.js"></script>
 </body>
-
 </html>
