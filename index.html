@@ -6,27 +6,28 @@
     <title>Student Notes Portal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Animated Glow Background Blobs -->
-    <div class="glow-blob blob-1"></div>
-    <div class="glow-blob blob-2"></div>
-    <div class="glow-blob blob-3"></div>
+    <!-- Subtle Premium Background Gradients -->
+    <div class="light-orb orb-purple"></div>
+    <div class="light-orb orb-mint"></div>
 
     <!-- ===========================
          NAVBAR
     =========================== -->
     <header class="navbar">
         <div class="logo">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <span>Notes<span class="highlight">Portal</span></span>
+            <div class="logo-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <span>Notes<span class="brand-accent">Hub</span></span>
         </div>
         <div class="menu-btn" id="menuBtn">
-            <i class="fa-solid fa-bars-staggered"></i>
+            <i class="fa-solid fa-bars"></i>
         </div>
         <ul class="nav-links" id="navMenu">
             <li><a href="index.html" class="active-link">Home</a></li>
@@ -39,25 +40,34 @@
     =========================== -->
     <section class="hero">
         <div class="hero-text">
-            <div class="badge">
-                <i class="fa-solid fa-star text-flat"></i> II Year • I Semester
+            <div class="semester-pill">
+                <span class="pulse-dot"></span> II Year • I Semester
             </div>
-            <h1>Your Academic <br>Universe <span>Simplified.</span></h1>
+            <h1>Your notes, <br>perfectly organized.</h1>
             <p>
-                Access your syllabus, crisp class notes, and high-yield study materials instantly from any device. 
+                Ditch the messy binders. Access all your syllabus materials, high-yield class notes, and blueprints in a beautiful layout designed for study sessions.
             </p>
-            <div class="search-box">
+            <div class="search-container">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                <input type="text" id="searchInput" placeholder="Search by subject name or course code...">
+                <input type="text" id="searchInput" placeholder="Search by topic, name, or code...">
+                <button class="search-btn">Find</button>
             </div>
         </div>
         
-        <div class="hero-image">
-            <div class="hero-circle">
-                <i class="fa-solid fa-book-open-reader"></i>
-                <div class="orbiting-icon icon-1"><i class="fa-solid fa-code"></i></div>
-                <div class="orbiting-icon icon-2"><i class="fa-solid fa-calculator"></i></div>
-                <div class="orbiting-icon icon-3"><i class="fa-solid fa-atom"></i></div>
+        <div class="hero-graphics">
+            <div class="bento-preview-card card-large">
+                <div class="preview-header">
+                    <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+                </div>
+                <div class="preview-content">
+                    <i class="fa-solid fa-chart-line graphic-icon"></i>
+                    <h4>Smart Analytics</h4>
+                    <p>Track your semester preparation progress efficiently.</p>
+                </div>
+            </div>
+            <div class="bento-preview-card card-small">
+                <i class="fa-solid fa-bolt icon-flash"></i>
+                <span>Quick Access</span>
             </div>
         </div>
     </section>
@@ -66,22 +76,23 @@
          SUBJECTS SECTION
     =========================== -->
     <section class="subjects-section" id="subjects">
-        <h2 class="section-title">
-            Explore <span>Subjects</span>
-        </h2>
+        <div class="section-header">
+            <h2>Explore Available <span>Subjects</span></h2>
+            <p>Select a subject card to view chapters, question banks, and PDF resources.</p>
+        </div>
         <div id="subjectsContainer">
             <!-- JS dynamically injects cards here -->
             
-            <!-- Example of structural target layout for your JS styles -->
+            <!-- Structural reference template for JS architecture -->
             <!-- 
             <div class="subject-card">
-                <div>
-                    <div class="subject-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                <div class="card-top">
+                    <div class="subject-icon-box"><i class="fa-solid fa-laptop-code"></i></div>
                     <span class="course-code">CS201</span>
-                    <h3>Data Structures</h3>
-                    <p>Master arrays, trees, graphs, and algorithm optimization mechanics.</p>
                 </div>
-                <button class="btn btn-view">View Notes <i class="fa-solid fa-arrow-right"></i></button>
+                <h3>Data Structures</h3>
+                <p>Master arrays, trees, graphs, and memory architecture mechanics.</p>
+                <button class="btn btn-view">Open Library <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
             </div> 
             -->
         </div>
@@ -92,16 +103,18 @@
     =========================== -->
     <footer>
         <div class="footer-container">
-            <div class="footer-logo">
-                <i class="fa-solid fa-graduation-cap"></i>
-                <h2>NotesPortal</h2>
+            <div class="footer-top">
+                <div class="logo">
+                    <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <span>NotesHub</span>
+                </div>
+                <p>Curated study ecosystem built cleanly for modern students.</p>
             </div>
-            <p>Designed for modern student workflows. Access your materials anytime, anywhere.</p>
             <div class="footer-bottom">
-                &copy; 2026 Student Notes Portal • All Rights Reserved
+                &copy; 2026 NotesHub Portal • Crafted for excellence.
             </div>
         </div>
-    </footer >
+    </footer>
 
     <!-- ===========================
          JAVASCRIPT
