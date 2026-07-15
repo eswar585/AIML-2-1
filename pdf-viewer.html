@@ -4,95 +4,130 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>PDF Viewer</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
 
     <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-    <style>
-
-        body{
-            background:#f5f7fb;
-        }
-
-        .viewer-container{
-            max-width:1400px;
-            margin:40px auto;
-            padding:20px;
-        }
-
-        .viewer-header{
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            flex-wrap:wrap;
-            gap:15px;
-            margin-bottom:20px;
-        }
-
-        .viewer-buttons{
-            display:flex;
-            gap:10px;
-            flex-wrap:wrap;
-        }
-
-        iframe{
-            width:100%;
-            height:85vh;
-            border:none;
-            border-radius:15px;
-            background:white;
-            box-shadow:0 15px 35px rgba(0,0,0,.1);
-        }
-
-        @media(max-width:768px){
-            iframe{
-                height:75vh;
-            }
-        }
-
-    </style>
+    <link rel="stylesheet"
+          href="css/style.css">
 
 </head>
 
 <body>
 
-<div class="viewer-container">
+<header class="header">
 
-    <div class="viewer-header">
+    <div class="container">
 
-        <h2 id="pdfTitle">PDF Viewer</h2>
+        <nav class="navbar">
 
-        <div class="viewer-buttons">
+            <a href="index.html" class="logo">
 
-            <button id="backButton" class="btn btn-view">
+                <i class="fa-solid fa-graduation-cap"></i>
+
+                <span>Student Notes Portal</span>
+
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+<section class="viewer-page">
+
+    <div class="container">
+
+        <div class="viewer-header">
+
+            <a
+                id="backButton"
+                class="btn btn-view">
+
                 <i class="fa-solid fa-arrow-left"></i>
-                Back
-            </button>
 
-            <a id="downloadPDF"
-               class="btn btn-download"
-               download>
+                &nbsp; Back
+
+            </a>
+
+            <h2 id="pdfTitle">
+
+                Loading PDF...
+
+            </h2>
+
+            <a
+                id="downloadBtn"
+                class="btn btn-download"
+                download>
 
                 <i class="fa-solid fa-download"></i>
-                Download
+
+                &nbsp; Download
 
             </a>
 
         </div>
 
+        <iframe
+
+            id="pdfFrame"
+
+            title="PDF Viewer">
+
+        </iframe>
+
     </div>
 
-    <iframe id="pdfFrame"></iframe>
+</section>
 
-</div>
+<footer>
+
+    <div class="container">
+
+        <div class="footer-content">
+
+            <div class="footer-logo">
+
+                <i class="fa-solid fa-graduation-cap"></i>
+
+                Student Notes Portal
+
+            </div>
+
+            <p>
+
+                View your syllabus and notes online anytime.
+
+            </p>
+
+            <div class="footer-bottom">
+
+                © 2026 Student Notes Portal
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
 
 <script src="js/pdf-viewer.js"></script>
 
