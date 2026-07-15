@@ -26,9 +26,26 @@ const subjects = [
 
         syllabus: "pdfs/syllabus/25AM201.pdf",
 
-        notesAvailable: false,
+        notesAvailable: true,
 
-        notes: []
+        notes: [
+
+            {
+                title: "Lecture 01 - Data Structures",
+                file: "pdfs/notes/25AM201/Lec_01(Data_structures).pdf"
+            },
+
+            {
+                title: "Lecture 02 - Linear Search",
+                file: "pdfs/notes/25AM201/Lec_02(Linear_search).pdf"
+            },
+
+            {
+                title: "Lecture 03 - Binary Search",
+                file: "pdfs/notes/25AM201/Lec_03(Binary_search).pdf"
+            }
+
+        ]
     },
 
     {
