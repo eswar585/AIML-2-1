@@ -2,155 +2,134 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subject Details</title>
-
-    <link rel="stylesheet"
-          href="css/style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet">
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
+    <meta name="description" content="Student Notes Portal">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<header class="navbar">
-
-    <div class="logo">
-
-        <i class="fa-solid fa-graduation-cap"></i>
-
-        Student Notes Portal
-
-    </div>
-
-    <a href="index.html" class="primary-btn">
-
-        <i class="fa-solid fa-arrow-left"></i>
-
-        Home
-
-    </a>
-
-</header>
-
-
-
-<!-- SUBJECT HEADER -->
-
-<section class="hero subject-hero">
-
-    <div class="hero-text">
-
-        <span class="semester">
-
-            II YEAR • I SEMESTER
-
-        </span>
-
-        <h1 id="subjectName">
-
-            Loading...
-
-        </h1>
-
-        <p id="subjectCode">
-
-            Course Code
-
-        </p>
-
-    </div>
-
-</section>
-
-
-
-<!-- MAIN CONTENT -->
-
-<section class="subject-content">
-
-    <!-- SYLLABUS -->
-
-    <div class="subject-card">
-
-        <h2>
-
-            <i class="fa-solid fa-file-pdf"></i>
-
-            Syllabus
-
-        </h2>
-
-        <div class="button-group">
-
-            <a id="viewSyllabus"
-
-               class="btn btn-view"
-
-               target="_blank">
-
-                👁 View Online
-
-            </a>
-
-            <a id="downloadSyllabus"
-
-               class="btn btn-download"
-
-               download>
-
-                ⬇ Download PDF
-
-            </a>
-
+    <!-- ===========================
+            HEADER
+    =========================== -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Student Notes Portal</span>
+                </a>
+                
+                <!-- FIXED: Added missing navigation links container so the mobile hamburger menu works -->
+                <ul class="nav-links" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#subjects" class="active">Subjects</a></li>
+                </ul>
+                
+                <button class="menu-btn" id="menuBtn" aria-label="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </nav>
         </div>
+    </header>
 
-    </div>
-
-
-
-    <!-- NOTES -->
-
-    <div class="subject-card">
-
-        <h2>
-
-            <i class="fa-solid fa-book"></i>
-
-            Class Notes
-
-        </h2>
-
-        <div id="notesContainer">
-
+    <!-- ===========================
+            SUBJECT HERO
+    =========================== -->
+    <section class="subject-hero">
+        <div class="container">
+            <a href="index.html" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back to Subjects
+            </a>
+            <div class="subject-header">
+                <h1 id="subjectName">Loading...</h1>
+                <p id="subjectCode">Loading...</p>
+            </div>
         </div>
+    </section>
 
-    </div>
+    <!-- ===========================
+            SUBJECT CONTENT
+    =========================== -->
+    <section class="subject-content">
+        <div class="container">
+            
+            <!-- Syllabus Card -->
+            <div class="content-card">
+                <h2>
+                    <i class="fa-solid fa-file-pdf"></i>
+                    Subject Syllabus
+                </h2>
+                <div class="button-group">
+                    <a id="viewSyllabus" class="btn btn-view">
+                        <i class="fa-solid fa-eye"></i>
+                        View Online
+                    </a>
+                    <a id="downloadSyllabus" class="btn btn-download" download>
+                        <i class="fa-solid fa-download"></i>
+                        Download PDF
+                    </a>
+                </div>
+            </div>
 
-</section>
+            <!-- Notes Card -->
+            <div class="content-card">
+                <h2>
+                    <i class="fa-solid fa-book-open"></i>
+                    Class Notes
+                </h2>
+                <div id="notesContainer">
+                    <!-- subject.js loads notes here -->
+                </div>
+            </div>
+            
+        </div>
+    </section>
 
-<footer>
+    <!-- ===========================
+            FOOTER
+    =========================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    Student Notes Portal
+                </div>
+                <p>Access your syllabus and class notes anytime, anywhere.</p>
+                <div class="footer-bottom">
+                    &copy; 2026 Student Notes Portal | All Rights Reserved
+                </div>
+            </div>
+        </div>
+    </footer>
 
-    © 2026 Student Notes Portal
+    <!-- ===========================
+            JAVASCRIPT
+    =========================== -->
+    <script src="js/subjects.js"></script>
+    <script src="js/subject.js"></script>
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const navMenu = document.getElementById("navMenu");
 
-</footer>
-
-
-
-<script src="js/subjects.js"></script>
-
-<script src="js/subject.js"></script>
-
+        if (menuBtn && navMenu) {
+            menuBtn.addEventListener("click", () => {
+                navMenu.classList.toggle("active");
+            });
+        }
+    </script>
 </body>
 
 </html>
