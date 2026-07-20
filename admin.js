@@ -1,9 +1,18 @@
 // ==========================================
 // STUDENT NOTES PORTAL
-// ADMIN DASHBOARD
+// ADMIN.JS
 // ==========================================
 
-import { auth, db } from "./firebase.js";
+
+// ==========================================
+// FIREBASE IMPORTS
+// ==========================================
+
+import {
+    auth,
+    db
+} from "./firebase.js";
+
 
 import {
     signInWithEmailAndPassword,
@@ -11,53 +20,71 @@ import {
     signOut
 } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 
+
 import {
     collection,
     addDoc,
     getDocs,
     deleteDoc,
     doc,
-    serverTimestamp,
     query,
-    orderBy
+    orderBy,
+    serverTimestamp
 } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
 
 // ==========================================
-// ELEMENTS
+// HTML ELEMENTS
 // ==========================================
 
-const loginSection = document.getElementById("loginSection");
+const loginSection =
+    document.getElementById("loginSection");
+
 
 const dashboardSection =
     document.getElementById("dashboardSection");
 
+
 const loginForm =
     document.getElementById("loginForm");
 
-const noteForm =
-    document.getElementById("noteForm");
 
 const logoutBtn =
     document.getElementById("logoutBtn");
 
+
 const loginMessage =
     document.getElementById("loginMessage");
 
+
+const noteForm =
+    document.getElementById("noteForm");
+
+
 const noteMessage =
     document.getElementById("noteMessage");
+
 
 const notesList =
     document.getElementById("notesList");
 
 
 // ==========================================
-// INITIAL STATE
+// INITIAL PAGE STATE
 // ==========================================
 
-dashboardSection.style.display = "none";
+if (dashboardSection) {
 
-logoutBtn.style.display = "none";
+    dashboardSection.style.display = "none";
+
+}
+
+
+if (logoutBtn) {
+
+    logoutBtn.style.display = "none";
+
+}
 
 
 // ==========================================
@@ -66,23 +93,60 @@ logoutBtn.style.display = "none";
 
 onAuthStateChanged(auth, (user) => {
 
+
     if (user) {
 
-        loginSection.style.display = "none";
 
-        dashboardSection.style.display = "block";
+        // USER IS LOGGED IN
 
-        logoutBtn.style.display = "inline-flex";
+        if (loginSection) {
+
+            loginSection.style.display = "none";
+
+        }
+
+
+        if (dashboardSection) {
+
+            dashboardSection.style.display = "block";
+
+        }
+
+
+        if (logoutBtn) {
+
+            logoutBtn.style.display = "flex";
+
+        }
+
 
         loadNotes();
 
+
     } else {
 
-        loginSection.style.display = "block";
 
-        dashboardSection.style.display = "none";
+        // USER IS LOGGED OUT
 
-        logoutBtn.style.display = "none";
+        if (loginSection) {
+
+            loginSection.style.display = "flex";
+
+        }
+
+
+        if (dashboardSection) {
+
+            dashboardSection.style.display = "none";
+
+        }
+
+
+        if (logoutBtn) {
+
+            logoutBtn.style.display = "none";
+
+        }
 
     }
 
@@ -93,136 +157,281 @@ onAuthStateChanged(auth, (user) => {
 // ADMIN LOGIN
 // ==========================================
 
-loginForm.addEventListener("submit", async (event) => {
-
-    event.preventDefault();
-
-    const email =
-        document.getElementById("email").value.trim();
-
-    const password =
-        document.getElementById("password").value;
+if (loginForm) {
 
 
-    loginMessage.textContent = "Logging in...";
+    loginForm.addEventListener(
+
+        "submit",
+
+        async (event) => {
 
 
-    try {
+            event.preventDefault();
 
-        await signInWithEmailAndPassword(
-            auth,
-            email,
-            password
-        );
 
-        loginMessage.textContent = "";
+            const email =
+                document.getElementById("email").value.trim();
 
-    } catch (error) {
 
-        console.error(error);
+            const password =
+                document.getElementById("password").value;
 
-        loginMessage.textContent =
-            "Login failed. Check your email and password.";
 
-    }
+            loginMessage.textContent =
+                "Logging in...";
 
-});
+
+            loginMessage.className =
+                "login-message loading";
+
+
+            try {
+
+
+                await signInWithEmailAndPassword(
+
+                    auth,
+
+                    email,
+
+                    password
+
+                );
+
+
+                loginMessage.textContent =
+                    "Login successful!";
+
+
+                loginMessage.className =
+                    "login-message success";
+
+
+            }
+
+
+            catch (error) {
+
+
+                console.error(error);
+
+
+                loginMessage.textContent =
+                    "Invalid email or password.";
+
+
+                loginMessage.className =
+                    "login-message error";
+
+
+            }
+
+        }
+
+    );
+
+}
 
 
 // ==========================================
 // LOGOUT
 // ==========================================
 
-logoutBtn.addEventListener("click", async () => {
+if (logoutBtn) {
 
-    try {
 
-        await signOut(auth);
+    logoutBtn.addEventListener(
 
-    } catch (error) {
+        "click",
 
-        console.error(error);
+        async () => {
 
-    }
 
-});
+            try {
+
+
+                await signOut(auth);
+
+
+                window.location.reload();
+
+
+            }
+
+
+            catch (error) {
+
+
+                console.error(
+
+                    "Logout error:",
+
+                    error
+
+                );
+
+            }
+
+        }
+
+    );
+
+}
 
 
 // ==========================================
 // ADD NEW NOTE
 // ==========================================
 
-noteForm.addEventListener("submit", async (event) => {
-
-    event.preventDefault();
+if (noteForm) {
 
 
-    const subjectCode =
-        document.getElementById("subjectCode").value;
+    noteForm.addEventListener(
 
-    const title =
-        document.getElementById("noteTitle").value.trim();
+        "submit",
 
-    const fileUrl =
-        document.getElementById("fileUrl").value.trim();
+        async (event) => {
 
 
-    if (!subjectCode || !title || !fileUrl) {
-
-        noteMessage.textContent =
-            "Please fill in all fields.";
-
-        return;
-
-    }
+            event.preventDefault();
 
 
-    noteMessage.textContent =
-        "Adding note...";
+            const subjectCode =
+                document.getElementById(
+
+                    "subjectCode"
+
+                ).value;
 
 
-    try {
+            const noteTitle =
+                document.getElementById(
 
-        await addDoc(
+                    "noteTitle"
 
-            collection(db, "notes"),
+                ).value.trim();
 
-            {
 
-                subjectCode: subjectCode,
+            const fileUrl =
+                document.getElementById(
 
-                title: title,
+                    "fileUrl"
 
-                fileUrl: fileUrl,
+                ).value.trim();
 
-                createdAt: serverTimestamp()
+
+            if (
+
+                !subjectCode ||
+
+                !noteTitle ||
+
+                !fileUrl
+
+            ) {
+
+
+                noteMessage.textContent =
+                    "Please fill all fields.";
+
+
+                noteMessage.className =
+                    "note-message error";
+
+
+                return;
 
             }
 
-        );
+
+            noteMessage.textContent =
+                "Adding note...";
 
 
-        noteMessage.textContent =
-            "Note added successfully!";
+            noteMessage.className =
+                "note-message loading";
 
 
-        noteForm.reset();
+            try {
 
 
-        loadNotes();
+                await addDoc(
+
+                    collection(
+
+                        db,
+
+                        "notes"
+
+                    ),
+
+                    {
 
 
-    } catch (error) {
+                        subjectCode:
 
-        console.error(error);
+                            subjectCode,
 
 
-        noteMessage.textContent =
-            "Failed to add note.";
+                        title:
 
-    }
+                            noteTitle,
 
-});
+
+                        file:
+
+                            fileUrl,
+
+
+                        createdAt:
+
+                            serverTimestamp()
+
+
+                    }
+
+                );
+
+
+                noteMessage.textContent =
+                    "Note added successfully!";
+
+
+                noteMessage.className =
+                    "note-message success";
+
+
+                noteForm.reset();
+
+
+                loadNotes();
+
+
+            }
+
+
+            catch (error) {
+
+
+                console.error(error);
+
+
+                noteMessage.textContent =
+                    "Failed to add note.";
+
+
+                noteMessage.className =
+                    "note-message error";
+
+
+            }
+
+        }
+
+    );
+
+}
 
 
 // ==========================================
@@ -231,17 +440,43 @@ noteForm.addEventListener("submit", async (event) => {
 
 async function loadNotes() {
 
-    notesList.innerHTML =
-        "<p>Loading notes...</p>";
+
+    if (!notesList) return;
+
+
+    notesList.innerHTML = `
+
+        <div class="loading-state">
+
+            <i class="fa-solid fa-spinner fa-spin"></i>
+
+            Loading notes...
+
+        </div>
+
+    `;
 
 
     try {
 
+
         const notesQuery = query(
 
-            collection(db, "notes"),
+            collection(
 
-            orderBy("createdAt", "desc")
+                db,
+
+                "notes"
+
+            ),
+
+            orderBy(
+
+                "createdAt",
+
+                "desc"
+
+            )
 
         );
 
@@ -250,110 +485,175 @@ async function loadNotes() {
             await getDocs(notesQuery);
 
 
-        notesList.innerHTML = "";
-
-
         if (snapshot.empty) {
 
-            notesList.innerHTML =
-                "<p>No notes uploaded yet.</p>";
+
+            notesList.innerHTML = `
+
+                <div class="empty-state">
+
+                    <i class="fa-solid fa-folder-open"></i>
+
+                    <p>No notes uploaded yet.</p>
+
+                </div>
+
+            `;
+
 
             return;
 
         }
 
 
-        snapshot.forEach((documentSnapshot) => {
+        notesList.innerHTML = "";
+
+
+        snapshot.forEach((noteDocument) => {
+
 
             const note =
-                documentSnapshot.data();
+                noteDocument.data();
 
 
             const noteId =
-                documentSnapshot.id;
+                noteDocument.id;
 
 
-            const card =
+            const noteCard =
                 document.createElement("div");
 
 
-            card.className =
+            noteCard.className =
                 "admin-note-item";
 
 
-            card.innerHTML = `
+            noteCard.innerHTML = `
 
-                <div>
+                <div class="note-info">
 
-                    <h3>
+                    <div class="note-file-icon">
 
-                        ${note.title}
+                        <i class="fa-solid fa-file-pdf"></i>
 
-                    </h3>
+                    </div>
 
-                    <p>
+                    <div>
 
-                        Subject Code:
-                        <strong>
+                        <h3>
+
+                            ${note.title}
+
+                        </h3>
+
+                        <p>
+
                             ${note.subjectCode}
-                        </strong>
 
-                    </p>
+                        </p>
 
-                    <small>
-
-                        ${note.fileUrl}
-
-                    </small>
+                    </div>
 
                 </div>
 
 
-                <button
+                <div class="note-actions">
 
-                    class="btn btn-delete"
+                    <a
 
-                    data-id="${noteId}">
+                        href="${note.file}"
 
-                    <i class="fa-solid fa-trash"></i>
+                        target="_blank"
 
-                    Delete
+                        class="btn btn-view">
 
-                </button>
+
+                        <i class="fa-solid fa-eye"></i>
+
+                        View
+
+
+                    </a>
+
+
+                    <button
+
+                        class="btn btn-delete"
+
+                        data-id="${noteId}">
+
+
+                        <i class="fa-solid fa-trash"></i>
+
+                        Delete
+
+
+                    </button>
+
+                </div>
 
             `;
 
 
-            const deleteButton =
-                card.querySelector(".btn-delete");
+            notesList.appendChild(noteCard);
 
-
-            deleteButton.addEventListener(
-
-                "click",
-
-                () => deleteNote(noteId)
-
-            );
-
-
-            notesList.appendChild(card);
 
         });
 
 
-    } catch (error) {
+        // DELETE BUTTONS
+
+        document
+
+            .querySelectorAll(".btn-delete")
+
+            .forEach((button) => {
+
+
+                button.addEventListener(
+
+                    "click",
+
+                    () => {
+
+
+                        deleteNote(
+
+                            button.dataset.id
+
+                        );
+
+
+                    }
+
+                );
+
+
+            });
+
+
+    }
+
+
+    catch (error) {
+
 
         console.error(error);
 
 
         notesList.innerHTML = `
 
-            <p>
+            <div class="empty-state">
 
-                Failed to load notes.
+                <i class="fa-solid fa-triangle-exclamation"></i>
 
-            </p>
+                <p>
+
+                    Failed to load notes.
+
+                </p>
+
+            </div>
 
         `;
 
@@ -368,8 +668,13 @@ async function loadNotes() {
 
 async function deleteNote(noteId) {
 
+
     const confirmDelete =
-        confirm("Are you sure you want to delete this note?");
+        confirm(
+
+            "Are you sure you want to delete this note?"
+
+        );
 
 
     if (!confirmDelete) return;
@@ -377,9 +682,25 @@ async function deleteNote(noteId) {
 
     try {
 
+
         await deleteDoc(
 
-            doc(db, "notes", noteId)
+            doc(
+
+                db,
+
+                "notes",
+
+                noteId
+
+            )
+
+        );
+
+
+        alert(
+
+            "Note deleted successfully."
 
         );
 
@@ -387,12 +708,20 @@ async function deleteNote(noteId) {
         loadNotes();
 
 
-    } catch (error) {
+    }
+
+
+    catch (error) {
+
 
         console.error(error);
 
 
-        alert("Failed to delete note.");
+        alert(
+
+            "Failed to delete note."
+
+        );
 
     }
 
