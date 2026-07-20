@@ -22,7 +22,7 @@ import {
 
 
 // ==========================================
-// GET SUBJECT CODE FROM URL
+// GET COURSE CODE
 // ==========================================
 
 const params =
@@ -104,7 +104,7 @@ if (!subject) {
 
 
 // ==========================================
-// DISPLAY SUBJECT DETAILS
+// DISPLAY SUBJECT
 // ==========================================
 
 document.getElementById(
@@ -166,7 +166,7 @@ downloadBtn.href =
 
 
 // ==========================================
-// LOAD NOTES FROM FIRESTORE
+// NOTES CONTAINER
 // ==========================================
 
 const notesContainer =
@@ -177,6 +177,10 @@ const notesContainer =
 
     );
 
+
+// ==========================================
+// LOAD NOTES
+// ==========================================
 
 async function loadNotes() {
 
@@ -197,7 +201,7 @@ async function loadNotes() {
     try {
 
 
-        // Query Firestore
+        // QUERY ONLY BY SUBJECT CODE
 
         const notesQuery = query(
 
@@ -231,6 +235,15 @@ async function loadNotes() {
             );
 
 
+        console.log(
+
+            "Notes found:",
+
+            snapshot.size
+
+        );
+
+
         // =====================================
         // NO NOTES
         // =====================================
@@ -241,6 +254,7 @@ async function loadNotes() {
             notesContainer.innerHTML = `
 
                 <div class="notes-unavailable">
+
 
                     <i class="fa-solid fa-circle-exclamation"></i>
 
@@ -262,6 +276,7 @@ async function loadNotes() {
 
 
                     </div>
+
 
                 </div>
 
@@ -417,7 +432,7 @@ async function loadNotes() {
 
         console.error(
 
-            "Firestore Notes Error:",
+            "Error loading notes:",
 
             error
 
@@ -445,8 +460,7 @@ async function loadNotes() {
                     <br>
 
 
-                    Please try again later.
-
+                    ${error.message}
 
                 </div>
 
@@ -520,7 +534,7 @@ function escapeHTML(
 
 
 // ==========================================
-// START LOADING NOTES
+// LOAD NOTES
 // ==========================================
 
 loadNotes();
