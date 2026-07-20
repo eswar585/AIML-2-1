@@ -7,21 +7,19 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="description"
+        content="Student Notes Portal - Access your syllabus and class notes easily.">
+
     <title>Student Notes Portal</title>
 
-    <meta name="description"
-        content="Student Notes Portal - Access syllabus and class notes easily.">
 
     <!-- Google Font -->
 
-    <link rel="preconnect"
-        href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
 
@@ -31,10 +29,9 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 
-    <!-- Main CSS -->
+    <!-- Website CSS -->
 
-    <link rel="stylesheet"
-        href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -42,9 +39,9 @@
 <body>
 
 
-    <!-- =========================================
-            HEADER
-    ========================================== -->
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
 
     <header class="header">
 
@@ -55,28 +52,30 @@
 
                 <!-- LOGO -->
 
-                <a href="index.html"
-                    class="logo">
+                <a href="index.html" class="logo">
 
-                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span class="logo-icon">
 
-                    <span>
+                        <i class="fa-solid fa-graduation-cap"></i>
 
-                        Student Notes Portal
+                    </span>
+
+                    <span class="logo-text">
+
+                        Student Notes
 
                     </span>
 
                 </a>
 
 
-                <!-- NAVIGATION -->
+                <!-- DESKTOP NAVIGATION -->
 
-                <ul class="nav-links"
-                    id="navMenu">
+                <ul class="nav-links" id="navMenu">
 
                     <li>
 
-                        <a href="index.html">
+                        <a href="#home" class="active">
 
                             Home
 
@@ -107,13 +106,11 @@
                     </li>
 
 
-                    <!-- ADMIN LINK -->
-
                     <li>
 
                         <a href="admin.html">
 
-                            <i class="fa-solid fa-user-shield"></i>
+                            <i class="fa-solid fa-lock"></i>
 
                             Admin
 
@@ -124,32 +121,19 @@
                 </ul>
 
 
-                <!-- THEME BUTTON -->
+                <!-- MOBILE MENU BUTTON -->
 
                 <button
-
-                    id="themeToggle"
-
-                    class="theme-toggle"
-
-                    aria-label="Toggle dark mode">
-
-                    <i class="fa-solid fa-moon"></i>
-
-                </button>
-
-
-                <!-- MOBILE MENU -->
-
-                <button
-
-                    id="menuBtn"
 
                     class="menu-btn"
 
-                    aria-label="Open menu">
+                    id="menuBtn"
+
+                    aria-label="Open navigation menu">
+
 
                     <i class="fa-solid fa-bars"></i>
+
 
                 </button>
 
@@ -161,21 +145,18 @@
     </header>
 
 
-
-    <!-- =========================================
-            HERO SECTION
-    ========================================== -->
+    <!-- =====================================================
+         HERO SECTION
+    ====================================================== -->
 
     <main>
 
 
-        <section class="hero">
-
+        <section class="hero" id="home">
 
             <div class="container">
 
-
-                <div class="hero-container">
+                <div class="hero-layout">
 
 
                     <!-- HERO CONTENT -->
@@ -183,64 +164,97 @@
                     <div class="hero-content">
 
 
-                        <span class="hero-badge">
+                        <div class="hero-label">
 
-                            <i class="fa-solid fa-sparkles"></i>
+                            <i class="fa-solid fa-book-open"></i>
 
-                            Your Digital Learning Space
+                            YOUR DIGITAL STUDY SPACE
 
-                        </span>
+                        </div>
 
 
                         <h1>
 
-                            Learn Smarter.
+                            Everything you need
 
-                            <br>
-
-                            Study Better.
-
-                            <br>
-
-                            <span>
-
-                                Achieve More.
-
-                            </span>
+                            <span>to learn better.</span>
 
                         </h1>
 
 
                         <p>
 
-                            Access your syllabus and class notes
-                            anytime, anywhere. Everything you need
-                            for your academic journey in one place.
+                            Find your subject syllabus and class notes
+                            in one simple place. Study smarter, stay
+                            organized, and keep learning.
 
                         </p>
 
 
-                        <div class="hero-buttons">
+                        <div class="hero-actions">
 
 
-                            <a href="#subjects"
-                                class="btn btn-view">
+                            <a
 
-                                <i class="fa-solid fa-book-open"></i>
+                                href="#subjects"
+
+                                class="btn btn-primary">
+
 
                                 Explore Subjects
 
+                                <i class="fa-solid fa-arrow-right"></i>
+
+
                             </a>
 
 
-                            <a href="#features"
-                                class="btn btn-outline">
+                            <a
+
+                                href="#features"
+
+                                class="btn btn-secondary">
+
 
                                 Learn More
 
-                                <i class="fa-solid fa-arrow-right"></i>
 
                             </a>
+
+
+                        </div>
+
+
+                        <!-- QUICK INFO -->
+
+                        <div class="hero-info">
+
+
+                            <div class="info-item">
+
+                                <i class="fa-solid fa-circle-check"></i>
+
+                                Easy access
+
+                            </div>
+
+
+                            <div class="info-item">
+
+                                <i class="fa-solid fa-circle-check"></i>
+
+                                Organized notes
+
+                            </div>
+
+
+                            <div class="info-item">
+
+                                <i class="fa-solid fa-circle-check"></i>
+
+                                Study anywhere
+
+                            </div>
 
 
                         </div>
@@ -249,56 +263,133 @@
                     </div>
 
 
-
                     <!-- HERO VISUAL -->
 
                     <div class="hero-visual">
 
 
-                        <div class="hero-card">
+                        <div class="hero-main-card">
 
 
-                            <div class="hero-card-glow"></div>
+                            <div class="hero-card-top">
 
 
-                            <div class="hero-icon">
+                                <span>
 
-                                🎓
+                                    <i class="fa-solid fa-book"></i>
+
+                                </span>
+
+
+                                <span class="status-dot"></span>
+
 
                             </div>
 
 
                             <h3>
 
-                                Keep Learning
+                                Your Learning
+
+                                <br>
+
+                                Starts Here
 
                             </h3>
 
 
                             <p>
 
-                                Your knowledge journey starts here.
+                                Access all your academic resources
+                                from one place.
 
                             </p>
 
 
-                            <div class="floating-element element-one">
+                            <div class="study-progress">
 
-                                📚
+
+                                <div class="progress-header">
+
+                                    <span>
+
+                                        Study Resources
+
+                                    </span>
+
+
+                                    <strong>
+
+                                        Ready
+
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="progress-bar">
+
+                                    <span></span>
+
+                                </div>
+
 
                             </div>
 
 
-                            <div class="floating-element element-two">
+                        </div>
 
-                                ✨
+
+                        <!-- DECORATIVE CARDS -->
+
+
+                        <div class="floating-card floating-card-one">
+
+
+                            <i class="fa-solid fa-file-lines"></i>
+
+
+                            <div>
+
+                                <strong>
+
+                                    Syllabus
+
+                                </strong>
+
+
+                                <small>
+
+                                    Available
+
+                                </small>
 
                             </div>
 
 
-                            <div class="floating-element element-three">
+                        </div>
 
-                                🧠
+
+                        <div class="floating-card floating-card-two">
+
+
+                            <i class="fa-solid fa-note-sticky"></i>
+
+
+                            <div>
+
+                                <strong>
+
+                                    Class Notes
+
+                                </strong>
+
+
+                                <small>
+
+                                    Study materials
+
+                                </small>
 
                             </div>
 
@@ -313,14 +404,12 @@
 
             </div>
 
-
         </section>
 
 
-
-        <!-- =========================================
-                STATS
-        ========================================== -->
+        <!-- =================================================
+             QUICK STATS
+        ================================================== -->
 
         <section class="stats-section">
 
@@ -333,24 +422,28 @@
 
                     <div class="stat-card">
 
+
                         <div class="stat-icon">
 
                             <i class="fa-solid fa-book"></i>
 
                         </div>
 
+
                         <div>
 
-                            <h3>7</h3>
+                            <strong>7</strong>
 
-                            <p>Subjects</p>
+                            <span>Subjects</span>
 
                         </div>
+
 
                     </div>
 
 
                     <div class="stat-card">
+
 
                         <div class="stat-icon">
 
@@ -358,18 +451,21 @@
 
                         </div>
 
+
                         <div>
 
-                            <h3>PDF</h3>
+                            <strong>PDF</strong>
 
-                            <p>Resources</p>
+                            <span>Study Resources</span>
 
                         </div>
+
 
                     </div>
 
 
                     <div class="stat-card">
+
 
                         <div class="stat-icon">
 
@@ -377,13 +473,15 @@
 
                         </div>
 
+
                         <div>
 
-                            <h3>24/7</h3>
+                            <strong>24/7</strong>
 
-                            <p>Access</p>
+                            <span>Access Anywhere</span>
 
                         </div>
+
 
                     </div>
 
@@ -392,28 +490,20 @@
 
             </div>
 
-
         </section>
 
 
+        <!-- =================================================
+             SUBJECTS SECTION
+        ================================================== -->
 
-        <!-- =========================================
-                SUBJECTS SECTION
-        ========================================== -->
-
-        <section
-
-            id="subjects"
-
-            class="subjects-section">
+        <section class="subjects-section" id="subjects">
 
 
             <div class="container">
 
 
-                <!-- SECTION HEADER -->
-
-                <div class="section-header">
+                <div class="section-heading">
 
 
                     <div>
@@ -422,44 +512,37 @@
 
                             <i class="fa-solid fa-layer-group"></i>
 
-                            MY COURSES
+                            MY SUBJECTS
 
                         </span>
 
 
                         <h2>
 
-                            Explore Your Subjects
+                            Choose a subject
 
                         </h2>
 
 
                         <p>
 
-                            Find all your syllabus and class notes
-                            in one organized space.
+                            Select a subject to view its syllabus
+                            and available class notes.
 
                         </p>
 
                     </div>
 
 
-                    <!-- SEARCH -->
+                    <div class="subject-count">
 
-                    <div class="search-box">
+                        <i class="fa-solid fa-book-open"></i>
 
+                        <span id="subjectCount">
 
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                            7 Subjects
 
-
-                        <input
-
-                            type="text"
-
-                            id="searchInput"
-
-                            placeholder="Search subjects...">
-
+                        </span>
 
                     </div>
 
@@ -467,63 +550,69 @@
                 </div>
 
 
+                <!-- SEARCH -->
 
-                <!-- SUBJECT CARDS -->
+                <div class="search-wrapper">
 
-                <div
 
-                    id="subjectsContainer"
+                    <i class="fa-solid fa-magnifying-glass"></i>
 
-                    class="subjects-grid">
 
-                    <!-- Cards created by script.js -->
+                    <input
+
+                        type="text"
+
+                        id="searchInput"
+
+                        placeholder="Search subjects by name or course code..."
+
+                        autocomplete="off">
+
 
                 </div>
 
 
-            </div>
+                <!-- SUBJECTS WILL BE LOADED BY JAVASCRIPT -->
+
+                <div
+
+                    class="subjects-grid"
+
+                    id="subjectsGrid">
 
 
-        </section>
+                    <!-- subjects.js loads subjects here -->
 
 
-
-        <!-- =========================================
-                FEATURES SECTION
-        ========================================== -->
-
-        <section
-
-            id="features"
-
-            class="features-section">
+                </div>
 
 
-            <div class="container">
+                <!-- NO RESULTS -->
+
+                <div
+
+                    id="noResults"
+
+                    class="no-results"
 
 
-                <div class="section-header centered">
+                    style="display: none;">
 
 
-                    <span class="section-label">
-
-                        <i class="fa-solid fa-star"></i>
-
-                        WHY USE THIS PORTAL?
-
-                    </span>
+                    <i class="fa-solid fa-magnifying-glass"></i>
 
 
-                    <h2>
+                    <h3>
 
-                        Everything You Need to Study
+                        No subjects found
 
-                    </h2>
+                    </h3>
 
 
                     <p>
 
-                        Simple, organized and designed for students.
+                        Try searching with another subject name
+                        or course code.
 
                     </p>
 
@@ -531,33 +620,75 @@
                 </div>
 
 
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FEATURES SECTION
+        ================================================== -->
+
+        <section class="features-section" id="features">
+
+
+            <div class="container">
+
+
+                <div class="section-heading centered">
+
+
+                    <span class="section-label">
+
+                        <i class="fa-solid fa-sparkles"></i>
+
+                        SIMPLE. ORGANIZED. USEFUL.
+
+                    </span>
+
+
+                    <h2>
+
+                        Everything in one place
+
+                    </h2>
+
+
+                    <p>
+
+                        Designed to make accessing your study
+                        materials quick and simple.
+
+                    </p>
+
+
+                </div>
+
 
                 <div class="features-grid">
 
-
-                    <!-- FEATURE 1 -->
 
                     <div class="feature-card">
 
 
                         <div class="feature-icon">
 
-                            <i class="fa-solid fa-file-lines"></i>
+                            <i class="fa-solid fa-file-pdf"></i>
 
                         </div>
 
 
                         <h3>
 
-                            Organized Syllabus
+                            View Syllabus
 
                         </h3>
 
 
                         <p>
 
-                            Access the syllabus of every subject
-                            in one convenient place.
+                            Access your complete subject syllabus
+                            online whenever you need it.
 
                         </p>
 
@@ -565,15 +696,12 @@
                     </div>
 
 
-
-                    <!-- FEATURE 2 -->
-
                     <div class="feature-card">
 
 
                         <div class="feature-icon">
 
-                            <i class="fa-solid fa-book-open-reader"></i>
+                            <i class="fa-solid fa-book-open"></i>
 
                         </div>
 
@@ -587,8 +715,8 @@
 
                         <p>
 
-                            Read and download lecture notes
-                            whenever you need them.
+                            Find uploaded lecture notes and study
+                            materials organized by subject.
 
                         </p>
 
@@ -596,30 +724,27 @@
                     </div>
 
 
-
-                    <!-- FEATURE 3 -->
-
                     <div class="feature-card">
 
 
                         <div class="feature-icon">
 
-                            <i class="fa-solid fa-bolt"></i>
+                            <i class="fa-solid fa-download"></i>
 
                         </div>
 
 
                         <h3>
 
-                            Quick Access
+                            Download Easily
 
                         </h3>
 
 
                         <p>
 
-                            Find your study materials quickly
-                            from any device.
+                            Download syllabus and notes to study
+                            even when you are offline.
 
                         </p>
 
@@ -629,9 +754,7 @@
 
                 </div>
 
-
             </div>
-
 
         </section>
 
@@ -639,10 +762,9 @@
     </main>
 
 
-
-    <!-- =========================================
-            FOOTER
-    ========================================== -->
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
 
     <footer>
 
@@ -653,13 +775,21 @@
             <div class="footer-content">
 
 
-                <div class="footer-logo">
+                <div class="footer-brand">
 
 
-                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span class="logo-icon">
+
+                        <i class="fa-solid fa-graduation-cap"></i>
+
+                    </span>
 
 
-                    Student Notes Portal
+                    <strong>
+
+                        Student Notes Portal
+
+                    </strong>
 
 
                 </div>
@@ -667,45 +797,27 @@
 
                 <p>
 
-                    Your personal digital learning space.
+                    Your simple digital space for syllabus
+                    and class notes.
 
                 </p>
-
-
-                <div class="footer-links">
-
-
-                    <a href="index.html">
-
-                        Home
-
-                    </a>
-
-
-                    <a href="#subjects">
-
-                        Subjects
-
-                    </a>
-
-
-                    <a href="admin.html">
-
-                        Admin
-
-                    </a>
-
-                </div>
 
 
                 <div class="footer-bottom">
 
 
-                    © 2026 Student Notes Portal
+                    <span>
 
-                    <span>•</span>
+                        © 2026 Student Notes Portal
 
-                    Built for Students
+                    </span>
+
+
+                    <span>
+
+                        Built for better learning.
+
+                    </span>
 
 
                 </div>
@@ -713,27 +825,446 @@
 
             </div>
 
-
         </div>
-
 
     </footer>
 
 
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
 
-    <!-- =========================================
-            JAVASCRIPT
-    ========================================== -->
-
-
-    <!-- Subjects Database -->
 
     <script src="js/subjects.js"></script>
 
 
-    <!-- Main Script -->
+    <script>
 
-    <script src="js/script.js"></script>
+
+        // =========================================
+        // MOBILE MENU
+        // =========================================
+
+
+        const menuBtn =
+
+            document.getElementById(
+
+                "menuBtn"
+
+            );
+
+
+        const navMenu =
+
+            document.getElementById(
+
+                "navMenu"
+
+            );
+
+
+        if (
+
+            menuBtn &&
+
+            navMenu
+
+        ) {
+
+
+            menuBtn.addEventListener(
+
+                "click",
+
+                () => {
+
+
+                    navMenu.classList.toggle(
+
+                        "active"
+
+                    );
+
+
+                    const icon =
+
+                        menuBtn.querySelector(
+
+                            "i"
+
+                        );
+
+
+                    if (
+
+                        navMenu.classList.contains(
+
+                            "active"
+
+                        )
+
+                    ) {
+
+
+                        icon.className =
+
+                            "fa-solid fa-xmark";
+
+
+                    } else {
+
+
+                        icon.className =
+
+                            "fa-solid fa-bars";
+
+
+                    }
+
+
+                }
+
+            );
+
+
+            // Close menu after clicking link
+
+
+            navMenu
+
+                .querySelectorAll(
+
+                    "a"
+
+                )
+
+                .forEach(
+
+                    link => {
+
+
+                        link.addEventListener(
+
+                            "click",
+
+                            () => {
+
+
+                                navMenu.classList.remove(
+
+                                    "active"
+
+                                );
+
+
+                                const icon =
+
+                                    menuBtn.querySelector(
+
+                                        "i"
+
+                                    );
+
+
+                                icon.className =
+
+                                    "fa-solid fa-bars";
+
+
+                            }
+
+                        );
+
+
+                    }
+
+                );
+
+        }
+
+
+        // =========================================
+        // SUBJECT DISPLAY
+        // =========================================
+
+
+        const subjectsGrid =
+
+            document.getElementById(
+
+                "subjectsGrid"
+
+            );
+
+
+        const searchInput =
+
+            document.getElementById(
+
+                "searchInput"
+
+            );
+
+
+        const noResults =
+
+            document.getElementById(
+
+                "noResults"
+
+            );
+
+
+        const subjectCount =
+
+            document.getElementById(
+
+                "subjectCount"
+
+            );
+
+
+        function displaySubjects(
+
+            subjectList
+
+        ) {
+
+
+            subjectsGrid.innerHTML = "";
+
+
+            if (
+
+                subjectList.length === 0
+
+            ) {
+
+
+                noResults.style.display =
+
+                    "block";
+
+
+                return;
+
+
+            }
+
+
+            noResults.style.display =
+
+                "none";
+
+
+            subjectCount.textContent =
+
+                `${subjectList.length} Subject${
+
+                    subjectList.length !== 1
+
+                        ? "s"
+
+                        : ""
+
+                }`;
+
+
+            subjectList.forEach(
+
+                subject => {
+
+
+                    const card =
+
+                        document.createElement(
+
+                            "article"
+
+                        );
+
+
+                    card.className =
+
+                        "subject-card";
+
+
+                    card.innerHTML = `
+
+
+                        <div class="subject-card-header">
+
+
+                            <div class="subject-icon">
+
+                                ${subject.icon}
+
+                            </div>
+
+
+                            <span class="course-code">
+
+                                ${subject.code}
+
+                            </span>
+
+
+                        </div>
+
+
+                        <h3>
+
+                            ${subject.name}
+
+                        </h3>
+
+
+                        <p>
+
+                            Access syllabus and class notes
+                            for this subject.
+
+                        </p>
+
+
+                        <div class="subject-card-footer">
+
+
+                            <a
+
+                                href="subject.html?code=${subject.code}"
+
+                                class="subject-link">
+
+
+                                View Subject
+
+
+                                <i class="fa-solid fa-arrow-right"></i>
+
+
+                            </a>
+
+
+                        </div>
+
+
+                    `;
+
+
+                    subjectsGrid.appendChild(
+
+                        card
+
+                    );
+
+
+                }
+
+            );
+
+        }
+
+
+        // Initial display
+
+
+        if (
+
+            typeof subjects !==
+
+            "undefined"
+
+        ) {
+
+
+            displaySubjects(
+
+                subjects
+
+            );
+
+        }
+
+
+        // =========================================
+        // SEARCH
+        // =========================================
+
+
+        if (
+
+            searchInput
+
+        ) {
+
+
+            searchInput.addEventListener(
+
+                "input",
+
+                function () {
+
+
+                    const searchTerm =
+
+                        this.value
+
+                            .toLowerCase()
+
+                            .trim();
+
+
+                    const filteredSubjects =
+
+                        subjects.filter(
+
+                            subject =>
+
+
+                                subject.name
+
+                                    .toLowerCase()
+
+                                    .includes(
+
+                                        searchTerm
+
+                                    )
+
+
+                                ||
+
+
+                                subject.code
+
+                                    .toLowerCase()
+
+                                    .includes(
+
+                                        searchTerm
+
+                                    )
+
+                        );
+
+
+                    displaySubjects(
+
+                        filteredSubjects
+
+                    );
+
+
+                }
+
+            );
+
+        }
+
+
+    </script>
 
 
 </body>
