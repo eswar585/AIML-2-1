@@ -2,134 +2,517 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subject Details</title>
-    <meta name="description" content="Student Notes Portal">
-    
-    <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+
+    <title>
+
+        Subject Details | Student Notes Portal
+
+    </title>
+
+
+    <meta name="description"
+        content="Student Notes Portal - Access syllabus and class notes">
+
+
+    <!-- =========================================
+            GOOGLE FONTS
+    ========================================== -->
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- =========================================
+            FONT AWESOME
+    ========================================== -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+    <!-- =========================================
+            WEBSITE CSS
+    ========================================== -->
+
+    <link rel="stylesheet"
+        href="css/style.css">
+
 </head>
+
 
 <body>
 
-    <!-- ===========================
+
+    <!-- =========================================
             HEADER
-    =========================== -->
+    ========================================== -->
+
     <header class="header">
+
+
         <div class="container">
+
+
             <nav class="navbar">
-                <a href="index.html" class="logo">
+
+
+                <!-- LOGO -->
+
+                <a href="index.html"
+                    class="logo">
+
+
                     <i class="fa-solid fa-graduation-cap"></i>
-                    <span>Student Notes Portal</span>
+
+
+                    <span>
+
+                        Student Notes Portal
+
+                    </span>
+
+
                 </a>
-                
-                <!-- FIXED: Added missing navigation links container so the mobile hamburger menu works -->
-                <ul class="nav-links" id="navMenu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#subjects" class="active">Subjects</a></li>
+
+
+
+                <!-- NAVIGATION -->
+
+                <ul class="nav-links"
+                    id="navMenu">
+
+
+                    <li>
+
+
+                        <a href="index.html">
+
+                            Home
+
+                        </a>
+
+
+                    </li>
+
+
+                    <li>
+
+
+                        <a href="index.html#subjects"
+                            class="active">
+
+                            Subjects
+
+                        </a>
+
+
+                    </li>
+
+
+                    <li>
+
+
+                        <a href="admin.html">
+
+                            <i class="fa-solid fa-user-shield"></i>
+
+                            Admin
+
+                        </a>
+
+
+                    </li>
+
+
                 </ul>
-                
-                <button class="menu-btn" id="menuBtn" aria-label="Toggle Navigation Menu">
+
+
+
+                <!-- MOBILE MENU BUTTON -->
+
+                <button
+
+                    class="menu-btn"
+
+                    id="menuBtn"
+
+                    aria-label="Toggle Navigation Menu">
+
+
                     <i class="fa-solid fa-bars"></i>
+
+
                 </button>
+
+
             </nav>
+
+
         </div>
+
+
     </header>
 
-    <!-- ===========================
+
+
+    <!-- =========================================
             SUBJECT HERO
-    =========================== -->
+    ========================================== -->
+
     <section class="subject-hero">
+
+
         <div class="container">
-            <a href="index.html" class="back-btn">
+
+
+            <!-- BACK BUTTON -->
+
+            <a href="index.html"
+                class="back-btn">
+
+
                 <i class="fa-solid fa-arrow-left"></i>
+
+
                 Back to Subjects
+
+
             </a>
+
+
+
+            <!-- SUBJECT INFORMATION -->
+
             <div class="subject-header">
-                <h1 id="subjectName">Loading...</h1>
-                <p id="subjectCode">Loading...</p>
+
+
+                <h1 id="subjectName">
+
+                    Loading...
+
+                </h1>
+
+
+                <p id="subjectCode">
+
+                    Loading...
+
+                </p>
+
+
             </div>
+
+
         </div>
+
+
     </section>
 
-    <!-- ===========================
+
+
+    <!-- =========================================
             SUBJECT CONTENT
-    =========================== -->
+    ========================================== -->
+
     <section class="subject-content">
+
+
         <div class="container">
-            
-            <!-- Syllabus Card -->
+
+
+            <!-- =================================
+                    SYLLABUS CARD
+            ================================== -->
+
             <div class="content-card">
-                <h2>
-                    <i class="fa-solid fa-file-pdf"></i>
-                    Subject Syllabus
-                </h2>
-                <div class="button-group">
-                    <a id="viewSyllabus" class="btn btn-view">
-                        <i class="fa-solid fa-eye"></i>
-                        View Online
-                    </a>
-                    <a id="downloadSyllabus" class="btn btn-download" download>
-                        <i class="fa-solid fa-download"></i>
-                        Download PDF
-                    </a>
+
+
+                <div class="content-card-heading">
+
+
+                    <div class="content-icon syllabus-icon">
+
+
+                        <i class="fa-solid fa-file-pdf"></i>
+
+
+                    </div>
+
+
+                    <div>
+
+
+                        <h2>
+
+                            Subject Syllabus
+
+                        </h2>
+
+
+                        <p>
+
+                            View or download the complete syllabus.
+
+                        </p>
+
+
+                    </div>
+
+
                 </div>
+
+
+
+                <div class="button-group">
+
+
+                    <a
+
+                        id="viewSyllabus"
+
+                        class="btn btn-view">
+
+
+                        <i class="fa-solid fa-eye"></i>
+
+
+                        View Online
+
+
+                    </a>
+
+
+
+                    <a
+
+                        id="downloadSyllabus"
+
+                        class="btn btn-download"
+
+                        download>
+
+
+                        <i class="fa-solid fa-download"></i>
+
+
+                        Download PDF
+
+
+                    </a>
+
+
+                </div>
+
+
             </div>
 
-            <!-- Notes Card -->
+
+
+            <!-- =================================
+                    NOTES CARD
+            ================================== -->
+
             <div class="content-card">
-                <h2>
-                    <i class="fa-solid fa-book-open"></i>
-                    Class Notes
-                </h2>
-                <div id="notesContainer">
-                    <!-- subject.js loads notes here -->
+
+
+                <div class="content-card-heading">
+
+
+                    <div class="content-icon notes-icon">
+
+
+                        <i class="fa-solid fa-book-open"></i>
+
+
+                    </div>
+
+
+                    <div>
+
+
+                        <h2>
+
+                            Class Notes
+
+                        </h2>
+
+
+                        <p>
+
+                            Access lecture notes uploaded by the admin.
+
+                        </p>
+
+
+                    </div>
+
+
                 </div>
+
+
+
+                <div
+
+                    id="notesContainer">
+
+
+                    <!--
+
+                        Notes will be loaded
+                        from Firestore by subject.js
+
+                    -->
+
+
+                </div>
+
+
             </div>
-            
+
+
         </div>
+
+
     </section>
 
-    <!-- ===========================
+
+
+    <!-- =========================================
             FOOTER
-    =========================== -->
+    ========================================== -->
+
     <footer>
+
+
         <div class="container">
+
+
             <div class="footer-content">
+
+
                 <div class="footer-logo">
+
+
                     <i class="fa-solid fa-graduation-cap"></i>
+
+
                     Student Notes Portal
+
+
                 </div>
-                <p>Access your syllabus and class notes anytime, anywhere.</p>
+
+
+                <p>
+
+                    Access your syllabus and class notes
+                    anytime, anywhere.
+
+                </p>
+
+
                 <div class="footer-bottom">
-                    &copy; 2026 Student Notes Portal | All Rights Reserved
+
+
+                    &copy; 2026 Student Notes Portal
+
+                    <span>•</span>
+
+                    All Rights Reserved
+
+
                 </div>
+
+
             </div>
+
+
         </div>
+
+
     </footer>
 
-    <!-- ===========================
+
+
+    <!-- =========================================
             JAVASCRIPT
-    =========================== -->
+    ========================================== -->
+
+
+    <!-- SUBJECT DATABASE -->
+
     <script src="js/subjects.js"></script>
-    <script src="js/subject.js"></script>
+
+
+
+    <!-- SUBJECT SCRIPT -->
+
+    <!-- IMPORTANT:
+         type="module" is required because
+         subject.js imports Firebase -->
+
+    <script
+
+        type="module"
+
+        src="js/subject.js">
+
+    </script>
+
+
+
+    <!-- MOBILE MENU -->
+
     <script>
-        const menuBtn = document.getElementById("menuBtn");
-        const navMenu = document.getElementById("navMenu");
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+
+        const navMenu =
+            document.getElementById("navMenu");
+
 
         if (menuBtn && navMenu) {
-            menuBtn.addEventListener("click", () => {
-                navMenu.classList.toggle("active");
-            });
+
+
+            menuBtn.addEventListener(
+
+                "click",
+
+                () => {
+
+
+                    navMenu.classList.toggle(
+
+                        "active"
+
+                    );
+
+
+                }
+
+            );
+
+
         }
+
+
     </script>
+
+
 </body>
 
 </html>
