@@ -2,181 +2,740 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Student Notes Portal</title>
-    <meta name="description" content="Student Notes Portal for II Year I Semester">
-    
-    <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+
+    <meta name="description"
+        content="Student Notes Portal - Access syllabus and class notes easily.">
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+    <!-- Main CSS -->
+
+    <link rel="stylesheet"
+        href="css/style.css">
+
 </head>
+
 
 <body>
 
-    <!--==============================
+
+    <!-- =========================================
             HEADER
-    ===============================-->
+    ========================================== -->
+
     <header class="header">
+
         <div class="container">
+
             <nav class="navbar">
-                <a href="index.html" class="logo">
+
+
+                <!-- LOGO -->
+
+                <a href="index.html"
+                    class="logo">
+
                     <i class="fa-solid fa-graduation-cap"></i>
-                    <span>Student Notes Portal</span>
+
+                    <span>
+
+                        Student Notes Portal
+
+                    </span>
+
                 </a>
-                <ul class="nav-links" id="navMenu">
+
+
+                <!-- NAVIGATION -->
+
+                <ul class="nav-links"
+                    id="navMenu">
+
                     <li>
-                        <a href="index.html" class="active">Home</a>
+
+                        <a href="index.html">
+
+                            Home
+
+                        </a>
+
                     </li>
+
+
                     <li>
-                        <a href="#subjects">Subjects</a>
+
+                        <a href="#subjects">
+
+                            Subjects
+
+                        </a>
+
                     </li>
+
+
+                    <li>
+
+                        <a href="#features">
+
+                            Features
+
+                        </a>
+
+                    </li>
+
+
+                    <!-- ADMIN LINK -->
+
+                    <li>
+
+                        <a href="admin.html">
+
+                            <i class="fa-solid fa-user-shield"></i>
+
+                            Admin
+
+                        </a>
+
+                    </li>
+
                 </ul>
-                <button class="menu-btn" id="menuBtn" aria-label="Toggle Navigation Menu">
-                    <i class="fa-solid fa-bars"></i>
+
+
+                <!-- THEME BUTTON -->
+
+                <button
+
+                    id="themeToggle"
+
+                    class="theme-toggle"
+
+                    aria-label="Toggle dark mode">
+
+                    <i class="fa-solid fa-moon"></i>
+
                 </button>
+
+
+                <!-- MOBILE MENU -->
+
+                <button
+
+                    id="menuBtn"
+
+                    class="menu-btn"
+
+                    aria-label="Open menu">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+
             </nav>
+
         </div>
+
     </header>
 
-    <!--==============================
+
+
+    <!-- =========================================
             HERO SECTION
-    ===============================-->
-    <section class="hero">
-        <div class="container hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    📘 II YEAR &bull; I SEMESTER
-                </div>
-                <h1>
-                    Access Your
-                    <span>Class Notes</span>
-                    &amp;
-                    <span>Syllabus</span>
-                    Anytime
-                </h1>
-                <p>
-                    A modern student portal where you can easily view your syllabus,
-                    open lecture notes online and download PDFs for offline study.
-                </p>
-                <div class="search-box">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" id="searchInput" placeholder="Search subject name or course code">
-                </div>
-            </div>
-            
-            <div class="hero-image">
-                <div class="hero-card">
-                    <div class="hero-icon">🎓</div>
-                    <h2>Student Portal</h2>
-                    <p>Fast &bull; Mobile Friendly &bull; Free</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    ========================================== -->
 
-    <!--==============================
-            SUBJECT SECTION
-    ===============================-->
-    <section class="subjects-section" id="subjects">
-        <div class="container">
-            <div class="section-header">
-                <h2>Available Subjects</h2>
-                <p>Select any subject to view its syllabus and lecture notes.</p>
-            </div>
-            <div class="subjects-grid" id="subjectsContainer">
-                <!-- Subject cards are loaded automatically by script.js -->
-            </div>
-        </div>
-    </section>
+    <main>
 
-    <!--==============================
-            FEATURES SECTION
-    ===============================-->
-    <section class="features-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Why Use This Portal?</h2>
-                <p>Everything a student needs in one place.</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📄</div>
-                    <h3>View Syllabus</h3>
-                    <p>Open every subject syllabus instantly without downloading.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📚</div>
-                    <h3>Lecture Notes</h3>
-                    <p>Access class notes uploaded by your faculty anytime.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⬇️</div>
-                    <h3>Download PDFs</h3>
-                    <p>Download syllabus and notes to your device for offline study.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>Mobile Friendly</h3>
-                    <p>Designed especially for students using mobile phones.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!--==============================
-            QUICK STATS
-    ===============================-->
-    <section class="stats-section">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h2>7</h2>
-                    <p>Subjects</p>
-                </div>
-                <div class="stat-card">
-                    <h2>PDF</h2>
-                    <p>Syllabus Available</p>
-                </div>
-                <div class="stat-card">
-                    <h2>24/7</h2>
-                    <p>Accessible</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <section class="hero">
 
-    <!--==============================
+
+            <div class="container">
+
+
+                <div class="hero-container">
+
+
+                    <!-- HERO CONTENT -->
+
+                    <div class="hero-content">
+
+
+                        <span class="hero-badge">
+
+                            <i class="fa-solid fa-sparkles"></i>
+
+                            Your Digital Learning Space
+
+                        </span>
+
+
+                        <h1>
+
+                            Learn Smarter.
+
+                            <br>
+
+                            Study Better.
+
+                            <br>
+
+                            <span>
+
+                                Achieve More.
+
+                            </span>
+
+                        </h1>
+
+
+                        <p>
+
+                            Access your syllabus and class notes
+                            anytime, anywhere. Everything you need
+                            for your academic journey in one place.
+
+                        </p>
+
+
+                        <div class="hero-buttons">
+
+
+                            <a href="#subjects"
+                                class="btn btn-view">
+
+                                <i class="fa-solid fa-book-open"></i>
+
+                                Explore Subjects
+
+                            </a>
+
+
+                            <a href="#features"
+                                class="btn btn-outline">
+
+                                Learn More
+
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- HERO VISUAL -->
+
+                    <div class="hero-visual">
+
+
+                        <div class="hero-card">
+
+
+                            <div class="hero-card-glow"></div>
+
+
+                            <div class="hero-icon">
+
+                                🎓
+
+                            </div>
+
+
+                            <h3>
+
+                                Keep Learning
+
+                            </h3>
+
+
+                            <p>
+
+                                Your knowledge journey starts here.
+
+                            </p>
+
+
+                            <div class="floating-element element-one">
+
+                                📚
+
+                            </div>
+
+
+                            <div class="floating-element element-two">
+
+                                ✨
+
+                            </div>
+
+
+                            <div class="floating-element element-three">
+
+                                🧠
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================================
+                STATS
+        ========================================== -->
+
+        <section class="stats-section">
+
+
+            <div class="container">
+
+
+                <div class="stats-grid">
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+
+                            <i class="fa-solid fa-book"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h3>7</h3>
+
+                            <p>Subjects</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+
+                            <i class="fa-solid fa-file-pdf"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h3>PDF</h3>
+
+                            <p>Resources</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+
+                            <i class="fa-solid fa-mobile-screen"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h3>24/7</h3>
+
+                            <p>Access</p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================================
+                SUBJECTS SECTION
+        ========================================== -->
+
+        <section
+
+            id="subjects"
+
+            class="subjects-section">
+
+
+            <div class="container">
+
+
+                <!-- SECTION HEADER -->
+
+                <div class="section-header">
+
+
+                    <div>
+
+                        <span class="section-label">
+
+                            <i class="fa-solid fa-layer-group"></i>
+
+                            MY COURSES
+
+                        </span>
+
+
+                        <h2>
+
+                            Explore Your Subjects
+
+                        </h2>
+
+
+                        <p>
+
+                            Find all your syllabus and class notes
+                            in one organized space.
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- SEARCH -->
+
+                    <div class="search-box">
+
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+
+                        <input
+
+                            type="text"
+
+                            id="searchInput"
+
+                            placeholder="Search subjects...">
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- SUBJECT CARDS -->
+
+                <div
+
+                    id="subjectsContainer"
+
+                    class="subjects-grid">
+
+                    <!-- Cards created by script.js -->
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================================
+                FEATURES SECTION
+        ========================================== -->
+
+        <section
+
+            id="features"
+
+            class="features-section">
+
+
+            <div class="container">
+
+
+                <div class="section-header centered">
+
+
+                    <span class="section-label">
+
+                        <i class="fa-solid fa-star"></i>
+
+                        WHY USE THIS PORTAL?
+
+                    </span>
+
+
+                    <h2>
+
+                        Everything You Need to Study
+
+                    </h2>
+
+
+                    <p>
+
+                        Simple, organized and designed for students.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <div class="features-grid">
+
+
+                    <!-- FEATURE 1 -->
+
+                    <div class="feature-card">
+
+
+                        <div class="feature-icon">
+
+                            <i class="fa-solid fa-file-lines"></i>
+
+                        </div>
+
+
+                        <h3>
+
+                            Organized Syllabus
+
+                        </h3>
+
+
+                        <p>
+
+                            Access the syllabus of every subject
+                            in one convenient place.
+
+                        </p>
+
+
+                    </div>
+
+
+
+                    <!-- FEATURE 2 -->
+
+                    <div class="feature-card">
+
+
+                        <div class="feature-icon">
+
+                            <i class="fa-solid fa-book-open-reader"></i>
+
+                        </div>
+
+
+                        <h3>
+
+                            Class Notes
+
+                        </h3>
+
+
+                        <p>
+
+                            Read and download lecture notes
+                            whenever you need them.
+
+                        </p>
+
+
+                    </div>
+
+
+
+                    <!-- FEATURE 3 -->
+
+                    <div class="feature-card">
+
+
+                        <div class="feature-icon">
+
+                            <i class="fa-solid fa-bolt"></i>
+
+                        </div>
+
+
+                        <h3>
+
+                            Quick Access
+
+                        </h3>
+
+
+                        <p>
+
+                            Find your study materials quickly
+                            from any device.
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================
             FOOTER
-    ===============================-->
+    ========================================== -->
+
     <footer>
+
+
         <div class="container">
+
+
             <div class="footer-content">
+
+
                 <div class="footer-logo">
+
+
                     <i class="fa-solid fa-graduation-cap"></i>
+
+
                     Student Notes Portal
+
+
                 </div>
+
+
                 <p>
-                    Built for II Year I Semester students to access syllabus
-                    and class notes anytime, anywhere.
+
+                    Your personal digital learning space.
+
                 </p>
-                <div class="footer-bottom">
-                    &copy; 2026 Student Notes Portal | All Rights Reserved
+
+
+                <div class="footer-links">
+
+
+                    <a href="index.html">
+
+                        Home
+
+                    </a>
+
+
+                    <a href="#subjects">
+
+                        Subjects
+
+                    </a>
+
+
+                    <a href="admin.html">
+
+                        Admin
+
+                    </a>
+
                 </div>
+
+
+                <div class="footer-bottom">
+
+
+                    © 2026 Student Notes Portal
+
+                    <span>•</span>
+
+                    Built for Students
+
+
+                </div>
+
+
             </div>
+
+
         </div>
+
+
     </footer>
 
-    <!--==============================
+
+
+    <!-- =========================================
             JAVASCRIPT
-    ===============================-->
+    ========================================== -->
+
+
+    <!-- Subjects Database -->
+
     <script src="js/subjects.js"></script>
+
+
+    <!-- Main Script -->
+
     <script src="js/script.js"></script>
+
+
 </body>
 
 </html>
