@@ -1,26 +1,37 @@
 // ==========================================
-// STUDENT NOTES PORTAL
-// SUBJECT PAGE SCRIPT
+// STUDENT SUBJECT PAGE
 // FIRESTORE NOTES VERSION
 // ==========================================
 
-import { db } from "./firebase.js";
+
+// ==========================================
+// FIREBASE IMPORTS
+// ==========================================
+
+import {
+    db
+} from "./firebase.js";
+
 
 import {
     collection,
     query,
     where,
-    getDocs,
-    orderBy
+    getDocs
 } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
 
 // ==========================================
-// GET SUBJECT CODE
+// GET SUBJECT CODE FROM URL
 // ==========================================
 
 const params =
-    new URLSearchParams(window.location.search);
+    new URLSearchParams(
+
+        window.location.search
+
+    );
+
 
 const courseCode =
     params.get("code");
@@ -31,28 +42,50 @@ const courseCode =
 // ==========================================
 
 const subject =
-    subjects.find(item =>
-        item.code === courseCode
+    subjects.find(
+
+        item =>
+
+            item.code === courseCode
+
     );
 
 
+// ==========================================
+// SUBJECT NOT FOUND
+// ==========================================
+
 if (!subject) {
+
 
     document.body.innerHTML = `
 
         <div style="
+
             padding:50px;
+
             text-align:center;
+
             font-family:Poppins,sans-serif;
+
         ">
 
-            <h1>Subject Not Found</h1>
+            <h1>
+
+                Subject Not Found
+
+            </h1>
+
 
             <a
+
                 href="index.html"
+
                 class="btn btn-view">
 
+
                 ← Back Home
+
 
             </a>
 
@@ -60,20 +93,35 @@ if (!subject) {
 
     `;
 
-    throw new Error("Subject not found");
+
+    throw new Error(
+
+        "Subject not found"
+
+    );
 
 }
 
 
 // ==========================================
-// SUBJECT DETAILS
+// DISPLAY SUBJECT DETAILS
 // ==========================================
 
-document.getElementById("subjectName").textContent =
+document.getElementById(
+
+    "subjectName"
+
+).textContent =
+
     `${subject.icon} ${subject.name}`;
 
 
-document.getElementById("subjectCode").textContent =
+document.getElementById(
+
+    "subjectCode"
+
+).textContent =
+
     `Course Code : ${subject.code}`;
 
 
@@ -82,17 +130,38 @@ document.getElementById("subjectCode").textContent =
 // ==========================================
 
 const viewBtn =
-    document.getElementById("viewSyllabus");
+
+    document.getElementById(
+
+        "viewSyllabus"
+
+    );
+
 
 const downloadBtn =
-    document.getElementById("downloadSyllabus");
+
+    document.getElementById(
+
+        "downloadSyllabus"
+
+    );
 
 
 viewBtn.href =
-    `pdf-viewer.html?file=${encodeURIComponent(subject.syllabus)}&title=${encodeURIComponent(subject.name + " Syllabus")}&code=${subject.code}`;
+
+    `pdf-viewer.html?file=${encodeURIComponent(
+
+        subject.syllabus
+
+    )}&title=${encodeURIComponent(
+
+        subject.name + " Syllabus"
+
+    )}&code=${subject.code}`;
 
 
 downloadBtn.href =
+
     subject.syllabus;
 
 
@@ -101,26 +170,24 @@ downloadBtn.href =
 // ==========================================
 
 const notesContainer =
-    document.getElementById("notesContainer");
+
+    document.getElementById(
+
+        "notesContainer"
+
+    );
 
 
 async function loadNotes() {
 
+
     notesContainer.innerHTML = `
 
-        <div class="notes-unavailable">
+        <div class="notes-loading">
 
             <i class="fa-solid fa-spinner fa-spin"></i>
 
-            <div>
-
-                <strong>Loading Notes...</strong>
-
-                <br>
-
-                Please wait.
-
-            </div>
+            Loading class notes...
 
         </div>
 
@@ -129,32 +196,47 @@ async function loadNotes() {
 
     try {
 
+
+        // Query Firestore
+
         const notesQuery = query(
 
-            collection(db, "notes"),
+            collection(
 
-            where(
-                "subjectCode",
-                "==",
-                subject.code
+                db,
+
+                "notes"
+
             ),
 
-            orderBy(
-                "createdAt",
-                "desc"
+            where(
+
+                "subjectCode",
+
+                "==",
+
+                subject.code
+
             )
 
         );
 
 
         const snapshot =
-            await getDocs(notesQuery);
+
+            await getDocs(
+
+                notesQuery
+
+            );
 
 
-        notesContainer.innerHTML = "";
-
+        // =====================================
+        // NO NOTES
+        // =====================================
 
         if (snapshot.empty) {
+
 
             notesContainer.innerHTML = `
 
@@ -162,15 +244,22 @@ async function loadNotes() {
 
                     <i class="fa-solid fa-circle-exclamation"></i>
 
+
                     <div>
 
+
                         <strong>
+
                             Notes Not Uploaded Yet
+
                         </strong>
+
 
                         <br>
 
+
                         Please check again later.
+
 
                     </div>
 
@@ -178,80 +267,160 @@ async function loadNotes() {
 
             `;
 
+
             return;
 
         }
 
 
-        snapshot.forEach((documentSnapshot) => {
+        // =====================================
+        // CLEAR CONTAINER
+        // =====================================
 
-            const note =
-                documentSnapshot.data();
-
-
-            const card =
-                document.createElement("div");
+        notesContainer.innerHTML = "";
 
 
-            card.className =
-                "subject-card";
+        // =====================================
+        // DISPLAY NOTES
+        // =====================================
+
+        snapshot.forEach(
+
+            (noteDocument) => {
 
 
-            card.innerHTML = `
+                const note =
 
-                <h3>
-
-                    <i class="fa-solid fa-file-pdf"></i>
-
-                    ${note.title}
-
-                </h3>
+                    noteDocument.data();
 
 
-                <div class="button-group">
+                const card =
 
-                    <a
+                    document.createElement(
 
-                        href="pdf-viewer.html?file=${encodeURIComponent(note.fileUrl)}&title=${encodeURIComponent(note.title)}&code=${subject.code}"
+                        "div"
 
-                        class="btn btn-view">
-
-                        <i class="fa-solid fa-eye"></i>
-
-                        View Note
-
-                    </a>
+                    );
 
 
-                    <a
+                card.className =
 
-                        href="${note.fileUrl}"
-
-                        download
-
-                        class="btn btn-download">
-
-                        <i class="fa-solid fa-download"></i>
-
-                        Download
-
-                    </a>
-
-                </div>
-
-            `;
+                    "subject-card";
 
 
-            notesContainer.appendChild(card);
+                card.innerHTML = `
 
-        });
+                    <div class="note-card-content">
 
 
-    } catch (error) {
+                        <div class="note-icon">
+
+
+                            <i class="fa-solid fa-file-pdf"></i>
+
+
+                        </div>
+
+
+                        <div>
+
+
+                            <h3>
+
+                                ${escapeHTML(
+
+                                    note.title
+
+                                )}
+
+                            </h3>
+
+
+                            <p>
+
+                                ${subject.code}
+
+                            </p>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="button-group">
+
+
+                        <a
+
+                            href="pdf-viewer.html?file=${encodeURIComponent(
+
+                                note.file
+
+                            )}&title=${encodeURIComponent(
+
+                                note.title
+
+                            )}&code=${subject.code}"
+
+                            class="btn btn-view">
+
+
+                            <i class="fa-solid fa-eye"></i>
+
+
+                            View Note
+
+
+                        </a>
+
+
+                        <a
+
+                            href="${note.file}"
+
+                            download
+
+                            class="btn btn-download">
+
+
+                            <i class="fa-solid fa-download"></i>
+
+
+                            Download
+
+
+                        </a>
+
+
+                    </div>
+
+                `;
+
+
+                notesContainer.appendChild(
+
+                    card
+
+                );
+
+            }
+
+        );
+
+    }
+
+
+    catch (error) {
+
 
         console.error(
-            "Error loading notes:",
+
+            "Firestore Notes Error:",
+
             error
+
         );
 
 
@@ -259,25 +428,93 @@ async function loadNotes() {
 
             <div class="notes-unavailable">
 
+
                 <i class="fa-solid fa-triangle-exclamation"></i>
+
 
                 <div>
 
+
                     <strong>
+
                         Unable to Load Notes
+
                     </strong>
+
 
                     <br>
 
+
                     Please try again later.
 
+
                 </div>
+
 
             </div>
 
         `;
 
     }
+
+}
+
+
+// ==========================================
+// SECURITY HELPER
+// ==========================================
+
+function escapeHTML(
+
+    value
+
+) {
+
+
+    if (!value) return "";
+
+
+    return String(value)
+
+        .replace(
+
+            /&/g,
+
+            "&amp;"
+
+        )
+
+        .replace(
+
+            /</g,
+
+            "&lt;"
+
+        )
+
+        .replace(
+
+            />/g,
+
+            "&gt;"
+
+        )
+
+        .replace(
+
+            /"/g,
+
+            "&quot;"
+
+        )
+
+        .replace(
+
+            /'/g,
+
+            "&#039;"
+
+        );
 
 }
 
