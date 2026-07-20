@@ -1,6 +1,8 @@
+```javascript
 // ==========================================
 // STUDENT SUBJECT PAGE
 // FIRESTORE NOTES VERSION
+// PDF + WORD + POWERPOINT SUPPORT
 // ==========================================
 
 
@@ -27,9 +29,7 @@ import {
 
 const params =
     new URLSearchParams(
-
         window.location.search
-
     );
 
 
@@ -43,11 +43,8 @@ const courseCode =
 
 const subject =
     subjects.find(
-
         item =>
-
             item.code === courseCode
-
     );
 
 
@@ -57,35 +54,23 @@ const subject =
 
 if (!subject) {
 
-
     document.body.innerHTML = `
 
         <div style="
-
             padding:50px;
-
             text-align:center;
-
             font-family:Poppins,sans-serif;
-
         ">
 
             <h1>
-
                 Subject Not Found
-
             </h1>
 
-
             <a
-
                 href="index.html"
-
                 class="btn btn-view">
 
-
                 ← Back Home
-
 
             </a>
 
@@ -93,11 +78,8 @@ if (!subject) {
 
     `;
 
-
     throw new Error(
-
         "Subject not found"
-
     );
 
 }
@@ -108,20 +90,14 @@ if (!subject) {
 // ==========================================
 
 document.getElementById(
-
     "subjectName"
-
 ).textContent =
-
     `${subject.icon} ${subject.name}`;
 
 
 document.getElementById(
-
     "subjectCode"
-
 ).textContent =
-
     `Course Code : ${subject.code}`;
 
 
@@ -130,38 +106,26 @@ document.getElementById(
 // ==========================================
 
 const viewBtn =
-
     document.getElementById(
-
         "viewSyllabus"
-
     );
 
 
 const downloadBtn =
-
     document.getElementById(
-
         "downloadSyllabus"
-
     );
 
 
 viewBtn.href =
-
     `pdf-viewer.html?file=${encodeURIComponent(
-
         subject.syllabus
-
     )}&title=${encodeURIComponent(
-
         subject.name + " Syllabus"
-
     )}&code=${subject.code}`;
 
 
 downloadBtn.href =
-
     subject.syllabus;
 
 
@@ -170,12 +134,233 @@ downloadBtn.href =
 // ==========================================
 
 const notesContainer =
-
     document.getElementById(
-
         "notesContainer"
-
     );
+
+
+// ==========================================
+// GET FILE EXTENSION
+// ==========================================
+
+function getFileExtension(
+    fileName
+) {
+
+    return fileName
+        .split("?")[0]
+        .split(".")
+        .pop()
+        .toLowerCase();
+
+}
+
+
+// ==========================================
+// GET FILE TYPE
+// ==========================================
+
+function getFileType(
+    fileName
+) {
+
+    const extension =
+        getFileExtension(
+            fileName
+        );
+
+
+    if (
+        extension === "pdf"
+    ) {
+
+        return "pdf";
+
+    }
+
+
+    if (
+        extension === "doc" ||
+        extension === "docx"
+    ) {
+
+        return "word";
+
+    }
+
+
+    if (
+        extension === "ppt" ||
+        extension === "pptx"
+    ) {
+
+        return "powerpoint";
+
+    }
+
+
+    return "unknown";
+
+}
+
+
+// ==========================================
+// GET FILE ICON
+// ==========================================
+
+function getFileIcon(
+    fileName
+) {
+
+    const fileType =
+        getFileType(
+            fileName
+        );
+
+
+    if (
+        fileType === "pdf"
+    ) {
+
+        return "fa-file-pdf";
+
+    }
+
+
+    if (
+        fileType === "word"
+    ) {
+
+        return "fa-file-word";
+
+    }
+
+
+    if (
+        fileType === "powerpoint"
+    ) {
+
+        return "fa-file-powerpoint";
+
+    }
+
+
+    return "fa-file";
+
+
+}
+
+
+// ==========================================
+// GET FILE LABEL
+// ==========================================
+
+function getFileLabel(
+    fileName
+) {
+
+    const fileType =
+        getFileType(
+            fileName
+        );
+
+
+    if (
+        fileType === "pdf"
+    ) {
+
+        return "PDF Document";
+
+    }
+
+
+    if (
+        fileType === "word"
+    ) {
+
+        return "Word Document";
+
+    }
+
+
+    if (
+        fileType === "powerpoint"
+    ) {
+
+        return "PowerPoint Presentation";
+
+    }
+
+
+    return "Document";
+
+}
+
+
+// ==========================================
+// CREATE VIEW URL
+// ==========================================
+
+function getViewURL(
+    file,
+    title
+) {
+
+    const fileType =
+        getFileType(
+            file
+        );
+
+
+    // ======================================
+    // PDF
+    // ======================================
+
+    if (
+        fileType === "pdf"
+    ) {
+
+        return `pdf-viewer.html?file=${encodeURIComponent(
+            file
+        )}&title=${encodeURIComponent(
+            title
+        )}&code=${encodeURIComponent(
+            subject.code
+        )}`;
+
+    }
+
+
+    // ======================================
+    // WORD / POWERPOINT
+    // ======================================
+
+    if (
+        fileType === "word" ||
+        fileType === "powerpoint"
+    ) {
+
+        const absoluteURL =
+            new URL(
+                file,
+                window.location.href
+            ).href;
+
+
+        return `https://view.officeapps.live.com/op/view.aspx?src=${encodeURIComponent(
+            absoluteURL
+        )}`;
+
+    }
+
+
+    // ======================================
+    // UNKNOWN FILE
+    // ======================================
+
+    return file;
+
+}
 
 
 // ==========================================
@@ -201,46 +386,36 @@ async function loadNotes() {
     try {
 
 
-        // QUERY ONLY BY SUBJECT CODE
+        // =====================================
+        // QUERY NOTES
+        // =====================================
 
-        const notesQuery = query(
+        const notesQuery =
+            query(
 
-            collection(
+                collection(
+                    db,
+                    "notes"
+                ),
 
-                db,
-
-                "notes"
-
-            ),
-
-            where(
-
-                "subjectCode",
-
-                "==",
-
-                subject.code
-
-            )
-
-        );
-
-
-        const snapshot =
-
-            await getDocs(
-
-                notesQuery
+                where(
+                    "subjectCode",
+                    "==",
+                    subject.code
+                )
 
             );
 
 
+        const snapshot =
+            await getDocs(
+                notesQuery
+            );
+
+
         console.log(
-
             "Notes found:",
-
             snapshot.size
-
         );
 
 
@@ -248,40 +423,31 @@ async function loadNotes() {
         // NO NOTES
         // =====================================
 
-        if (snapshot.empty) {
-
+        if (
+            snapshot.empty
+        ) {
 
             notesContainer.innerHTML = `
 
                 <div class="notes-unavailable">
 
-
                     <i class="fa-solid fa-circle-exclamation"></i>
-
 
                     <div>
 
-
                         <strong>
-
                             Notes Not Uploaded Yet
-
                         </strong>
-
 
                         <br>
 
-
                         Please check again later.
 
-
                     </div>
-
 
                 </div>
 
             `;
-
 
             return;
 
@@ -292,7 +458,8 @@ async function loadNotes() {
         // CLEAR CONTAINER
         // =====================================
 
-        notesContainer.innerHTML = "";
+        notesContainer.innerHTML =
+            "";
 
 
         // =====================================
@@ -300,26 +467,54 @@ async function loadNotes() {
         // =====================================
 
         snapshot.forEach(
-
             (noteDocument) => {
 
 
                 const note =
-
                     noteDocument.data();
 
 
+                const file =
+                    note.file;
+
+
+                const title =
+                    note.title ||
+                    "Untitled Note";
+
+
+                const fileType =
+                    getFileType(
+                        file
+                    );
+
+
+                const icon =
+                    getFileIcon(
+                        file
+                    );
+
+
+                const label =
+                    getFileLabel(
+                        file
+                    );
+
+
+                const viewURL =
+                    getViewURL(
+                        file,
+                        title
+                    );
+
+
                 const card =
-
                     document.createElement(
-
                         "div"
-
                     );
 
 
                 card.className =
-
                     "subject-card";
 
 
@@ -327,25 +522,19 @@ async function loadNotes() {
 
                     <div class="note-card-content">
 
-
                         <div class="note-icon">
 
-
-                            <i class="fa-solid fa-file-pdf"></i>
-
+                            <i class="fa-solid ${icon}"></i>
 
                         </div>
 
 
                         <div>
 
-
                             <h3>
 
                                 ${escapeHTML(
-
-                                    note.title
-
+                                    title
                                 )}
 
                             </h3>
@@ -355,29 +544,30 @@ async function loadNotes() {
 
                                 ${subject.code}
 
+                                <br>
+
+                                <small>
+
+                                    ${label}
+
+                                </small>
+
                             </p>
 
-
                         </div>
-
 
                     </div>
 
 
                     <div class="button-group">
 
-
                         <a
 
-                            href="pdf-viewer.html?file=${encodeURIComponent(
+                            href="${viewURL}"
 
-                                note.file
+                            target="_blank"
 
-                            )}&title=${encodeURIComponent(
-
-                                note.title
-
-                            )}&code=${subject.code}"
+                            rel="noopener noreferrer"
 
                             class="btn btn-view">
 
@@ -393,7 +583,7 @@ async function loadNotes() {
 
                         <a
 
-                            href="${note.file}"
+                            href="${file}"
 
                             download
 
@@ -408,16 +598,13 @@ async function loadNotes() {
 
                         </a>
 
-
                     </div>
 
                 `;
 
 
                 notesContainer.appendChild(
-
                     card
-
                 );
 
             }
@@ -427,15 +614,14 @@ async function loadNotes() {
     }
 
 
-    catch (error) {
+    catch (
+        error
+    ) {
 
 
         console.error(
-
             "Error loading notes:",
-
             error
-
         );
 
 
@@ -443,12 +629,10 @@ async function loadNotes() {
 
             <div class="notes-unavailable">
 
-
                 <i class="fa-solid fa-triangle-exclamation"></i>
 
 
                 <div>
-
 
                     <strong>
 
@@ -460,10 +644,11 @@ async function loadNotes() {
                     <br>
 
 
-                    ${error.message}
+                    ${escapeHTML(
+                        error.message
+                    )}
 
                 </div>
-
 
             </div>
 
@@ -479,55 +664,46 @@ async function loadNotes() {
 // ==========================================
 
 function escapeHTML(
-
     value
-
 ) {
 
 
-    if (!value) return "";
+    if (
+        !value
+    ) {
+
+        return "";
+
+    }
 
 
-    return String(value)
+    return String(
+        value
+    )
 
         .replace(
-
             /&/g,
-
             "&amp;"
-
         )
 
         .replace(
-
             /</g,
-
             "&lt;"
-
         )
 
         .replace(
-
             />/g,
-
             "&gt;"
-
         )
 
         .replace(
-
             /"/g,
-
             "&quot;"
-
         )
 
         .replace(
-
             /'/g,
-
             "&#039;"
-
         );
 
 }
@@ -538,3 +714,4 @@ function escapeHTML(
 // ==========================================
 
 loadNotes();
+```
