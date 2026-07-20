@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Student Notes Portal</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- =========================
+            HEADER
+    ========================== -->
+
+    <header class="header">
+
+        <div class="container">
+
+            <nav class="navbar">
+
+                <a href="index.html" class="logo">
+
+                    <i class="fa-solid fa-graduation-cap"></i>
+
+                    <span>Student Notes Portal</span>
+
+                </a>
+
+                <button id="logoutBtn" class="btn btn-download">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    Logout
+
+                </button>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+            ADMIN PAGE
+    ========================== -->
+
+    <main class="admin-page">
+
+        <div class="container">
+
+            <!-- ADMIN LOGIN -->
+
+            <section id="loginSection" class="admin-card">
+
+                <div class="admin-icon">
+
+                    🔐
+
+                </div>
+
+                <h1>Admin Login</h1>
+
+                <p>Login to manage student notes.</p>
+
+                <form id="loginForm">
+
+                    <div class="form-group">
+
+                        <label for="email">
+
+                            Admin Email
+
+                        </label>
+
+                        <input
+
+                            type="email"
+
+                            id="email"
+
+                            placeholder="Enter admin email"
+
+                            required>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="password">
+
+                            Password
+
+                        </label>
+
+                        <input
+
+                            type="password"
+
+                            id="password"
+
+                            placeholder="Enter password"
+
+                            required>
+
+                    </div>
+
+                    <button type="submit" class="btn btn-view">
+
+                        <i class="fa-solid fa-right-to-bracket"></i>
+
+                        Login
+
+                    </button>
+
+                </form>
+
+                <p id="loginMessage"></p>
+
+            </section>
+
+
+            <!-- ADMIN DASHBOARD -->
+
+            <section id="dashboardSection" class="admin-dashboard">
+
+                <div class="admin-heading">
+
+                    <div>
+
+                        <span class="hero-badge">
+
+                            ADMIN PANEL
+
+                        </span>
+
+                        <h1>Manage Class Notes</h1>
+
+                        <p>
+
+                            Add notes to your subjects and make them available
+                            to students.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ADD NOTE -->
+
+                <div class="admin-card">
+
+                    <h2>
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Add New Class Note
+
+                    </h2>
+
+                    <form id="noteForm">
+
+                        <div class="form-group">
+
+                            <label for="subjectCode">
+
+                                Select Subject
+
+                            </label>
+
+                            <select id="subjectCode" required>
+
+                                <option value="">
+
+                                    Select a subject
+
+                                </option>
+
+                                <option value="25CY206">
+
+                                    25CY206 - Statistical Foundation
+
+                                </option>
+
+                                <option value="25AM201">
+
+                                    25AM201 - Data Structures
+
+                                </option>
+
+                                <option value="25AM202">
+
+                                    25AM202 - Design Thinking
+
+                                </option>
+
+                                <option value="25AM203">
+
+                                    25AM203 - Artificial Intelligence
+
+                                </option>
+
+                                <option value="25CY205">
+
+                                    25CY205 - Database Management Systems
+
+                                </option>
+
+                                <option value="25AM206">
+
+                                    25AM206 - Object Oriented Programming
+
+                                </option>
+
+                                <option value="25MT205">
+
+                                    25MT205 - Discrete Mathematical Structures
+
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="noteTitle">
+
+                                Note Title
+
+                            </label>
+
+                            <input
+
+                                type="text"
+
+                                id="noteTitle"
+
+                                placeholder="Example: Lecture 04 - Stacks"
+
+                                required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="fileUrl">
+
+                                PDF File Path or URL
+
+                            </label>
+
+                            <input
+
+                                type="text"
+
+                                id="fileUrl"
+
+                                placeholder="pdfs/notes/25AM201/Lecture_04.pdf"
+
+                                required>
+
+                            <small>
+
+                                Upload the PDF to GitHub first, then enter
+                                its path here.
+
+                            </small>
+
+                        </div>
+
+
+                        <button type="submit" class="btn btn-view">
+
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                            Add Note
+
+                        </button>
+
+                    </form>
+
+                    <p id="noteMessage"></p>
+
+                </div>
+
+
+                <!-- NOTES LIST -->
+
+                <div class="admin-card">
+
+                    <h2>
+
+                        <i class="fa-solid fa-list"></i>
+
+                        Uploaded Notes
+
+                    </h2>
+
+                    <div id="notesList">
+
+                        <p>
+
+                            Loading notes...
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+            FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div class="footer-logo">
+
+                    <i class="fa-solid fa-graduation-cap"></i>
+
+                    Student Notes Portal
+
+                </div>
+
+                <p>
+
+                    Admin management panel.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- FIREBASE ADMIN SCRIPT -->
+
+    <script type="module" src="js/admin.js"></script>
+
+</body>
+
+</html>
