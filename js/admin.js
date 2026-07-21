@@ -1,6 +1,7 @@
 // =========================================================
 // STUDENT NOTES PORTAL
 // ADMIN DASHBOARD - FIREBASE VERSION
+// PDF + WORD + POWERPOINT SUPPORT
 // =========================================================
 
 
@@ -95,54 +96,60 @@ if (dashboardSection) {
 // AUTHENTICATION CHECK
 // =========================================================
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(
+
+    auth,
+
+    (user) => {
 
 
-    if (user) {
+        if (user) {
 
 
-        // USER LOGGED IN
+            if (loginSection) {
 
-        if (loginSection) {
+                loginSection.style.display =
+                    "none";
 
-            loginSection.style.display = "none";
+            }
+
+
+            if (dashboardSection) {
+
+                dashboardSection.style.display =
+                    "flex";
+
+            }
+
+
+            loadNotes();
 
         }
 
 
-        if (dashboardSection) {
+        else {
 
-            dashboardSection.style.display = "flex";
+
+            if (loginSection) {
+
+                loginSection.style.display =
+                    "flex";
+
+            }
+
+
+            if (dashboardSection) {
+
+                dashboardSection.style.display =
+                    "none";
+
+            }
 
         }
-
-
-        loadNotes();
 
     }
 
-
-    else {
-
-
-        // USER LOGGED OUT
-
-        if (loginSection) {
-
-            loginSection.style.display = "flex";
-
-        }
-
-
-        if (dashboardSection) {
-
-            dashboardSection.style.display = "none";
-
-        }
-
-    }
-
-});
+);
 
 
 // =========================================================
@@ -343,13 +350,28 @@ if (noteForm) {
                     .trim();
 
 
+            // =====================================
+            // GET FILE TYPE
+            // =====================================
+
+            const fileType =
+
+                document
+
+                    .getElementById("fileType")
+
+                    .value;
+
+
             if (
 
                 !subjectCode ||
 
                 !noteTitle ||
 
-                !fileUrl
+                !fileUrl ||
+
+                !fileType
 
             ) {
 
@@ -406,6 +428,11 @@ if (noteForm) {
                         file:
 
                             fileUrl,
+
+
+                        fileType:
+
+                            fileType,
 
 
                         createdAt:
@@ -494,6 +521,82 @@ function showNoteMessage(
 
 
 // =========================================================
+// GET FILE ICON
+// =========================================================
+
+function getFileIcon(
+
+    fileType
+
+) {
+
+
+    if (
+
+        fileType === "word"
+
+    ) {
+
+        return "fa-file-word";
+
+    }
+
+
+    if (
+
+        fileType === "powerpoint"
+
+    ) {
+
+        return "fa-file-powerpoint";
+
+    }
+
+
+    return "fa-file-pdf";
+
+}
+
+
+// =========================================================
+// GET FILE TYPE NAME
+// =========================================================
+
+function getFileTypeName(
+
+    fileType
+
+) {
+
+
+    if (
+
+        fileType === "word"
+
+    ) {
+
+        return "Word Document";
+
+    }
+
+
+    if (
+
+        fileType === "powerpoint"
+
+    ) {
+
+        return "PowerPoint Presentation";
+
+    }
+
+
+    return "PDF Document";
+
+}
+
+
+// =========================================================
 // LOAD NOTES FROM FIRESTORE
 // =========================================================
 
@@ -549,8 +652,6 @@ async function loadNotes() {
             );
 
 
-        // UPDATE TOTAL NOTES
-
         if (totalNotes) {
 
 
@@ -560,8 +661,6 @@ async function loadNotes() {
 
         }
 
-
-        // NO NOTES
 
         if (snapshot.empty) {
 
@@ -602,6 +701,13 @@ async function loadNotes() {
                     noteDocument.id;
 
 
+                const fileType =
+
+                    note.fileType ||
+
+                    "pdf";
+
+
                 const noteItem =
 
                     document.createElement(
@@ -625,7 +731,9 @@ async function loadNotes() {
                         <div class="note-file-icon">
 
 
-                            <i class="fa-solid fa-file-pdf"></i>
+                            <i class="fa-solid ${getFileIcon(
+                                fileType
+                            )}"></i>
 
 
                         </div>
@@ -653,6 +761,15 @@ async function loadNotes() {
 
                                 )}
 
+                                <br>
+
+
+                                ${getFileTypeName(
+
+                                    fileType
+
+                                )}
+
                             </p>
 
 
@@ -670,6 +787,8 @@ async function loadNotes() {
                             href="${note.file}"
 
                             target="_blank"
+
+                            rel="noopener noreferrer"
 
                             class="btn-view">
 
@@ -715,8 +834,6 @@ async function loadNotes() {
 
         );
 
-
-        // DELETE BUTTONS
 
         document
 
