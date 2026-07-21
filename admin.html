@@ -9,48 +9,303 @@
 
     <title>Admin Dashboard | Student Notes Portal</title>
 
+    <meta name="description" content="Student Notes Portal Admin Dashboard">
+
+    <!-- GOOGLE FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
+    <!-- FONT AWESOME -->
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
+    <!-- MAIN WEBSITE CSS -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- ADMIN CSS -->
+    <link rel="stylesheet" href="css/admin.css">
 
 </head>
 
 
-<body>
+<body class="admin-body">
 
 
-    <!-- =========================
-            HEADER
-    ========================== -->
+    <!-- =====================================================
+         LOGIN SECTION
+    ====================================================== -->
 
-    <header class="header">
+    <section
+        id="loginSection"
+        class="admin-login-section">
 
-        <div class="container">
 
-            <nav class="navbar">
+        <div class="admin-login-card">
 
-                <a href="index.html" class="logo">
+
+            <!-- LOGO -->
+
+            <a
+                href="index.html"
+                class="admin-login-logo">
+
+                <i class="fa-solid fa-graduation-cap"></i>
+
+                <span>
+                    Student Notes Portal
+                </span>
+
+            </a>
+
+
+            <!-- ICON -->
+
+            <div class="admin-login-icon">
+
+                <i class="fa-solid fa-lock"></i>
+
+            </div>
+
+
+            <!-- LABEL -->
+
+            <span class="admin-label">
+
+                ADMIN ACCESS
+
+            </span>
+
+
+            <!-- TITLE -->
+
+            <h1>
+
+                Admin Login
+
+            </h1>
+
+
+            <p>
+
+                Login to manage the Student Notes Portal.
+
+            </p>
+
+
+            <!-- LOGIN FORM -->
+
+            <form id="loginForm">
+
+
+                <!-- EMAIL -->
+
+                <div class="admin-form-group">
+
+
+                    <label for="email">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        Admin Email
+
+                    </label>
+
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter admin email"
+                        required>
+
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="admin-form-group">
+
+
+                    <label for="password">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        Password
+
+                    </label>
+
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter password"
+                        required>
+
+
+                </div>
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button
+                    type="submit"
+                    class="admin-login-btn">
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    Login to Admin Panel
+
+                </button>
+
+
+            </form>
+
+
+            <!-- LOGIN MESSAGE -->
+
+            <p
+                id="loginMessage"
+                class="admin-message">
+
+            </p>
+
+
+            <!-- BACK TO PORTAL -->
+
+            <a
+                href="index.html"
+                class="back-to-portal">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back to Student Portal
+
+            </a>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =====================================================
+         ADMIN DASHBOARD
+    ====================================================== -->
+
+    <div
+        id="dashboardSection"
+        class="admin-dashboard-layout">
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside
+            class="admin-sidebar"
+            id="adminSidebar">
+
+
+            <!-- SIDEBAR LOGO -->
+
+            <div class="sidebar-logo">
+
+
+                <div class="sidebar-logo-icon">
 
                     <i class="fa-solid fa-graduation-cap"></i>
 
-                    <span>Student Notes Portal</span>
+                </div>
+
+
+                <div>
+
+                    <strong>
+
+                        Student Notes
+
+                    </strong>
+
+
+                    <span>
+
+                        Admin Panel
+
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- SIDEBAR NAVIGATION -->
+
+            <nav class="sidebar-nav">
+
+
+                <a
+                    href="#dashboard"
+                    class="sidebar-link active">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    Dashboard
 
                 </a>
 
 
+                <a
+                    href="#add-note"
+                    class="sidebar-link">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Add Note
+
+                </a>
+
+
+                <a
+                    href="#uploaded-notes"
+                    class="sidebar-link">
+
+                    <i class="fa-solid fa-folder-open"></i>
+
+                    Uploaded Notes
+
+                </a>
+
+
+                <a
+                    href="index.html"
+                    class="sidebar-link">
+
+                    <i class="fa-solid fa-globe"></i>
+
+                    Student Portal
+
+                </a>
+
+
+            </nav>
+
+
+            <!-- SIDEBAR BOTTOM -->
+
+            <div class="sidebar-bottom">
+
+
                 <button
                     id="logoutBtn"
-                    class="btn btn-download">
+                    class="sidebar-logout">
 
                     <i class="fa-solid fa-right-from-bracket"></i>
 
@@ -58,193 +313,326 @@
 
                 </button>
 
-            </nav>
 
-        </div>
-
-    </header>
+            </div>
 
 
-    <!-- =========================
-            MAIN
-    ========================== -->
-
-    <main class="admin-page">
-
-        <div class="container">
+        </aside>
 
 
-            <!-- =========================
-                    LOGIN SECTION
-            ========================== -->
+        <!-- =================================================
+             MAIN CONTENT
+        ================================================== -->
 
-            <section
-                id="loginSection"
-                class="admin-card admin-login-card">
+        <main class="admin-main">
 
 
-                <div class="admin-icon">
+            <!-- TOPBAR -->
 
-                    <i class="fa-solid fa-lock"></i>
-
-                </div>
+            <header class="admin-topbar">
 
 
-                <h1>
-
-                    Admin Login
-
-                </h1>
-
-
-                <p>
-
-                    Login to manage the Student Notes Portal.
-
-                </p>
-
-
-                <form id="loginForm">
-
-
-                    <div class="form-group">
-
-                        <label for="email">
-
-                            Admin Email
-
-                        </label>
-
-
-                        <input
-                            type="email"
-                            id="email"
-                            placeholder="Enter admin email"
-                            required>
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="password">
-
-                            Password
-
-                        </label>
-
-
-                        <input
-                            type="password"
-                            id="password"
-                            placeholder="Enter password"
-                            required>
-
-                    </div>
+                <div
+                    style="display:flex;align-items:center;gap:15px;">
 
 
                     <button
-                        type="submit"
-                        class="btn btn-view admin-submit-btn">
+                        id="mobileMenuButton"
+                        class="mobile-menu-button"
+                        type="button">
 
-                        <i class="fa-solid fa-right-to-bracket"></i>
-
-                        Login to Admin Panel
+                        <i class="fa-solid fa-bars"></i>
 
                     </button>
 
 
-                </form>
+                    <div>
+
+                        <span class="admin-topbar-label">
+
+                            ADMINISTRATION
+
+                        </span>
 
 
-                <p id="loginMessage"></p>
+                        <h2>
+
+                            Notes Management
+
+                        </h2>
+
+                    </div>
 
 
-            </section>
+                </div>
 
 
-            <!-- =========================
-                    DASHBOARD
-            ========================== -->
+                <!-- ADMIN PROFILE -->
 
-            <section
-                id="dashboardSection"
-                class="admin-dashboard">
+                <div class="admin-profile">
 
 
-                <!-- PAGE HEADING -->
+                    <div class="admin-profile-icon">
 
-                <div class="admin-heading">
+                        <i class="fa-solid fa-user-shield"></i>
+
+                    </div>
 
 
                     <div>
 
-                        <span class="hero-badge">
+                        <strong>
 
-                            ADMIN PANEL
+                            Administrator
+
+                        </strong>
+
+
+                        <span>
+
+                            Manage academic resources
+
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </header>
+
+
+            <!-- CONTENT -->
+
+            <div class="admin-content">
+
+
+                <!-- =================================================
+                     WELCOME BANNER
+                ================================================== -->
+
+                <section
+                    id="dashboard"
+                    class="admin-welcome-banner">
+
+
+                    <div>
+
+
+                        <span>
+
+                            STUDENT NOTES PORTAL
 
                         </span>
 
 
                         <h1>
 
-                            Manage Class Notes
+                            Welcome, Administrator 👋
 
                         </h1>
 
 
                         <p>
 
-                            Upload and manage learning materials for students.
+                            Manage syllabus resources and class notes
+                            for all subjects from one place.
 
                         </p>
 
+
                     </div>
 
 
-                </div>
+                    <div class="welcome-illustration">
+
+                        <i class="fa-solid fa-book-open-reader"></i>
+
+                    </div>
 
 
-                <!-- =========================
-                        ADD NOTE
-                ========================== -->
-
-                <div class="admin-card">
+                </section>
 
 
-                    <div class="admin-card-header">
+                <!-- =================================================
+                     STATISTICS
+                ================================================== -->
 
-                        <div>
-
-                            <h2>
-
-                                <i class="fa-solid fa-cloud-arrow-up"></i>
-
-                                Add New Class Note
-
-                            </h2>
+                <section class="admin-stats-grid">
 
 
-                            <p>
+                    <!-- TOTAL NOTES -->
 
-                                Add a PDF, Word document, or PowerPoint presentation.
+                    <div class="admin-stat-card">
 
-                            </p>
+
+                        <div
+                            class="admin-stat-icon purple">
+
+                            <i class="fa-solid fa-book"></i>
 
                         </div>
 
+
+                        <div>
+
+                            <span>
+
+                                TOTAL NOTES
+
+                            </span>
+
+
+                            <strong id="totalNotes">
+
+                                0
+
+                            </strong>
+
+                        </div>
+
+
                     </div>
 
 
-                    <form id="noteForm">
+                    <!-- SUBJECTS -->
+
+                    <div class="admin-stat-card">
+
+
+                        <div
+                            class="admin-stat-icon blue">
+
+                            <i class="fa-solid fa-layer-group"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+
+                                SUBJECTS
+
+                            </span>
+
+
+                            <strong>
+
+                                7
+
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- STATUS -->
+
+                    <div class="admin-stat-card">
+
+
+                        <div
+                            class="admin-stat-icon green">
+
+                            <i class="fa-solid fa-circle-check"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+
+                                PORTAL STATUS
+
+                            </span>
+
+
+                            <strong>
+
+                                Active
+
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                </section>
+
+
+                <!-- =================================================
+                     ADD NOTE PANEL
+                ================================================== -->
+
+                <section
+                    id="add-note"
+                    class="admin-panel">
+
+
+                    <!-- PANEL HEADER -->
+
+                    <div class="panel-header">
+
+
+                        <div>
+
+
+                            <div
+                                class="panel-title-icon">
+
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                            </div>
+
+
+                            <div>
+
+
+                                <h2>
+
+                                    Add New Class Note
+
+                                </h2>
+
+
+                                <p>
+
+                                    Upload a resource link for students.
+
+                                </p>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- NOTE FORM -->
+
+                    <form
+                        id="noteForm"
+                        class="admin-note-form">
 
 
                         <!-- SUBJECT -->
 
-                        <div class="form-group">
+                        <div
+                            class="admin-form-group">
 
 
                             <label for="subjectCode">
+
+                                <i class="fa-solid fa-book"></i>
 
                                 Select Subject
 
@@ -318,12 +706,69 @@
                         </div>
 
 
+                        <!-- DOCUMENT TYPE -->
+
+                        <div
+                            class="admin-form-group">
+
+
+                            <label for="documentType">
+
+                                <i class="fa-solid fa-file"></i>
+
+                                Document Type
+
+                            </label>
+
+
+                            <select
+                                id="documentType"
+                                required>
+
+
+                                <option value="">
+
+                                    Select document type
+
+                                </option>
+
+
+                                <option value="pdf">
+
+                                    PDF Document
+
+                                </option>
+
+
+                                <option value="word">
+
+                                    Word Document
+
+                                </option>
+
+
+                                <option value="ppt">
+
+                                    PowerPoint Presentation
+
+                                </option>
+
+
+                            </select>
+
+
+                        </div>
+
+
                         <!-- NOTE TITLE -->
 
-                        <div class="form-group">
+                        <div
+                            class="admin-form-group">
 
 
                             <label for="noteTitle">
+
+                                <i class="fa-solid fa-heading"></i>
 
                                 Note Title
 
@@ -340,82 +785,43 @@
                         </div>
 
 
-                        <!-- DOCUMENT TYPE -->
-
-                        <div class="form-group">
-
-
-                            <label for="fileType">
-
-                                Document Type
-
-                            </label>
-
-
-                            <select
-                                id="fileType"
-                                required>
-
-
-                                <option value="">
-
-                                    Select document type
-
-                                </option>
-
-
-                                <option value="pdf">
-
-                                    <i class="fa-solid fa-file-pdf"></i>
-
-                                    PDF Document
-
-                                </option>
-
-
-                                <option value="word">
-
-                                    Word Document
-
-                                </option>
-
-
-                                <option value="powerpoint">
-
-                                    PowerPoint Presentation
-
-                                </option>
-
-
-                            </select>
-
-
-                        </div>
-
-
                         <!-- FILE PATH -->
 
-                        <div class="form-group">
+                        <div
+                            class="admin-form-group">
 
 
                             <label for="fileUrl">
+
+                                <i class="fa-solid fa-link"></i>
 
                                 File Path or URL
 
                             </label>
 
 
-                            <input
-                                type="text"
-                                id="fileUrl"
-                                placeholder="pdfs/notes/25AM201/Lecture_04.pdf"
-                                required>
+                            <div
+                                class="file-input-wrapper">
+
+
+                                <i
+                                    class="fa-solid fa-file-arrow-up"></i>
+
+
+                                <input
+                                    type="text"
+                                    id="fileUrl"
+                                    placeholder="pdfs/notes/25AM201/Lecture_04.pdf"
+                                    required>
+
+
+                            </div>
 
 
                             <small>
 
-                                Example:
-                                pdfs/notes/25AM201/Lecture_04.pdf
+                                Upload the file to GitHub first,
+                                then enter its path here.
 
                             </small>
 
@@ -425,55 +831,82 @@
 
                         <!-- SUBMIT -->
 
-                        <button
-                            type="submit"
-                            class="btn btn-view admin-submit-btn">
+                        <div
+                            class="form-submit-area">
 
 
-                            <i class="fa-solid fa-plus"></i>
+                            <button
+                                type="submit"
+                                class="admin-primary-btn">
 
 
-                            Add Note
+                                <i class="fa-solid fa-plus"></i>
+
+                                Add Note
+
+                            </button>
 
 
-                        </button>
+                            <p
+                                id="noteMessage"
+                                class="note-message">
+
+                            </p>
+
+
+                        </div>
 
 
                     </form>
 
 
-                    <p id="noteMessage"></p>
+                </section>
 
 
-                </div>
+                <!-- =================================================
+                     UPLOADED NOTES
+                ================================================== -->
+
+                <section
+                    id="uploaded-notes"
+                    class="admin-panel">
 
 
-                <!-- =========================
-                        NOTES LIST
-                ========================== -->
+                    <!-- HEADER -->
 
-                <div class="admin-card">
-
-
-                    <div class="admin-card-header">
+                    <div class="panel-header">
 
 
                         <div>
 
-                            <h2>
+
+                            <div
+                                class="panel-title-icon blue">
 
                                 <i class="fa-solid fa-folder-open"></i>
 
-                                Uploaded Notes
-
-                            </h2>
+                            </div>
 
 
-                            <p>
+                            <div>
 
-                                Manage all notes currently available to students.
 
-                            </p>
+                                <h2>
+
+                                    Uploaded Notes
+
+                                </h2>
+
+
+                                <p>
+
+                                    Manage all resources available
+                                    to students.
+
+                                </p>
+
+                            </div>
+
 
                         </div>
 
@@ -481,67 +914,113 @@
                     </div>
 
 
-                    <div id="notesList">
+                    <!-- NOTES LIST -->
 
-                        <div class="admin-loading">
+                    <div
+                        id="notesList"
+                        class="admin-notes-list">
 
-                            <i class="fa-solid fa-spinner fa-spin"></i>
+
+                        <div
+                            class="admin-loading">
+
+
+                            <i
+                                class="fa-solid fa-spinner fa-spin"></i>
+
 
                             Loading notes...
 
+
                         </div>
+
 
                     </div>
 
 
-                </div>
-
-
-            </section>
-
-
-        </div>
-
-    </main>
-
-
-    <!-- =========================
-            FOOTER
-    ========================== -->
-
-    <footer>
-
-        <div class="container">
-
-            <div class="footer-content">
-
-
-                <div class="footer-logo">
-
-                    <i class="fa-solid fa-graduation-cap"></i>
-
-                    Student Notes Portal
-
-                </div>
-
-
-                <p>
-
-                    Admin management panel
-
-                </p>
+                </section>
 
 
             </div>
 
-        </div>
 
-    </footer>
+        </main>
 
 
-    <!-- =========================
-            JAVASCRIPT
-    ========================== -->
+    </div>
+
+
+    <!-- MOBILE MENU SCRIPT -->
+
+    <script>
+
+        const mobileMenuButton =
+            document.getElementById(
+                "mobileMenuButton"
+            );
+
+
+        const adminSidebar =
+            document.getElementById(
+                "adminSidebar"
+            );
+
+
+        if (
+            mobileMenuButton &&
+            adminSidebar
+        ) {
+
+
+            mobileMenuButton.addEventListener(
+
+                "click",
+
+                () => {
+
+                    adminSidebar.classList.toggle(
+                        "open"
+                    );
+
+                }
+
+            );
+
+        }
+
+
+        document
+            .querySelectorAll(
+                ".sidebar-link"
+            )
+            .forEach(
+
+                (link) => {
+
+
+                    link.addEventListener(
+
+                        "click",
+
+                        () => {
+
+
+                            adminSidebar.classList.remove(
+                                "open"
+                            );
+
+                        }
+
+                    );
+
+                }
+
+            );
+
+    </script>
+
+
+    <!-- FIREBASE ADMIN JAVASCRIPT -->
 
     <script
         type="module"
