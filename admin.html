@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <link
@@ -43,9 +43,7 @@
 
                     <i class="fa-solid fa-graduation-cap"></i>
 
-                    <span>
-                        Student Notes Portal
-                    </span>
+                    <span>Student Notes Portal</span>
 
                 </a>
 
@@ -68,7 +66,7 @@
 
 
     <!-- =========================
-            MAIN CONTENT
+            MAIN
     ========================== -->
 
     <main class="admin-page">
@@ -77,17 +75,17 @@
 
 
             <!-- =========================
-                    ADMIN LOGIN
+                    LOGIN SECTION
             ========================== -->
 
             <section
                 id="loginSection"
-                class="admin-card">
+                class="admin-card admin-login-card">
 
 
                 <div class="admin-icon">
 
-                    🔐
+                    <i class="fa-solid fa-lock"></i>
 
                 </div>
 
@@ -101,7 +99,7 @@
 
                 <p>
 
-                    Login to manage student notes.
+                    Login to manage the Student Notes Portal.
 
                 </p>
 
@@ -119,13 +117,9 @@
 
 
                         <input
-
                             type="email"
-
                             id="email"
-
                             placeholder="Enter admin email"
-
                             required>
 
                     </div>
@@ -141,30 +135,21 @@
 
 
                         <input
-
                             type="password"
-
                             id="password"
-
                             placeholder="Enter password"
-
                             required>
 
                     </div>
 
 
                     <button
-
                         type="submit"
-
-                        class="btn btn-view">
-
+                        class="btn btn-view admin-submit-btn">
 
                         <i class="fa-solid fa-right-to-bracket"></i>
 
-
-                        Login
-
+                        Login to Admin Panel
 
                     </button>
 
@@ -179,25 +164,20 @@
 
 
             <!-- =========================
-                    ADMIN DASHBOARD
+                    DASHBOARD
             ========================== -->
 
             <section
-
                 id="dashboardSection"
-
                 class="admin-dashboard">
 
 
-                <!-- =========================
-                        DASHBOARD HEADER
-                ========================== -->
+                <!-- PAGE HEADING -->
 
                 <div class="admin-heading">
 
 
                     <div>
-
 
                         <span class="hero-badge">
 
@@ -215,10 +195,9 @@
 
                         <p>
 
-                            Add PDF, Word documents, and PowerPoint presentations for students.
+                            Upload and manage learning materials for students.
 
                         </p>
-
 
                     </div>
 
@@ -227,22 +206,34 @@
 
 
                 <!-- =========================
-                        ADD NOTE CARD
+                        ADD NOTE
                 ========================== -->
 
                 <div class="admin-card">
 
 
-                    <h2>
+                    <div class="admin-card-header">
+
+                        <div>
+
+                            <h2>
+
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                                Add New Class Note
+
+                            </h2>
 
 
-                        <i class="fa-solid fa-plus"></i>
+                            <p>
 
+                                Add a PDF, Word document, or PowerPoint presentation.
 
-                        Add New Class Note
+                            </p>
 
+                        </div>
 
-                    </h2>
+                    </div>
 
 
                     <form id="noteForm">
@@ -255,88 +246,68 @@
 
                             <label for="subjectCode">
 
-
                                 Select Subject
-
 
                             </label>
 
 
                             <select
-
                                 id="subjectCode"
-
                                 required>
 
 
                                 <option value="">
 
-
                                     Select a subject
-
 
                                 </option>
 
 
                                 <option value="25CY206">
 
-
                                     25CY206 - Statistical Foundation for Computing and Data Science
-
 
                                 </option>
 
 
                                 <option value="25AM201">
 
-
                                     25AM201 - Data Structures
-
 
                                 </option>
 
 
                                 <option value="25AM202">
 
-
                                     25AM202 - Design Thinking and Engineering Orientation
-
 
                                 </option>
 
 
                                 <option value="25AM203">
 
-
                                     25AM203 - Artificial Intelligence
-
 
                                 </option>
 
 
                                 <option value="25CY205">
 
-
                                     25CY205 - Database Management Systems
-
 
                                 </option>
 
 
                                 <option value="25AM206">
 
-
                                     25AM206 - Object Oriented Programming
-
 
                                 </option>
 
 
                                 <option value="25MT205">
 
-
                                     25MT205 - Discrete Mathematical Structures
-
 
                                 </option>
 
@@ -354,25 +325,15 @@
 
                             <label for="noteTitle">
 
-
                                 Note Title
-
 
                             </label>
 
 
                             <input
-
-
                                 type="text"
-
-
                                 id="noteTitle"
-
-
                                 placeholder="Example: Lecture 04 - Stacks"
-
-
                                 required>
 
 
@@ -386,54 +347,42 @@
 
                             <label for="fileType">
 
-
                                 Document Type
-
 
                             </label>
 
 
                             <select
-
-
                                 id="fileType"
-
-
                                 required>
 
 
                                 <option value="">
 
-
                                     Select document type
-
 
                                 </option>
 
 
                                 <option value="pdf">
 
+                                    <i class="fa-solid fa-file-pdf"></i>
 
                                     PDF Document
-
 
                                 </option>
 
 
                                 <option value="word">
 
-
                                     Word Document
-
 
                                 </option>
 
 
                                 <option value="powerpoint">
 
-
                                     PowerPoint Presentation
-
 
                                 </option>
 
@@ -451,33 +400,22 @@
 
                             <label for="fileUrl">
 
-
                                 File Path or URL
-
 
                             </label>
 
 
                             <input
-
-
                                 type="text"
-
-
                                 id="fileUrl"
-
-
                                 placeholder="pdfs/notes/25AM201/Lecture_04.pdf"
-
-
                                 required>
 
 
                             <small>
 
-
-                                Enter the exact path of the file uploaded to GitHub.
-
+                                Example:
+                                pdfs/notes/25AM201/Lecture_04.pdf
 
                             </small>
 
@@ -485,18 +423,14 @@
                         </div>
 
 
-                        <!-- ADD BUTTON -->
+                        <!-- SUBMIT -->
 
                         <button
-
-
                             type="submit"
+                            class="btn btn-view admin-submit-btn">
 
 
-                            class="btn btn-view">
-
-
-                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <i class="fa-solid fa-plus"></i>
 
 
                             Add Note
@@ -521,29 +455,41 @@
                 <div class="admin-card">
 
 
-                    <h2>
+                    <div class="admin-card-header">
 
 
-                        <i class="fa-solid fa-list"></i>
+                        <div>
+
+                            <h2>
+
+                                <i class="fa-solid fa-folder-open"></i>
+
+                                Uploaded Notes
+
+                            </h2>
 
 
-                        Uploaded Notes
+                            <p>
+
+                                Manage all notes currently available to students.
+
+                            </p>
+
+                        </div>
 
 
-                    </h2>
+                    </div>
 
 
                     <div id="notesList">
 
+                        <div class="admin-loading">
 
-                        <p>
-
+                            <i class="fa-solid fa-spinner fa-spin"></i>
 
                             Loading notes...
 
-
-                        </p>
-
+                        </div>
 
                     </div>
 
@@ -556,7 +502,6 @@
 
         </div>
 
-
     </main>
 
 
@@ -566,53 +511,41 @@
 
     <footer>
 
-
         <div class="container">
-
 
             <div class="footer-content">
 
 
                 <div class="footer-logo">
 
-
                     <i class="fa-solid fa-graduation-cap"></i>
 
-
                     Student Notes Portal
-
 
                 </div>
 
 
                 <p>
 
-
-                    Admin management panel.
-
+                    Admin management panel
 
                 </p>
 
 
             </div>
 
-
         </div>
-
 
     </footer>
 
 
     <!-- =========================
-            FIREBASE ADMIN SCRIPT
+            JAVASCRIPT
     ========================== -->
 
     <script
-
         type="module"
-
         src="js/admin.js">
-
 
     </script>
 
