@@ -5,31 +5,53 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        http-equiv="Cache-Control"
+        content="no-store, no-cache, must-revalidate">
+
+    <meta
+        http-equiv="Pragma"
+        content="no-cache">
+
+    <meta
+        http-equiv="Expires"
+        content="0">
 
     <title>Admin Dashboard | Student Notes Portal</title>
 
-    <meta name="description" content="Student Notes Portal Admin Dashboard">
 
     <!-- GOOGLE FONT -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
+
     <!-- FONT AWESOME -->
+
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-    <!-- MAIN WEBSITE CSS -->
-    <link rel="stylesheet" href="css/style.css">
 
     <!-- ADMIN CSS -->
-    <link rel="stylesheet" href="css/admin.css">
+
+    <link
+        rel="stylesheet"
+        href="css/admin.css">
 
 </head>
 
@@ -38,7 +60,7 @@
 
 
     <!-- =====================================================
-         LOGIN SECTION
+         ADMIN LOGIN
     ====================================================== -->
 
     <section
@@ -55,7 +77,9 @@
                 href="index.html"
                 class="admin-login-logo">
 
-                <i class="fa-solid fa-graduation-cap"></i>
+                <i
+                    class="fa-solid fa-graduation-cap">
+                </i>
 
                 <span>
                     Student Notes Portal
@@ -64,53 +88,55 @@
             </a>
 
 
-            <!-- ICON -->
+            <!-- LOGIN ICON -->
 
             <div class="admin-login-icon">
 
-                <i class="fa-solid fa-lock"></i>
+                <i
+                    class="fa-solid fa-shield-halved">
+                </i>
 
             </div>
 
 
-            <!-- LABEL -->
+            <span
+                class="admin-label">
 
-            <span class="admin-label">
-
-                ADMIN ACCESS
+                ADMINISTRATOR ACCESS
 
             </span>
 
 
-            <!-- TITLE -->
-
             <h1>
-
-                Admin Login
-
+                Welcome Back
             </h1>
 
 
             <p>
-
-                Login to manage the Student Notes Portal.
-
+                Sign in to securely manage
+                student class notes.
             </p>
 
 
             <!-- LOGIN FORM -->
 
-            <form id="loginForm">
+            <form
+                id="loginForm"
+                autocomplete="off">
 
 
                 <!-- EMAIL -->
 
-                <div class="admin-form-group">
+                <div
+                    class="admin-form-group">
 
 
-                    <label for="email">
+                    <label
+                        for="email">
 
-                        <i class="fa-solid fa-envelope"></i>
+                        <i
+                            class="fa-solid fa-envelope">
+                        </i>
 
                         Admin Email
 
@@ -118,23 +144,40 @@
 
 
                     <input
-                        type="email"
-                        id="email"
-                        placeholder="Enter admin email"
-                        required>
 
+                        type="email"
+
+                        id="email"
+
+                        name="admin-login-email"
+
+                        placeholder="Enter admin email"
+
+                        autocomplete="off"
+
+                        autocorrect="off"
+
+                        autocapitalize="none"
+
+                        spellcheck="false"
+
+                        required>
 
                 </div>
 
 
                 <!-- PASSWORD -->
 
-                <div class="admin-form-group">
+                <div
+                    class="admin-form-group">
 
 
-                    <label for="password">
+                    <label
+                        for="password">
 
-                        <i class="fa-solid fa-lock"></i>
+                        <i
+                            class="fa-solid fa-lock">
+                        </i>
 
                         Password
 
@@ -142,11 +185,18 @@
 
 
                     <input
-                        type="password"
-                        id="password"
-                        placeholder="Enter password"
-                        required>
 
+                        type="password"
+
+                        id="password"
+
+                        name="admin-login-password"
+
+                        placeholder="Enter password"
+
+                        autocomplete="new-password"
+
+                        required>
 
                 </div>
 
@@ -154,12 +204,18 @@
                 <!-- LOGIN BUTTON -->
 
                 <button
+
                     type="submit"
+
                     class="admin-login-btn">
 
-                    <i class="fa-solid fa-right-to-bracket"></i>
 
-                    Login to Admin Panel
+                    <i
+                        class="fa-solid fa-right-to-bracket">
+                    </i>
+
+
+                    Sign In Securely
 
                 </button>
 
@@ -179,10 +235,16 @@
             <!-- BACK TO PORTAL -->
 
             <a
+
                 href="index.html"
+
                 class="back-to-portal">
 
-                <i class="fa-solid fa-arrow-left"></i>
+
+                <i
+                    class="fa-solid fa-arrow-left">
+                </i>
+
 
                 Back to Student Portal
 
@@ -191,7 +253,6 @@
 
         </div>
 
-
     </section>
 
 
@@ -199,7 +260,7 @@
          ADMIN DASHBOARD
     ====================================================== -->
 
-    <div
+    <section
         id="dashboardSection"
         class="admin-dashboard-layout">
 
@@ -215,30 +276,34 @@
 
             <!-- SIDEBAR LOGO -->
 
-            <div class="sidebar-logo">
+            <div
+                class="sidebar-logo">
 
 
-                <div class="sidebar-logo-icon">
+                <div
+                    class="sidebar-logo-icon">
 
-                    <i class="fa-solid fa-graduation-cap"></i>
+
+                    <i
+                        class="fa-solid fa-graduation-cap">
+                    </i>
+
 
                 </div>
 
 
                 <div>
 
+
                     <strong>
-
                         Student Notes
-
                     </strong>
 
 
                     <span>
-
-                        Admin Panel
-
+                        ADMIN PANEL
                     </span>
+
 
                 </div>
 
@@ -248,14 +313,19 @@
 
             <!-- SIDEBAR NAVIGATION -->
 
-            <nav class="sidebar-nav">
+            <nav
+                class="sidebar-nav">
 
 
                 <a
                     href="#dashboard"
                     class="sidebar-link active">
 
-                    <i class="fa-solid fa-chart-line"></i>
+
+                    <i
+                        class="fa-solid fa-chart-line">
+                    </i>
+
 
                     Dashboard
 
@@ -263,10 +333,14 @@
 
 
                 <a
-                    href="#add-note"
+                    href="#addNote"
                     class="sidebar-link">
 
-                    <i class="fa-solid fa-plus"></i>
+
+                    <i
+                        class="fa-solid fa-plus">
+                    </i>
+
 
                     Add Note
 
@@ -274,10 +348,14 @@
 
 
                 <a
-                    href="#uploaded-notes"
+                    href="#uploadedNotes"
                     class="sidebar-link">
 
-                    <i class="fa-solid fa-folder-open"></i>
+
+                    <i
+                        class="fa-solid fa-file-lines">
+                    </i>
+
 
                     Uploaded Notes
 
@@ -288,7 +366,11 @@
                     href="index.html"
                     class="sidebar-link">
 
-                    <i class="fa-solid fa-globe"></i>
+
+                    <i
+                        class="fa-solid fa-globe">
+                    </i>
+
 
                     Student Portal
 
@@ -298,16 +380,21 @@
             </nav>
 
 
-            <!-- SIDEBAR BOTTOM -->
+            <!-- SIDEBAR LOGOUT -->
 
-            <div class="sidebar-bottom">
+            <div
+                class="sidebar-bottom">
 
 
                 <button
                     id="logoutBtn"
                     class="sidebar-logout">
 
-                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    <i
+                        class="fa-solid fa-right-from-bracket">
+                    </i>
+
 
                     Logout
 
@@ -324,75 +411,87 @@
              MAIN CONTENT
         ================================================== -->
 
-        <main class="admin-main">
+        <main
+            class="admin-main">
 
 
             <!-- TOPBAR -->
 
-            <header class="admin-topbar">
+            <header
+                class="admin-topbar">
 
 
-                <div
-                    style="display:flex;align-items:center;gap:15px;">
+                <!-- MOBILE MENU -->
+
+                <button
+
+                    id="mobileMenuButton"
+
+                    class="mobile-menu-button"
+
+                    aria-label="Open menu">
 
 
-                    <button
-                        id="mobileMenuButton"
-                        class="mobile-menu-button"
-                        type="button">
-
-                        <i class="fa-solid fa-bars"></i>
-
-                    </button>
+                    <i
+                        class="fa-solid fa-bars">
+                    </i>
 
 
-                    <div>
-
-                        <span class="admin-topbar-label">
-
-                            ADMINISTRATION
-
-                        </span>
+                </button>
 
 
-                        <h2>
+                <div>
 
-                            Notes Management
 
-                        </h2>
+                    <span
+                        class="admin-topbar-label">
 
-                    </div>
+
+                        ADMINISTRATION
+
+                    </span>
+
+
+                    <h2>
+
+                        Dashboard
+
+                    </h2>
 
 
                 </div>
 
 
-                <!-- ADMIN PROFILE -->
+                <!-- PROFILE -->
 
-                <div class="admin-profile">
+                <div
+                    class="admin-profile">
 
 
-                    <div class="admin-profile-icon">
+                    <div
+                        class="admin-profile-icon">
 
-                        <i class="fa-solid fa-user-shield"></i>
+
+                        <i
+                            class="fa-solid fa-user-shield">
+                        </i>
+
 
                     </div>
 
 
                     <div>
 
+
                         <strong>
-
                             Administrator
-
                         </strong>
 
 
                         <span>
-
-                            Manage academic resources
-
+                            Secure Access
                         </span>
+
 
                     </div>
 
@@ -405,12 +504,11 @@
 
             <!-- CONTENT -->
 
-            <div class="admin-content">
+            <div
+                class="admin-content">
 
 
-                <!-- =================================================
-                     WELCOME BANNER
-                ================================================== -->
+                <!-- WELCOME BANNER -->
 
                 <section
                     id="dashboard"
@@ -429,15 +527,15 @@
 
                         <h1>
 
-                            Welcome, Administrator 👋
+                            Manage Class Notes
 
                         </h1>
 
 
                         <p>
 
-                            Manage syllabus resources and class notes
-                            for all subjects from one place.
+                            Upload and manage syllabus
+                            notes for students in one place.
 
                         </p>
 
@@ -445,9 +543,14 @@
                     </div>
 
 
-                    <div class="welcome-illustration">
+                    <div
+                        class="welcome-illustration">
 
-                        <i class="fa-solid fa-book-open-reader"></i>
+
+                        <i
+                            class="fa-solid fa-book-open-reader">
+                        </i>
+
 
                     </div>
 
@@ -455,74 +558,84 @@
                 </section>
 
 
-                <!-- =================================================
-                     STATISTICS
-                ================================================== -->
+                <!-- STATISTICS -->
 
-                <section class="admin-stats-grid">
+                <div
+                    class="admin-stats-grid">
 
 
                     <!-- TOTAL NOTES -->
 
-                    <div class="admin-stat-card">
+                    <div
+                        class="admin-stat-card">
 
 
                         <div
                             class="admin-stat-icon purple">
 
-                            <i class="fa-solid fa-book"></i>
+
+                            <i
+                                class="fa-solid fa-file-lines">
+                            </i>
+
 
                         </div>
 
 
                         <div>
 
+
                             <span>
-
                                 TOTAL NOTES
-
                             </span>
 
 
-                            <strong id="totalNotes">
+                            <strong
+                                id="totalNotes">
 
                                 0
 
                             </strong>
 
+
                         </div>
 
 
                     </div>
 
 
-                    <!-- SUBJECTS -->
+                    <!-- SYSTEM STATUS -->
 
-                    <div class="admin-stat-card">
+                    <div
+                        class="admin-stat-card">
 
 
                         <div
                             class="admin-stat-icon blue">
 
-                            <i class="fa-solid fa-layer-group"></i>
+
+                            <i
+                                class="fa-solid fa-database">
+                            </i>
+
 
                         </div>
 
 
                         <div>
 
+
                             <span>
-
-                                SUBJECTS
-
+                                DATABASE
                             </span>
 
 
                             <strong>
 
-                                7
+                                ONLINE
 
                             </strong>
+
 
                         </div>
 
@@ -530,33 +643,38 @@
                     </div>
 
 
-                    <!-- STATUS -->
+                    <!-- ACCESS -->
 
-                    <div class="admin-stat-card">
+                    <div
+                        class="admin-stat-card">
 
 
                         <div
                             class="admin-stat-icon green">
 
-                            <i class="fa-solid fa-circle-check"></i>
+
+                            <i
+                                class="fa-solid fa-shield-halved">
+                            </i>
+
 
                         </div>
 
 
                         <div>
 
+
                             <span>
-
-                                PORTAL STATUS
-
+                                ACCESS
                             </span>
 
 
                             <strong>
 
-                                Active
+                                SECURE
 
                             </strong>
+
 
                         </div>
 
@@ -564,7 +682,7 @@
                     </div>
 
 
-                </section>
+                </div>
 
 
                 <!-- =================================================
@@ -572,13 +690,12 @@
                 ================================================== -->
 
                 <section
-                    id="add-note"
+                    id="addNote"
                     class="admin-panel">
 
 
-                    <!-- PANEL HEADER -->
-
-                    <div class="panel-header">
+                    <div
+                        class="panel-header">
 
 
                         <div>
@@ -587,7 +704,11 @@
                             <div
                                 class="panel-title-icon">
 
-                                <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                                <i
+                                    class="fa-solid fa-cloud-arrow-up">
+                                </i>
+
 
                             </div>
 
@@ -604,9 +725,11 @@
 
                                 <p>
 
-                                    Upload a resource link for students.
+                                    Add a document for students
+                                    to access from the portal.
 
                                 </p>
+
 
                             </div>
 
@@ -630,9 +753,14 @@
                             class="admin-form-group">
 
 
-                            <label for="subjectCode">
+                            <label
+                                for="subjectCode">
 
-                                <i class="fa-solid fa-book"></i>
+
+                                <i
+                                    class="fa-solid fa-book">
+                                </i>
+
 
                                 Select Subject
 
@@ -644,58 +772,81 @@
                                 required>
 
 
-                                <option value="">
+                                <option
+                                    value="">
+
 
                                     Select a subject
 
                                 </option>
 
 
-                                <option value="25CY206">
-
-                                    25CY206 - Statistical Foundation for Computing and Data Science
-
-                                </option>
+                                <option
+                                    value="25CY206">
 
 
-                                <option value="25AM201">
-
-                                    25AM201 - Data Structures
+                                    25CY206 -
+                                    Statistical Foundation
 
                                 </option>
 
 
-                                <option value="25AM202">
-
-                                    25AM202 - Design Thinking and Engineering Orientation
-
-                                </option>
+                                <option
+                                    value="25AM201">
 
 
-                                <option value="25AM203">
-
-                                    25AM203 - Artificial Intelligence
+                                    25AM201 -
+                                    Data Structures
 
                                 </option>
 
 
-                                <option value="25CY205">
-
-                                    25CY205 - Database Management Systems
-
-                                </option>
+                                <option
+                                    value="25AM202">
 
 
-                                <option value="25AM206">
-
-                                    25AM206 - Object Oriented Programming
+                                    25AM202 -
+                                    Design Thinking
 
                                 </option>
 
 
-                                <option value="25MT205">
+                                <option
+                                    value="25AM203">
 
-                                    25MT205 - Discrete Mathematical Structures
+
+                                    25AM203 -
+                                    Artificial Intelligence
+
+                                </option>
+
+
+                                <option
+                                    value="25CY205">
+
+
+                                    25CY205 -
+                                    Database Management Systems
+
+                                </option>
+
+
+                                <option
+                                    value="25AM206">
+
+
+                                    25AM206 -
+                                    Object Oriented Programming
+
+                                </option>
+
+
+                                <option
+                                    value="25MT205">
+
+
+                                    25MT205 -
+                                    Discrete Mathematical Structures
 
                                 </option>
 
@@ -712,9 +863,14 @@
                             class="admin-form-group">
 
 
-                            <label for="documentType">
+                            <label
+                                for="documentType">
 
-                                <i class="fa-solid fa-file"></i>
+
+                                <i
+                                    class="fa-solid fa-file">
+                                </i>
+
 
                                 Document Type
 
@@ -726,28 +882,36 @@
                                 required>
 
 
-                                <option value="">
+                                <option
+                                    value="">
+
 
                                     Select document type
 
                                 </option>
 
 
-                                <option value="pdf">
+                                <option
+                                    value="pdf">
+
 
                                     PDF Document
 
                                 </option>
 
 
-                                <option value="word">
+                                <option
+                                    value="word">
+
 
                                     Word Document
 
                                 </option>
 
 
-                                <option value="ppt">
+                                <option
+                                    value="ppt">
+
 
                                     PowerPoint Presentation
 
@@ -760,15 +924,20 @@
                         </div>
 
 
-                        <!-- NOTE TITLE -->
+                        <!-- TITLE -->
 
                         <div
                             class="admin-form-group">
 
 
-                            <label for="noteTitle">
+                            <label
+                                for="noteTitle">
 
-                                <i class="fa-solid fa-heading"></i>
+
+                                <i
+                                    class="fa-solid fa-heading">
+                                </i>
+
 
                                 Note Title
 
@@ -776,24 +945,33 @@
 
 
                             <input
+
                                 type="text"
+
                                 id="noteTitle"
+
                                 placeholder="Example: Lecture 04 - Stacks"
+
                                 required>
 
 
                         </div>
 
 
-                        <!-- FILE PATH -->
+                        <!-- FILE URL -->
 
                         <div
                             class="admin-form-group">
 
 
-                            <label for="fileUrl">
+                            <label
+                                for="fileUrl">
 
-                                <i class="fa-solid fa-link"></i>
+
+                                <i
+                                    class="fa-solid fa-link">
+                                </i>
+
 
                                 File Path or URL
 
@@ -805,13 +983,18 @@
 
 
                                 <i
-                                    class="fa-solid fa-file-arrow-up"></i>
+                                    class="fa-solid fa-file-arrow-up">
+                                </i>
 
 
                                 <input
+
                                     type="text"
+
                                     id="fileUrl"
+
                                     placeholder="pdfs/notes/25AM201/Lecture_04.pdf"
+
                                     required>
 
 
@@ -820,8 +1003,10 @@
 
                             <small>
 
+
                                 Upload the file to GitHub first,
-                                then enter its path here.
+                                then paste its path or URL here.
+
 
                             </small>
 
@@ -836,11 +1021,16 @@
 
 
                             <button
+
                                 type="submit"
+
                                 class="admin-primary-btn">
 
 
-                                <i class="fa-solid fa-plus"></i>
+                                <i
+                                    class="fa-solid fa-plus">
+                                </i>
+
 
                                 Add Note
 
@@ -850,6 +1040,7 @@
                             <p
                                 id="noteMessage"
                                 class="note-message">
+
 
                             </p>
 
@@ -868,13 +1059,12 @@
                 ================================================== -->
 
                 <section
-                    id="uploaded-notes"
+                    id="uploadedNotes"
                     class="admin-panel">
 
 
-                    <!-- HEADER -->
-
-                    <div class="panel-header">
+                    <div
+                        class="panel-header">
 
 
                         <div>
@@ -883,7 +1073,11 @@
                             <div
                                 class="panel-title-icon blue">
 
-                                <i class="fa-solid fa-folder-open"></i>
+
+                                <i
+                                    class="fa-solid fa-list">
+                                </i>
+
 
                             </div>
 
@@ -900,10 +1094,11 @@
 
                                 <p>
 
-                                    Manage all resources available
-                                    to students.
+                                    View and manage all uploaded
+                                    student documents.
 
                                 </p>
+
 
                             </div>
 
@@ -926,7 +1121,8 @@
 
 
                             <i
-                                class="fa-solid fa-spinner fa-spin"></i>
+                                class="fa-solid fa-spinner fa-spin">
+                            </i>
 
 
                             Loading notes...
@@ -947,28 +1143,49 @@
         </main>
 
 
-    </div>
+    </section>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+
+    <script
+        type="module"
+        src="js/admin.js">
+    </script>
 
 
     <!-- MOBILE MENU SCRIPT -->
 
     <script>
 
+
         const mobileMenuButton =
+
             document.getElementById(
+
                 "mobileMenuButton"
+
             );
 
 
         const adminSidebar =
+
             document.getElementById(
+
                 "adminSidebar"
+
             );
 
 
         if (
+
             mobileMenuButton &&
+
             adminSidebar
+
         ) {
 
 
@@ -978,9 +1195,13 @@
 
                 () => {
 
+
                     adminSidebar.classList.toggle(
+
                         "open"
+
                     );
+
 
                 }
 
@@ -989,10 +1210,16 @@
         }
 
 
+        // CLOSE SIDEBAR AFTER CLICKING A LINK
+
         document
+
             .querySelectorAll(
+
                 ".sidebar-link"
+
             )
+
             .forEach(
 
                 (link) => {
@@ -1006,7 +1233,9 @@
 
 
                             adminSidebar.classList.remove(
+
                                 "open"
+
                             );
 
                         }
@@ -1017,14 +1246,6 @@
 
             );
 
-    </script>
-
-
-    <!-- FIREBASE ADMIN JAVASCRIPT -->
-
-    <script
-        type="module"
-        src="js/admin.js">
 
     </script>
 
