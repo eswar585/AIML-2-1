@@ -58,7 +58,7 @@ const subjects = [
         code: "25MT205",
         name: "Discrete Mathematical Structures",
         icon: "📐",
-        syllabus: "pdfs/syllabus/25MT205.pdf"
+        syllabus: "pdfs/syllabus/25MT205.docx"
     }
 
 ];
