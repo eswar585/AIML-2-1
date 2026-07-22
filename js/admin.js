@@ -1,7 +1,7 @@
 // =========================================================
 // STUDENT NOTES PORTAL
 // ADMIN DASHBOARD - FIREBASE VERSION
-// PDF + WORD + POWERPOINT SUPPORT
+// admin.js
 // =========================================================
 
 
@@ -106,18 +106,18 @@ onAuthStateChanged(
         if (user) {
 
 
+            // USER LOGGED IN
+
             if (loginSection) {
 
-                loginSection.style.display =
-                    "none";
+                loginSection.style.display = "none";
 
             }
 
 
             if (dashboardSection) {
 
-                dashboardSection.style.display =
-                    "flex";
+                dashboardSection.style.display = "block";
 
             }
 
@@ -130,18 +130,18 @@ onAuthStateChanged(
         else {
 
 
+            // USER LOGGED OUT
+
             if (loginSection) {
 
-                loginSection.style.display =
-                    "flex";
+                loginSection.style.display = "flex";
 
             }
 
 
             if (dashboardSection) {
 
-                dashboardSection.style.display =
-                    "none";
+                dashboardSection.style.display = "none";
 
             }
 
@@ -169,34 +169,53 @@ if (loginForm) {
             event.preventDefault();
 
 
+            const emailInput =
+                document.getElementById("email");
+
+
+            const passwordInput =
+                document.getElementById("password");
+
+
+            if (
+
+                !emailInput ||
+
+                !passwordInput
+
+            ) {
+
+
+                console.error(
+
+                    "Email or password input not found."
+
+                );
+
+
+                return;
+
+            }
+
+
             const email =
-
-                document
-
-                    .getElementById("email")
-
-                    .value
-
-                    .trim();
+                emailInput.value.trim();
 
 
             const password =
-
-                document
-
-                    .getElementById("password")
-
-                    .value;
+                passwordInput.value;
 
 
-            loginMessage.textContent =
+            if (loginMessage) {
 
-                "Signing you in...";
+                loginMessage.textContent =
+                    "Signing you in...";
 
 
-            loginMessage.className =
+                loginMessage.className =
+                    "admin-message loading";
 
-                "admin-message loading";
+            }
 
 
             try {
@@ -213,15 +232,16 @@ if (loginForm) {
                 );
 
 
-                loginMessage.textContent =
+                if (loginMessage) {
 
-                    "Login successful!";
+                    loginMessage.textContent =
+                        "Login successful!";
 
 
-                loginMessage.className =
+                    loginMessage.className =
+                        "admin-message success";
 
-                    "admin-message success";
-
+                }
 
             }
 
@@ -238,14 +258,16 @@ if (loginForm) {
                 );
 
 
-                loginMessage.textContent =
+                if (loginMessage) {
 
-                    "Invalid email or password.";
+                    loginMessage.textContent =
+                        "Invalid email or password.";
 
 
-                loginMessage.className =
+                    loginMessage.className =
+                        "admin-message error";
 
-                    "admin-message error";
+                }
 
             }
 
@@ -319,59 +341,114 @@ if (noteForm) {
             event.preventDefault();
 
 
+            // GET FORM ELEMENTS SAFELY
+
+            const subjectCodeInput =
+                document.getElementById(
+                    "subjectCode"
+                );
+
+
+            const documentTypeInput =
+                document.getElementById(
+                    "documentType"
+                );
+
+
+            const noteTitleInput =
+                document.getElementById(
+                    "noteTitle"
+                );
+
+
+            const fileUrlInput =
+                document.getElementById(
+                    "fileUrl"
+                );
+
+
+            // CHECK ELEMENTS
+
+            if (
+
+                !subjectCodeInput ||
+
+                !documentTypeInput ||
+
+                !noteTitleInput ||
+
+                !fileUrlInput
+
+            ) {
+
+
+                console.error(
+
+                    "One or more form elements are missing."
+
+                );
+
+
+                console.log({
+
+                    subjectCode:
+                        subjectCodeInput,
+
+                    documentType:
+                        documentTypeInput,
+
+                    noteTitle:
+                        noteTitleInput,
+
+                    fileUrl:
+                        fileUrlInput
+
+                });
+
+
+                showNoteMessage(
+
+                    "Form error. Please check the HTML field IDs.",
+
+                    "error"
+
+                );
+
+
+                return;
+
+            }
+
+
+            // GET VALUES
+
             const subjectCode =
+                subjectCodeInput.value;
 
-                document
 
-                    .getElementById("subjectCode")
-
-                    .value;
+            const documentType =
+                documentTypeInput.value;
 
 
             const noteTitle =
-
-                document
-
-                    .getElementById("noteTitle")
-
-                    .value
-
-                    .trim();
+                noteTitleInput.value.trim();
 
 
             const fileUrl =
-
-                document
-
-                    .getElementById("fileUrl")
-
-                    .value
-
-                    .trim();
+                fileUrlInput.value.trim();
 
 
-            // =====================================
-            // GET FILE TYPE
-            // =====================================
-
-            const fileType =
-
-                document
-
-                    .getElementById("fileType")
-
-                    .value;
-
+            // VALIDATION
 
             if (
 
                 !subjectCode ||
 
+                !documentType ||
+
                 !noteTitle ||
 
-                !fileUrl ||
-
-                !fileType
+                !fileUrl
 
             ) {
 
@@ -402,6 +479,8 @@ if (noteForm) {
             try {
 
 
+                // ADD TO FIRESTORE
+
                 await addDoc(
 
                     collection(
@@ -416,29 +495,23 @@ if (noteForm) {
 
 
                         subjectCode:
-
                             subjectCode,
 
 
                         title:
-
                             noteTitle,
 
 
-                        file:
+                        type:
+                            documentType,
 
+
+                        file:
                             fileUrl,
 
 
-                        fileType:
-
-                            fileType,
-
-
                         createdAt:
-
                             serverTimestamp()
-
 
                     }
 
@@ -454,8 +527,12 @@ if (noteForm) {
                 );
 
 
+                // RESET FORM
+
                 noteForm.reset();
 
+
+                // RELOAD NOTES
 
                 loadNotes();
 
@@ -477,7 +554,9 @@ if (noteForm) {
 
                 showNoteMessage(
 
-                    "Failed to add note.",
+                    "Failed to add note: " +
+
+                    error.message,
 
                     "error"
 
@@ -509,89 +588,11 @@ function showNoteMessage(
 
 
     noteMessage.textContent =
-
         message;
 
 
     noteMessage.className =
-
-        `admin-message ${type}`;
-
-}
-
-
-// =========================================================
-// GET FILE ICON
-// =========================================================
-
-function getFileIcon(
-
-    fileType
-
-) {
-
-
-    if (
-
-        fileType === "word"
-
-    ) {
-
-        return "fa-file-word";
-
-    }
-
-
-    if (
-
-        fileType === "powerpoint"
-
-    ) {
-
-        return "fa-file-powerpoint";
-
-    }
-
-
-    return "fa-file-pdf";
-
-}
-
-
-// =========================================================
-// GET FILE TYPE NAME
-// =========================================================
-
-function getFileTypeName(
-
-    fileType
-
-) {
-
-
-    if (
-
-        fileType === "word"
-
-    ) {
-
-        return "Word Document";
-
-    }
-
-
-    if (
-
-        fileType === "powerpoint"
-
-    ) {
-
-        return "PowerPoint Presentation";
-
-    }
-
-
-    return "PDF Document";
+        `note-message ${type}`;
 
 }
 
@@ -622,25 +623,27 @@ async function loadNotes() {
     try {
 
 
-        const notesQuery = query(
+        const notesQuery =
 
-            collection(
+            query(
 
-                db,
+                collection(
 
-                "notes"
+                    db,
 
-            ),
+                    "notes"
 
-            orderBy(
+                ),
 
-                "createdAt",
+                orderBy(
 
-                "desc"
+                    "createdAt",
 
-            )
+                    "desc"
 
-        );
+                )
+
+            );
 
 
         const snapshot =
@@ -652,15 +655,18 @@ async function loadNotes() {
             );
 
 
+        // TOTAL NOTES
+
         if (totalNotes) {
 
 
             totalNotes.textContent =
-
                 snapshot.size;
 
         }
 
+
+        // NO NOTES
 
         if (snapshot.empty) {
 
@@ -686,61 +692,98 @@ async function loadNotes() {
         notesList.innerHTML = "";
 
 
+        // DISPLAY NOTES
+
         snapshot.forEach(
 
             (noteDocument) => {
 
 
                 const note =
-
                     noteDocument.data();
 
 
                 const noteId =
-
                     noteDocument.id;
 
 
-                const fileType =
-
-                    note.fileType ||
-
-                    "pdf";
+                const noteType =
+                    note.type || "pdf";
 
 
-                const noteItem =
+                let icon =
+                    "fa-file-pdf";
 
-                    document.createElement(
 
-                        "div"
+                if (
+
+                    noteType === "word"
+
+                ) {
+
+
+                    icon =
+                        "fa-file-word";
+
+                }
+
+
+                else if (
+
+                    noteType === "ppt"
+
+                ) {
+
+
+                    icon =
+                        "fa-file-powerpoint";
+
+                }
+
+
+                const viewerUrl =
+
+                    "pdf-viewer.html?" +
+
+                    "file=" +
+
+                    encodeURIComponent(
+
+                        note.file
+
+                    ) +
+
+                    "&title=" +
+
+                    encodeURIComponent(
+
+                        note.title
 
                     );
 
 
-                noteItem.className =
+                const noteItem =
+                    document.createElement(
+                        "div"
+                    );
 
+
+                noteItem.className =
                     "admin-note-item";
 
 
                 noteItem.innerHTML = `
 
-
                     <div class="note-info">
-
 
                         <div class="note-file-icon">
 
-
-                            <i class="fa-solid ${getFileIcon(
-                                fileType
-                            )}"></i>
-
+                            <i class="fa-solid ${icon}"></i>
 
                         </div>
 
 
                         <div>
-
 
                             <h3>
 
@@ -761,20 +804,15 @@ async function loadNotes() {
 
                                 )}
 
-                                <br>
+                                • ${
 
+                                    noteType.toUpperCase()
 
-                                ${getFileTypeName(
-
-                                    fileType
-
-                                )}
+                                }
 
                             </p>
 
-
                         </div>
-
 
                     </div>
 
@@ -784,11 +822,9 @@ async function loadNotes() {
 
                         <a
 
-                            href="${note.file}"
+                            href="${viewerUrl}"
 
                             target="_blank"
-
-                            rel="noopener noreferrer"
 
                             class="btn-view">
 
@@ -797,6 +833,24 @@ async function loadNotes() {
 
 
                             View
+
+
+                        </a>
+
+
+                        <a
+
+                            href="${note.file}"
+
+                            download
+
+                            class="btn-view">
+
+
+                            <i class="fa-solid fa-download"></i>
+
+
+                            Download
 
 
                         </a>
@@ -820,7 +874,6 @@ async function loadNotes() {
 
                     </div>
 
-
                 `;
 
 
@@ -834,6 +887,8 @@ async function loadNotes() {
 
         );
 
+
+        // DELETE BUTTONS
 
         document
 
@@ -972,7 +1027,7 @@ async function deleteNote(
 
 
 // =========================================================
-// SECURITY HELPER
+// ESCAPE HTML
 // =========================================================
 
 function escapeHTML(
